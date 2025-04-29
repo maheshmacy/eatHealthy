@@ -1,0 +1,48 @@
+# Install required libraries
+!pip install pandas numpy --quiet
+
+# Import libraries
+import pandas as pd
+import numpy as np
+
+# Set random seed for reproducibility
+np.random.seed(42)
+
+# Number of samples
+n_samples = 1200
+
+# Simulate dataset
+data = {
+    "Participant_ID": np.random.randint(1, 13, n_samples),
+    "Age": np.random.randint(22, 70, n_samples),
+    "Sex": np.random.choice(["Male", "Female"], n_samples),
+    "BMI": np.round(np.random.uniform(18, 30, n_samples), 1),
+    "Diabetes_Status": ["Type 1 Diabetes"] * n_samples,
+    "Meal_Carbs_grams": np.round(np.random.uniform(15, 100, n_samples), 1),
+    "Meal_Fat_grams": np.round(np.random.uniform(5, 40, n_samples), 1),
+    "Meal_Fiber_grams": np.round(np.random.uniform(1, 10, n_samples), 1),
+    "Glycemic_Index": np.round(np.random.uniform(40, 90, n_samples), 0),
+    "PreMeal_Glucose_mgdl": np.round(np.random.uniform(90, 180, n_samples), 1)
+}
+
+df = pd.DataFrame(data)
+
+# Simulate glucose rise
+spike = (
+    0.5 * (df["Meal_Carbs_grams"] / 10) +
+    0.3 * (df["Glycemic_Index"] / 100) -
+    0.2 * (df["Meal_Fiber_grams"] / 5) -
+    0.1 * (df["Meal_Fat_grams"] / 10)
+) * 30
+
+# Add random noise
+spike += np.random.normal(0, 10, n_samples)
+
+# Calculate post-meal glucose
+df["PostMeal_Glucose_mgdl"] = df["PreMeal_Glucose_mgdl"] + spike
+df["PostMeal_Glucose_mgdl"] = df["PostMeal_Glucose_mgdl"].clip(80, 400)
+df["Glucose_Rise_mgdl"] = df["PostMeal_Glucose_mgdl"] - df["PreMeal_Glucose_mgdl"]
+
+# Save to CSV
+df.to_csv("ohiot1dm_simulated_meals.csv", index=False)
+print("✅ Dataset created and saved as ohiot1dm_simulated_meals.csv")
