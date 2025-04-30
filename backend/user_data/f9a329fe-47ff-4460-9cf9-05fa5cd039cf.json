@@ -1,0 +1,79 @@
+{
+    "user_id": "f9a329fe-47ff-4460-9cf9-05fa5cd039cf",
+    "profile": {
+        "name": "masoom",
+        "age": 32,
+        "gender": "female",
+        "height": 154,
+        "weight": 64,
+        "bmi": 26.986001011975038
+    },
+    "meals": [
+        {
+            "meal_id": "afa5c001-bb10-448e-82b9-b3e47fe88a92",
+            "timestamp": "2025-04-27T00:05:33.986055",
+            "food_items": [
+                {
+                    "food_name": "apple",
+                    "confidence": 0.85,
+                    "base_gi": 36,
+                    "personalized_gi": {
+                        "base_gi": 36,
+                        "personalized_gi_score": 36.0
+                    }
+                }
+            ],
+            "image_path": "/app/uploads/f9a329fe-47ff-4460-9cf9-05fa5cd039cf_20250427000533_foodiesfeed.com_burger-with-melted-cheese.jpg"
+        },
+        {
+            "meal_id": "56ed86f6-6b3e-42d1-8329-08186dd34017",
+            "timestamp": "2025-04-27T00:06:15.357592",
+            "food_items": [
+                {
+                    "food_name": "apple",
+                    "confidence": 0.85,
+                    "base_gi": 36,
+                    "personalized_gi": {
+                        "base_gi": 36,
+                        "personalized_gi_score": 36.0
+                    }
+                }
+            ],
+            "image_path": "/app/uploads/f9a329fe-47ff-4460-9cf9-05fa5cd039cf_20250427000615_Screenshot_from_2025-04-27_05-34-50.png"
+        },
+        {
+            "meal_id": "c40c9e36-4eb4-42ca-8403-1e732b09ee04",
+            "timestamp": "2025-04-27T00:06:21.388021",
+            "food_items": [
+                {
+                    "food_name": "apple",
+                    "confidence": 0.85,
+                    "base_gi": 36,
+                    "personalized_gi": {
+                        "base_gi": 36,
+                        "personalized_gi_score": 36.0
+                    }
+                }
+            ],
+            "image_path": "/app/uploads/f9a329fe-47ff-4460-9cf9-05fa5cd039cf_20250427000621_Screenshot_from_2025-04-27_05-34-50.png"
+        },
+        {
+            "meal_id": "a83c8ad9-bbdf-4578-8ad8-aafd58d4f084",
+            "timestamp": "2025-04-27T00:06:23.102770",
+            "food_items": [
+                {
+                    "food_name": "apple",
+                    "confidence": 0.85,
+                    "base_gi": 36,
+                    "personalized_gi": {
+                        "base_gi": 36,
+                        "personalized_gi_score": 36.0
+                    }
+                }
+            ],
+            "image_path": "/app/uploads/f9a329fe-47ff-4460-9cf9-05fa5cd039cf_20250427000623_Screenshot_from_2025-04-27_05-34-50.png"
+        }
+    ],
+    "calibration": {},
+    "created_at": "2025-04-27T00:03:21.929859"
+}

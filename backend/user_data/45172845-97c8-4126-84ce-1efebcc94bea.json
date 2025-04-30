@@ -1,0 +1,17 @@
+{
+  "user_id": "45172845-97c8-4126-84ce-1efebcc94bea",
+  "profile": {
+    "name": "ak singh",
+    "age": 56,
+    "gender": "male",
+    "height": 170,
+    "weight": 60,
+    "activity_level": "moderately_active",
+    "diabetes_status": "none",
+    "weight_goal": "maintain",
+    "bmi": 20.761245674740486
+  },
+  "meals": [],
+  "calibration": {},
+  "created_at": "2025-04-27T08:10:19.428791"
+}

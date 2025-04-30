@@ -1,0 +1,18 @@
+{
+  "user_id": "6b295880-1676-44b3-8dd4-4afe9fee6893",
+  "profile": {
+    "name": "chris ronaldo",
+    "age": 40,
+    "gender": "male",
+    "height": 180,
+    "weight": 70,
+    "activity_level": "very_active",
+    "diabetes_status": "pre_diabetic",
+    "weight_goal": "lose",
+    "bmi": 21.604938271604937,
+    "hba1c": 15
+  },
+  "meals": [],
+  "calibration": {},
+  "created_at": "2025-04-27T15:02:02.493612"
+}

@@ -1,0 +1,60 @@
+{
+  "standard_glucose_response": [5.0, 8.2, 7.5, 6.3, 5.4],
+  "standard_triglyceride_response": [1.0, 1.2, 1.8, 2.1, 1.9, 1.5],
+  "standard_cpeptide_response": [0.8, 3.5, 2.8, 1.7, 1.2],
+  "gi_thresholds": {
+    "low": 55,
+    "medium": 70
+  },
+  "glucose_reference_units": {
+    "mmol_L": [5.0, 8.2, 7.5, 6.3, 5.4],
+    "mg_dL": [90, 148, 135, 113, 97]
+  },
+  "standard_meal_nutritional_info": {
+    "carbs": 50,
+    "protein": 7,
+    "fat": 3,
+    "fiber": 2,
+    "calories": 255
+  },
+  "healthy_ranges": {
+    "fasting_glucose_mg_dL": {
+      "min": 70,
+      "max": 100
+    },
+    "hba1c_percent": {
+      "min": 4.0,
+      "max": 5.7
+    },
+    "bmi": {
+      "underweight": 18.5,
+      "normal": 24.9,
+      "overweight": 29.9
+    }
+  },
+  "diabetes_status_factors": {
+    "none": 1.0,
+    "pre_diabetic": 1.5,
+    "type2_diabetes": 2.0,
+    "type1_diabetes": 2.5
+  },
+  "activity_level_factors": {
+    "sedentary": 1.0,
+    "lightly_active": 0.9,
+    "moderately_active": 0.8,
+    "very_active": 0.7,
+    "extremely_active": 0.6
+  },
+  "user_response_values": {
+    "less_than_expected": 0,
+    "as_expected": 1,
+    "more_than_expected": 2
+  },
+  "default_ml_hyperparameters": {
+    "n_estimators": 50,
+    "max_depth": 10,
+    "min_samples_split": 5,
+    "min_samples_leaf": 2,
+    "random_state": 42
+  }
+}

@@ -1,0 +1,53 @@
+# gi_database.csv - Sample structure for the GI database
+
+food_name,glycemic_index,glycemic_load,carbs_per_serving,protein_per_serving,fat_per_serving,fiber_per_serving,serving_size_g
+white rice,73,43,53,4,0.2,0.5,150
+brown rice,68,36,46,3.5,1.2,2.3,150
+white bread,75,11,15,2.5,1,0.8,30
+whole wheat bread,74,9,13,3.6,1.2,1.8,30
+white potato,82,17,21,2.3,0.1,1.8,150
+sweet potato,70,17,24,2,0.1,3,150
+apple,36,5,14,0.3,0.2,2.4,120
+banana,51,13,24,1.1,0.2,2.6,120
+orange,43,5,12,0.9,0.1,2.4,120
+grapes,59,11,18,0.6,0.3,0.9,120
+watermelon,72,4,6,0.6,0.2,0.4,120
+carrot,41,3,6,0.7,0.1,2,100
+broccoli,15,0.5,4,2.5,0.4,2.3,100
+spinach,15,0.4,1.5,2.9,0.4,2.2,100
+lentils,32,5,16,9,0.4,8,100
+chickpeas,28,8,27,8,2.5,7,100
+black beans,30,7,23,8.9,0.9,8.7,100
+tofu,15,1,2,8,4.2,0.3,100
+chicken breast,0,0,0,31,3.6,0,100
+salmon,0,0,0,25,13,0,100
+beef,0,0,0,26,17,0,100
+egg,0,0,0.4,6.3,5.3,0,50
+milk,46,5,5,3.4,3.6,0,100
+yogurt,41,6,7,5.7,3.8,0,100
+ice cream,61,8,16,3.5,11,0.7,50
+chocolate,40,8,14,2.2,8.1,1.7,30
+honey,58,10,17,0.1,0,0,20
+table sugar,65,13,20,0,0,0,20
+maple syrup,54,13,24,0,0,0,30
+pasta,46,22,48,8.1,1.3,2.5,180
+couscous,65,23,36,6,0.3,2.2,150
+quinoa,53,13,21,4.4,1.9,2.8,100
+oats,55,12,24,5,3.6,4,60
+corn,52,10,19,2.7,1.3,2.4,100
+barley,28,9,28,3.6,0.8,3.8,100
+rye bread,65,10,15,2.5,0.6,1.9,30
+pizza,60,18,33,12,10,2.5,100
+hamburger,61,17,28,14,13,1.2,100
+french fries,75,22,35,3.4,11,3.8,150
+chips,57,15,23,2,8,1.8,50
+soda,68,16,26,0,0,0,250
+fruit juice,50,13,26,0.5,0.1,0.2,250
+beer,66,8,13,1.6,0,0,355
+wine,0,0,4,0.1,0,0,150
+almond milk,25,1,3,1.5,2.5,0.7,240
+soy milk,43,8,15,7,4,0.5,240
+oat milk,69,14,19,3,5,2,240
+peanut butter,14,1,6,8,16,2,30
+almonds,0,0,5,21,49,12,100
+walnuts,0,0,5,15,62,6.5,100

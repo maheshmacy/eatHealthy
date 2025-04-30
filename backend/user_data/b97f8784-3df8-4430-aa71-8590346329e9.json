@@ -1,0 +1,75 @@
+{
+    "user_id": "b97f8784-3df8-4430-aa71-8590346329e9",
+    "profile": {
+        "name": "abhi",
+        "age": 30,
+        "gender": "male",
+        "height": 100,
+        "weight": 40,
+        "activity_level": "moderately_active",
+        "diabetes_status": "none",
+        "weight_goal": "maintain",
+        "bmi": 40.0
+    },
+    "meals": [
+        {
+            "meal_id": "534e025b-a687-44c1-9761-f67af211aa22",
+            "timestamp": "2025-04-27T02:59:13.527359",
+            "food_items": [
+                {
+                    "food_name": "apple",
+                    "confidence": 0.85,
+                    "base_gi": 36,
+                    "personalized_gi": {
+                        "base_gi": 36,
+                        "personalized_gi_score": 36.0
+                    }
+                }
+            ],
+            "image_path": "/app/uploads/b97f8784-3df8-4430-aa71-8590346329e9_20250427025913_foodiesfeed.com_burger-with-melted-cheese.jpg"
+        },
+        {
+            "meal_id": "9d1a0c97-3278-4ba5-a445-e71f1f1fa0e1",
+            "timestamp": "2025-04-27T03:00:59.623870",
+            "food_items": [
+                {
+                    "food_name": "apple",
+                    "confidence": 0.85,
+                    "base_gi": 36,
+                    "personalized_gi": {
+                        "base_gi": 36,
+                        "personalized_gi_score": 36.0
+                    }
+                }
+            ],
+            "image_path": "/app/uploads/b97f8784-3df8-4430-aa71-8590346329e9_20250427030059_foodiesfeed.com_burger-with-melted-cheese.jpg"
+        }
+    ],
+    "calibration": {
+        "calibration_factor": 1.5,
+        "timestamp": "2025-04-27T02:58:54.127376",
+        "readings": [
+            {
+                "timestamp": "2025-04-27T02:58:54.098Z",
+                "value": 12
+            },
+            {
+                "timestamp": "2025-04-27T02:58:54.099Z",
+                "value": 10
+            },
+            {
+                "timestamp": "2025-04-27T02:58:54.099Z",
+                "value": 20
+            },
+            {
+                "timestamp": "2025-04-27T02:58:54.099Z",
+                "value": 19.9
+            },
+            {
+                "timestamp": "2025-04-27T02:58:54.099Z",
+                "value": 20
+            }
+        ]
+    },
+    "created_at": "2025-04-27T02:57:30.682630"
+}

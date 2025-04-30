@@ -1,0 +1,31 @@
+{
+    "user_id": "fd4a1c34-275e-4c0f-8efe-e148232f684f",
+    "profile": {
+        "name": "abhi",
+        "age": 30,
+        "gender": "male",
+        "height": 174,
+        "weight": 170,
+        "bmi": 56.15008587660193
+    },
+    "meals": [
+        {
+            "meal_id": "823504fa-6981-4cf0-8fc2-fb9111e445e7",
+            "timestamp": "2025-04-27T02:54:20.371089",
+            "food_items": [
+                {
+                    "food_name": "apple",
+                    "confidence": 0.85,
+                    "base_gi": 36,
+                    "personalized_gi": {
+                        "base_gi": 36,
+                        "personalized_gi_score": 36.0
+                    }
+                }
+            ],
+            "image_path": "/home/masoom/Downloads/EatSmartAI-Abhishek/gi-personalize-app/backend/uploads/fd4a1c34-275e-4c0f-8efe-e148232f684f_20250427025420_foodiesfeed.com_burger-with-melted-cheese.jpg"
+        }
+    ],
+    "calibration": {},
+    "created_at": "2025-04-27T02:48:56.445957"
+}

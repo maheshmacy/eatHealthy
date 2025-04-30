@@ -1,0 +1,15 @@
+Flask
+flask-restx
+werkzeug
+markupsafe
+Jinja2
+gunicorn
+numpy
+pandas
+scikit-learn
+Pillow
+Flask-Cors
+python-dotenv
+joblib
+#importlib-metadata
+#flask-restx

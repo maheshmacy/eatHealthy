@@ -1,0 +1,17 @@
+{
+  "user_id": "4d90b2a2-2e91-4795-a824-e8fea9a15188",
+  "profile": {
+    "name": "abhishek kumar",
+    "age": 35,
+    "gender": "male",
+    "height": 174,
+    "weight": 70,
+    "activity_level": "moderately_active",
+    "diabetes_status": "none",
+    "weight_goal": "maintain",
+    "bmi": 23.120623596247853
+  },
+  "meals": [],
+  "calibration": {},
+  "created_at": "2025-04-27T07:49:15.081019"
+}

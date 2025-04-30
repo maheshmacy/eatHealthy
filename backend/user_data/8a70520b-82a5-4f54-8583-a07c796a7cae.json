@@ -1,0 +1,17 @@
+{
+  "user_id": "8a70520b-82a5-4f54-8583-a07c796a7cae",
+  "profile": {
+    "name": "ak ak",
+    "age": 56,
+    "gender": "male",
+    "height": 167,
+    "weight": 50,
+    "activity_level": "moderately_active",
+    "diabetes_status": "type2_diabetes",
+    "weight_goal": "maintain",
+    "bmi": 17.92821542543655
+  },
+  "meals": [],
+  "calibration": {},
+  "created_at": "2025-04-27T08:34:46.685124"
+}

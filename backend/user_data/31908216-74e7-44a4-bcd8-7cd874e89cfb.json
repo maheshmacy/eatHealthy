@@ -1,0 +1,19 @@
+{
+  "user_id": "31908216-74e7-44a4-bcd8-7cd874e89cfb",
+  "profile": {
+    "name": "mas",
+    "age": 30,
+    "gender": "female",
+    "height": 168,
+    "weight": 50,
+    "activity_level": "moderately_active",
+    "diabetes_status": "type1_diabetes",
+    "weight_goal": "maintain",
+    "hba1c": 0,
+    "fasting_glucose": 0,
+    "bmi": 17.71541950113379
+  },
+  "meals": [],
+  "calibration": {},
+  "created_at": "2025-04-27T05:56:13.508143"
+}
