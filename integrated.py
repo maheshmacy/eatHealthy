@@ -37,13 +37,13 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # === Load Glycemic Index Dataset ===
-gi_df = pd.read_csv("glycemic_index.csv")
+gi_df = pd.read_csv("food-recognition/glycemic_index.csv")
 
 # Configuration
 class Config:
-    MODEL_PATH = Path("model/food_classifier_pro.h5")
+    MODEL_PATH = Path("food-recognition/model/food_classifier_pro.h5")
     GLUCOSE_MODEL_PATH = Path("model/random_forest_model.pkl")
-    DATASET_PATH = Path("dataset/train")
+    DATASET_PATH = Path("food-recognition/dataset/train")
     TEMP_DIR = Path("temp")
     IMG_SIZE = 224
     CACHE_TTL = 3600  # 1 hour cache for nutrition data
@@ -51,7 +51,7 @@ class Config:
     ALLOWED_EXTENSIONS = {'.jpg', '.jpeg', '.png'}
     
     # API Configuration
-    SPOONACULAR_API_KEY = os.getenv('SPOONACULAR_API_KEY')
+    SPOONACULAR_API_KEY = "d92812bb778f4128acf14b413678d64e"
     SPOONACULAR_BASE_URL = "https://api.spoonacular.com"
     
     if not SPOONACULAR_API_KEY:
