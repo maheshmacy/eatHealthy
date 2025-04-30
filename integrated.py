@@ -438,7 +438,6 @@ class NutritionClient:
                 "protein": protein,
                 "fiber": fiber,
                 "serving_weight_grams": serving_weight,
-                "food_name": dish_name
             }
             
             # Cache the result
