@@ -13,8 +13,10 @@ import numpy as np
 import joblib
 from werkzeug.utils import secure_filename
 from flask_restx import Api, Resource, fields
+from werkzeug.datastructures import FileStorage
 
 # Import modules
+
 from utils.database import get_user_data, save_user_data, initialize_database
 from utils.food_recognition import identify_food_in_image
 from utils.validators import validate_user_data, validate_glucose_readings
@@ -96,7 +98,7 @@ training_model = api.model('ModelTraining', {
 
 # Create parser for food analysis endpoint
 food_image_parser = api.parser()
-food_image_parser.add_argument('food_image', location='files', type='file', required=True, help='Food image file')
+food_image_parser.add_argument('food_image', location='files', type='FileStorage', required=True, help='Food image file')
 food_image_parser.add_argument('user_id', location='form', type=str, required=True, help='User ID')
 food_image_parser.add_argument('person_info', location='form', type=str, required=False, help='JSON string with person info')
 

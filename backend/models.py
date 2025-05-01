@@ -13,6 +13,11 @@ from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.model_selection import train_test_split
 from config import Config
 
+
+# Create logs directory if it doesn't exist
+os.makedirs('logs', exist_ok=True)
+
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -23,7 +28,7 @@ logging.basicConfig(
     ]
 )
 logger = logging.getLogger(__name__)
-
+"""
 # Load GI database
 gi_database = None
 try:
@@ -34,7 +39,9 @@ except Exception as e:
     # Initialize with empty DataFrame as fallback
     gi_database = pd.DataFrame(columns=['food_name', 'glycemic_index', 'carbs_per_serving', 
                                         'protein_per_serving', 'fat_per_serving', 'fiber_per_serving'])
+"""
 
+"""
 # Load reference values
 reference_values = {}
 try:
@@ -47,6 +54,7 @@ except Exception as e:
     reference_values = {
         "standard_glucose_response": [100, 140, 130, 115, 105]
     }
+"""
 
 def calculate_baseline_risk_factor(user_profile):
     """
