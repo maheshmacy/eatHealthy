@@ -369,14 +369,29 @@ def render_food_analysis_page():
                 else:
                     st.warning("No glucose prediction data available for this meal.")
 def render_meal_card(meal):
-    """Render a meal card with improved styling."""
+    """Render a meal card with improved styling and image display."""
     with st.container():
         st.markdown("---")
         col1, col2, col3 = st.columns([1, 2, 1])
         
         with col1:
-            # Use our improved image display function
-            display_meal_image(meal)
+            # Use the improved image display function
+            try:
+                # Display meal image
+                if 'image_path' in meal and meal['image_path']:
+                    # Extract the filename from the path
+                    filename = os.path.basename(meal['image_path'])
+                    # Get the API endpoint for images
+                    from api_client import get_image_url
+                    image_url = get_image_url(filename)
+                    # Display the image using st.image
+                    st.image(image_url, width=150)
+                else:
+                    # Fall back to our display_meal_image function for the placeholder
+                    display_meal_image(meal)
+            except Exception as e:
+                # If any error occurs, use the display_meal_image function
+                display_meal_image(meal)
         
         with col2:
             # Display date and foods with better formatting
@@ -460,7 +475,24 @@ def display_meal_detail(meal_detail, user_id):
     with col1:
         # Display meal image with better handling
         st.subheader("Meal Image")
-        display_meal_image(meal, width=300)
+        
+        try:
+            # Display meal image
+            if 'image_path' in meal and meal['image_path']:
+                # Extract the filename from the path
+                filename = os.path.basename(meal['image_path'])
+                # Get the API endpoint for images
+                from api_client import get_image_url
+                image_url = get_image_url(filename)
+                # Display the image using st.image
+                st.image(image_url, width=300)
+            else:
+                # Fall back to our display_meal_image function for the placeholder
+                display_meal_image(meal, width=300)
+        except Exception as e:
+            # If any error occurs, use the display_meal_image function
+            st.error(f"Error displaying image: {e}")
+            display_meal_image(meal, width=300)
         
         # Display food items
         st.subheader("Food Items")
@@ -728,7 +760,7 @@ def display_meal_detail(meal_detail, user_id):
         st.session_state.history_view = "list"
         st.session_state.selected_meal = None
         st.rerun()
-
+        
 def render_meal_history_page():
     """Render the meal history page with tabs for history and statistics"""
     # Create tabs for different views

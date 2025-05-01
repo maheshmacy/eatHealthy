@@ -1,130 +1,179 @@
-import streamlit as st
+
 import requests
 import json
-from datetime import datetime
+import os
+from typing import Dict, Any, List, Optional, Union
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # API endpoint (change to your Flask backend URL)
 API_ENDPOINT = "http://localhost:5000"
+# Try to get from environment variable if available
+if os.environ.get("API_ENDPOINT"):
+    API_ENDPOINT = os.environ.get("API_ENDPOINT")
 
-def create_user(user_data):
-    """Create a new user via API"""
-    url = f"{API_ENDPOINT}/users"
-    response = requests.post(url, json=user_data)
-    return response.json() if response.status_code == 201 else None
 
-def get_user(user_id):
-    """Get user profile via API"""
+def create_user(user_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    """Create a new user profile"""
     try:
-        url = f"{API_ENDPOINT}/users/{user_id}"
-        response = requests.get(url)
+        response = requests.post(
+            f"{API_ENDPOINT}/users",
+            json=user_data,
+            headers={"Content-Type": "application/json"}
+        )
+        
+        if response.status_code == 201:
+            return response.json()
+        else:
+            logger.error(f"Failed to create user: {response.status_code}, {response.text}")
+            return None
+    except Exception as e:
+        logger.error(f"Error creating user: {str(e)}")
+        return None
+
+def get_user(user_id: str) -> Optional[Dict[str, Any]]:
+    """Get user profile by ID"""
+    try:
+        response = requests.get(f"{API_ENDPOINT}/users/{user_id}")
+        
         if response.status_code == 200:
             return response.json()
         else:
+            logger.error(f"Failed to get user: {response.status_code}, {response.text}")
             return None
     except Exception as e:
-        st.error(f"Error connecting to API: {str(e)}")
+        logger.error(f"Error getting user: {str(e)}")
         return None
 
-def update_user(user_id, user_data):
-    """Update user profile via API"""
+def update_user(user_id: str, user_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    """Update user profile"""
     try:
-        url = f"{API_ENDPOINT}/users/{user_id}"
-        response = requests.put(url, json=user_data)
+        response = requests.put(
+            f"{API_ENDPOINT}/users/{user_id}",
+            json=user_data,
+            headers={"Content-Type": "application/json"}
+        )
+        
         if response.status_code == 200:
             return response.json()
         else:
+            logger.error(f"Failed to update user: {response.status_code}, {response.text}")
             return None
     except Exception as e:
-        st.error(f"Error connecting to API: {str(e)}")
+        logger.error(f"Error updating user: {str(e)}")
         return None
 
-def analyze_food_image(user_id, image_file):
-    """Analyze food image via API"""
-    url = f"{API_ENDPOINT}/food/analyze-food"
-    
-    files = {'food_image': image_file}
-    data = {'user_id': user_id}
-    
-    response = requests.post(url, files=files, data=data)
-    return response.json() if response.status_code == 200 else None
-
-def get_health_check():
-    """Check API health"""
-    url = f"{API_ENDPOINT}/health"
+def analyze_food_image(user_id: str, image_file) -> Optional[Dict[str, Any]]:
+    """Analyze food image using the API"""
     try:
-        response = requests.get(url)
-        return response.json() if response.status_code == 200 else None
-    except:
+        files = {'food_image': image_file}
+        data = {'user_id': user_id}
+        
+        response = requests.post(
+            f"{API_ENDPOINT}/food/analyze-food",
+            files=files,
+            data=data
+        )
+        
+        if response.status_code == 200:
+            return response.json()
+        else:
+            logger.error(f"Failed to analyze food: {response.status_code}, {response.text}")
+            return None
+    except Exception as e:
+        logger.error(f"Error analyzing food: {str(e)}")
         return None
 
-def get_meal_history(user_id, start_date=None, end_date=None, food_type=None, sort_by='date', sort_order='desc', limit=50):
+
+def get_meal_history(
+    user_id: str, 
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+    food_type: Optional[str] = None,
+    sort_by: str = "date",
+    sort_order: str = "desc",
+    limit: int = 50
+) -> Optional[Dict[str, Any]]:
     """Get meal history for a user with optional filters"""
     try:
-        url = f"{API_ENDPOINT}/meals/{user_id}"
+        params = {
+            'start_date': start_date,
+            'end_date': end_date,
+            'food_type': food_type,
+            'sort_by': sort_by,
+            'sort_order': sort_order,
+            'limit': limit
+        }
         
-        # Build query parameters
-        params = {}
-        if start_date:
-            params['start_date'] = start_date
-        if end_date:
-            params['end_date'] = end_date
-        if food_type:
-            params['food_type'] = food_type
-        if sort_by:
-            params['sort_by'] = sort_by
-        if sort_order:
-            params['sort_order'] = sort_order
-        if limit:
-            params['limit'] = str(limit)
+        # Remove None values
+        params = {k: v for k, v in params.items() if v is not None}
         
-        response = requests.get(url, params=params)
+        response = requests.get(
+            f"{API_ENDPOINT}/meals/{user_id}",
+            params=params
+        )
         if response.status_code == 200:
             return response.json()
         else:
-            st.error(f"Error fetching meal history: {response.text}")
+            logger.error(f"Failed to get meal history: {response.status_code}, {response.text}")
             return None
     except Exception as e:
-        st.error(f"Error connecting to API: {str(e)}")
+        logger.error(f"Error getting meal history: {str(e)}")
         return None
 
-def get_meal_details(user_id, meal_id):
+def get_meal_details(user_id: str, meal_id: str) -> Optional[Dict[str, Any]]:
     """Get detailed information about a specific meal"""
     try:
-        url = f"{API_ENDPOINT}/meals/{user_id}/{meal_id}"
-        response = requests.get(url)
+        response = requests.get(f"{API_ENDPOINT}/meals/{user_id}/{meal_id}")
+        
         if response.status_code == 200:
             return response.json()
         else:
-            st.error(f"Error fetching meal details: {response.text}")
+            logger.error(f"Failed to get meal details: {response.status_code}, {response.text}")
             return None
     except Exception as e:
-        st.error(f"Error connecting to API: {str(e)}")
+        logger.error(f"Error getting meal details: {str(e)}")
         return None
 
-def get_meal_stats(user_id):
-    """Get meal statistics for a user"""
-    try:
-        url = f"{API_ENDPOINT}/meals/{user_id}/stats"
-        response = requests.get(url)
-        if response.status_code == 200:
-            return response.json()
-        else:
-            st.error(f"Error fetching meal statistics: {response.text}")
-            return None
-    except Exception as e:
-        st.error(f"Error connecting to API: {str(e)}")
-        return None
-
-def submit_meal_feedback(user_id, meal_id, feedback_data):
+def submit_meal_feedback(
+    user_id: str,
+    meal_id: str,
+    feedback_data: Dict[str, Any]
+) -> Optional[Dict[str, Any]]:
     """Submit feedback for a meal"""
     try:
-        url = f"{API_ENDPOINT}/meals/{user_id}/{meal_id}/feedback"
-        response = requests.post(url, json=feedback_data)
+        response = requests.post(
+            f"{API_ENDPOINT}/meals/{user_id}/{meal_id}/feedback",
+            json=feedback_data,
+            headers={"Content-Type": "application/json"}
+        )
+        
         if response.status_code == 200:
             return response.json()
         else:
-            st.error(f"Error submitting feedback: {response.text}")
+            logger.error(f"Failed to submit feedback: {response.status_code}, {response.text}")
             return None
     except Exception as e:
-        st.error(f"Error connecting to API: {str(e)}")
+        logger.error(f"Error submitting feedback: {str(e)}")
         return None
+
+def get_meal_stats(user_id: str) -> Optional[Dict[str, Any]]:
+    """Get meal statistics for a user"""
+    try:
+        response = requests.get(f"{API_ENDPOINT}/meals/{user_id}/stats")
+        
+        if response.status_code == 200:
+            return response.json()
+        else:
+            logger.error(f"Failed to get meal stats: {response.status_code}, {response.text}")
+            return None
+    except Exception as e:
+        logger.error(f"Error getting meal stats: {str(e)}")
+        return None
+
+def get_image_url(filename: str) -> str:
+    """Get the full URL for an image file"""
+    return f"{API_ENDPOINT}/api/images/{filename}"

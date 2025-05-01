@@ -48,13 +48,21 @@ def display_meal_image(meal, width=150):
     image_path = meal.get('image_path')
     
     if image_path and isinstance(image_path, str):
-        # Extract the filename from the full path
         try:
-            # Convert local path to API URL
+            # Extract the filename from the full path
             filename = os.path.basename(image_path)
             
             # API endpoint to serve images
-            from api_client import API_ENDPOINT
+            # Using direct API_ENDPOINT variable instead of importing
+            API_ENDPOINT = "http://localhost:5000"  # Default local endpoint
+            
+            # Check if we can access the API_ENDPOINT from the imported module
+            try:
+                from api_client import API_ENDPOINT
+            except (ImportError, AttributeError):
+                # If not available, keep the default
+                pass
+                
             image_url = f"{API_ENDPOINT}/api/images/{filename}"
             
             # Try to display the image from the API endpoint
@@ -62,9 +70,10 @@ def display_meal_image(meal, width=150):
                 st.image(image_url, width=width)
                 return  # Return early if successful
             except Exception as e:
-                # If any error occurs, we'll fall back to placeholder
-                pass
-        except:
+                st.error(f"Failed to load image: {e}")
+                # Fall back to placeholder
+            
+        except Exception as e:
             # If path extraction fails, fall back to placeholder
             pass
     
@@ -80,7 +89,7 @@ def display_meal_image(meal, width=150):
     # Create placeholder image and display it
     img_base64 = create_placeholder_image_base64(text=food_names)
     st.image(f"data:image/png;base64,{img_base64}", width=width)
-
+    
 def create_glucose_graph(glucose_prediction):
     """Create interactive glucose prediction graph"""
     # Check if we have valid prediction data
