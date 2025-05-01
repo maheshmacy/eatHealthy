@@ -11,6 +11,8 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 from tensorflow.keras.models import load_model
 from glucose_prediction_model import GlucoseResponsePredictor
+# Suppress AVX instructions warning
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Configure logging
 logging.basicConfig(
@@ -64,7 +66,7 @@ else:
 FOOD_MODEL_PATH = "model/food_classifier_pro.h5"
 DATASET_PATH = "dataset/train"
 IMG_SIZE = 224
-
+"""
 # Setup GPU if available
 physical_devices = tf.config.list_physical_devices('GPU')
 if physical_devices:
@@ -72,7 +74,7 @@ if physical_devices:
         tf.config.experimental.set_memory_growth(physical_devices[0], True)
     except:
         pass
-
+"""
 # Load food recognition model
 try:
     food_model = tf.keras.models.load_model(FOOD_MODEL_PATH)

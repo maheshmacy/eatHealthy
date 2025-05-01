@@ -1,556 +1,424 @@
-from flask import Flask, request
-from flask_restx import Api, Resource, fields, Namespace
-from werkzeug.datastructures import FileStorage
+"""
+Main Flask application entry point for GI Personalize app with Swagger API documentation.
+"""
+from flask import Flask, request, jsonify
 import os
+import uuid
 import json
-import pandas as pd
-from glucose_prediction_model import GlucoseResponsePredictor
+import logging
+from datetime import datetime
+from werkzeug.utils import secure_filename
+import numpy as np
+from flask_restx import Api, Resource, fields
 
+# Import modules
+from utils.database import get_user_data, save_user_data, initialize_database
+from utils.food_recognition import identify_food_in_image
+from utils.validators import validate_user_data, validate_glucose_readings
+import models
+from config import Config
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(os.path.join('logs', 'app.log')),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
+# Initialize Flask app
 app = Flask(__name__)
-api = Api(app, version='1.0', 
-          title='Glucose Response Prediction API',
-          description='API for predicting personalized glucose responses based on individual characteristics and meal composition',
-          doc='/swagger')
+app.config.from_object(Config)
 
-# Create namespaces for API organization
-health_ns = Namespace('health', description='API health and status')
-prediction_ns = Namespace('prediction', description='Glucose response prediction endpoints')
-meal_ns = Namespace('meal', description='Meal analysis endpoints')
-image_ns = Namespace('image', description='Food image analysis endpoints')
-model_ns = Namespace('model', description='Model management endpoints')
+# Initialize Flask-RESTX API with Swagger documentation
+authorizations = {
+    'apikey': {
+        'type': 'apiKey',
+        'in': 'header',
+        'name': 'X-API-KEY'
+    }
+}
+api = Api(app, 
+          version='1.0', 
+          title='EATSMART-AI',
+          description='API for Personalized Glycemic Index Tracking',
+          doc='/swagger',
+          authorizations=authorizations,
+          security='apikey')
 
-# Add namespaces to the API
-api.add_namespace(health_ns, path='/api/health')
-api.add_namespace(prediction_ns, path='/api/prediction')
-api.add_namespace(meal_ns, path='/api/meal')
-api.add_namespace(image_ns, path='/api/image')
-api.add_namespace(model_ns, path='/api/model')
+# Define API namespaces
+health_ns = api.namespace('health', description='Health Check Endpoints')
+users_ns = api.namespace('users', description='User Profile Management')
+food_ns = api.namespace('food', description='Food Analysis Endpoints')
+calibration_ns = api.namespace('calibration', description='Glucose Calibration Endpoints')
+meals_ns = api.namespace('meals', description='Meal Management')
 
-# Initialize the model
-predictor = GlucoseResponsePredictor()
+# Define API models
 
-# Check if we have a saved model
-MODEL_PATH = "glucose_model.joblib"
-if os.path.exists(MODEL_PATH):
-    # Load existing model
-    predictor.load_model(MODEL_PATH)
-else:
-    # Train a new model
-    if os.path.exists("sample_meals.csv"):
-        predictor.train_model("sample_meals.csv")
-        predictor.save_model(MODEL_PATH)
-    else:
-        print("Warning: No training data found. Model not initialized!")
-
-# Define request and response models for Swagger documentation
-
-# Person model
-person_model = api.model('Person', {
-    'bmi': fields.Float(required=True, description='Body Mass Index', example=25.0),
-    'age': fields.Integer(required=True, description='Age in years', example=35),
-    'sex': fields.String(required=True, description='Sex (M or F)', example='M', enum=['M', 'F'])
+user_profile_model = api.model('UserProfile', {
+    'name': fields.String(required=True, description='User\'s full name'),
+    'age': fields.Integer(required=True, description='User\'s age'),
+    'gender': fields.String(required=True, description='User\'s gender'),
+    'height': fields.Float(required=True, description='User height in cm'),
+    'weight': fields.Float(required=True, description='User weight in kg'),
+    'activity_level': fields.String(description='Activity level'),
+    'diabetes_status': fields.String(description='Diabetes status'),
+    'weight_goal': fields.String(description='Weight management goal'),
+    'hba1c': fields.Float(description='HbA1c percentage'),
+    'fasting_glucose': fields.Float(description='Fasting glucose level')
 })
 
-# Meal model
-meal_model = api.model('Meal', {
-    'calories': fields.Float(required=True, description='Total calories', example=500),
-    'carbs': fields.Float(required=True, description='Carbohydrates in grams', example=60),
-    'fat': fields.Float(required=True, description='Fat in grams', example=15),
-    'protein': fields.Float(required=True, description='Protein in grams', example=25),
-    'fiber': fields.Float(required=True, description='Fiber in grams', example=5),
-    'sugar': fields.Float(required=True, description='Sugar in grams', example=20)
+glucose_reading_model = api.model('GlucoseReading', {
+    'timestamp': fields.DateTime(required=True, description='Timestamp of glucose reading'),
+    'value': fields.Float(required=True, description='Glucose level')
 })
 
-# Prediction request model
-prediction_request_model = api.model('PredictionRequest', {
-    'person': fields.Nested(person_model, required=True),
-    'meal': fields.Nested(meal_model, required=True)
-})
-
-# Meal analysis request model
-meal_analysis_request_model = api.model('MealAnalysisRequest', {
-    'meal': fields.Nested(meal_model, required=True)
-})
-
-# Nutrient composition model
-nutrient_composition_model = api.model('NutrientComposition', {
-    'carbs_g': fields.Float(description='Carbohydrates in grams'),
-    'fat_g': fields.Float(description='Fat in grams'),
-    'protein_g': fields.Float(description='Protein in grams'),
-    'fiber_g': fields.Float(description='Fiber in grams'),
-    'sugar_g': fields.Float(description='Sugar in grams'),
-    'carbs_pct': fields.Float(description='Carbohydrates percentage of total macros'),
-    'fat_pct': fields.Float(description='Fat percentage of total macros'),
-    'protein_pct': fields.Float(description='Protein percentage of total macros')
-})
-
-# Calorie distribution model
-calorie_distribution_model = api.model('CalorieDistribution', {
-    'total_calories': fields.Float(description='Total calories'),
-    'carbs_calories': fields.Float(description='Calories from carbohydrates'),
-    'fat_calories': fields.Float(description='Calories from fat'),
-    'protein_calories': fields.Float(description='Calories from protein'),
-    'carbs_cal_pct': fields.Float(description='Carbohydrates percentage of total calories'),
-    'fat_cal_pct': fields.Float(description='Fat percentage of total calories'),
-    'protein_cal_pct': fields.Float(description='Protein percentage of total calories')
-})
-
-# Nutrient ratios model
-nutrient_ratios_model = api.model('NutrientRatios', {
-    'fiber_to_carb_ratio': fields.Float(description='Ratio of fiber to carbohydrates'),
-    'protein_to_carb_ratio': fields.Float(description='Ratio of protein to carbohydrates')
-})
-
-# Glycemic impact factors model
-glycemic_impact_model = api.model('GlycemicImpactFactors', {
-    'meal_characteristics': fields.List(fields.String, description='Meal characteristics based on macronutrient content'),
-    'sugar_to_carb_ratio': fields.Float(description='Ratio of sugar to carbohydrates'),
-    'estimated_glycemic_impact': fields.String(description='Estimated glycemic impact (Low, Medium, High)')
-})
-
-# Meal analysis response model
-meal_analysis_model = api.model('MealAnalysis', {
-    'macronutrient_composition': fields.Nested(nutrient_composition_model),
-    'calorie_distribution': fields.Nested(calorie_distribution_model),
-    'nutrient_ratios': fields.Nested(nutrient_ratios_model),
-    'glycemic_impact_factors': fields.Nested(glycemic_impact_model)
-})
-
-# Meal analysis response with recommendations
-meal_analysis_response_model = api.model('MealAnalysisResponse', {
-    'analysis': fields.Nested(meal_analysis_model),
-    'recommendations': fields.List(fields.String, description='Dietary recommendations')
-})
-
-# Prediction response model
-prediction_response_model = api.model('PredictionResponse', {
-    'iauc_prediction': fields.Float(description='Predicted insulin area under curve'),
-    'risk_level': fields.String(description='Glucose response risk level (Low, Medium, High)'),
-    'percentile': fields.Integer(description='Percentile in population'),
-    'explanation': fields.String(description='Explanation of prediction factors'),
-    'guidelines': fields.List(fields.String, description='General guidelines based on risk level'),
-    'recommendations': fields.List(fields.String, description='Personalized dietary recommendations')
-})
-
-# Health check response model
-health_response_model = api.model('HealthResponse', {
-    'status': fields.String(description='API status'),
-    'model_loaded': fields.Boolean(description='Whether the prediction model is loaded')
-})
-
-# Training response model
-training_response_model = api.model('TrainingResponse', {
-    'status': fields.String(description='Training status (success or error)'),
-    'message': fields.String(description='Training result message'),
-    'details': fields.Raw(description='Detailed training results')
-})
-
-# Food nutrient model
-food_nutrient_model = api.model('FoodNutrient', {
-    'calories': fields.Float(description='Calories'),
-    'carbs': fields.Float(description='Carbohydrates in grams'),
-    'fat': fields.Float(description='Fat in grams'),
-    'protein': fields.Float(description='Protein in grams'),
-    'fiber': fields.Float(description='Fiber in grams'),
-    'sugar': fields.Float(description='Sugar in grams')
-})
-
-# Detected food item model
-food_item_model = api.model('FoodItem', {
-    'name': fields.String(description='Food name'),
-    'confidence': fields.Float(description='Detection confidence score'),
-    'portion_size': fields.String(description='Estimated portion size'),
-    'nutrients': fields.Nested(food_nutrient_model, description='Nutrient information')
-})
-
-# Food analysis response model
 food_analysis_model = api.model('FoodAnalysis', {
-    'identified_foods': fields.List(fields.Nested(food_item_model), description='Detected food items'),
-    'total_nutrients': fields.Nested(food_nutrient_model, description='Total nutrient content')
+    'food_name': fields.String(required=True, description='Identified food name'),
+    'confidence': fields.Float(description='Confidence of food identification'),
+    'base_gi': fields.Float(description='Base Glycemic Index'),
+    'personalized_gi': fields.Raw(description='Personalized GI impact')
 })
 
-# Food image analysis response model
-food_image_response_model = api.model('FoodImageResponse', {
-    'food_analysis': fields.Nested(food_analysis_model),
-    'glucose_prediction': fields.Nested(prediction_response_model)
+meal_response_model = api.model('MealResponse', {
+    'response': fields.String(required=True, description='User response to meal',
+                             enum=['less_than_expected', 'as_expected', 'more_than_expected'])
 })
 
-# Upload parser for file uploads - FIX HERE
-upload_parser = api.parser()
-# Changed from type='file' to type=FileStorage for file uploads
-upload_parser.add_argument('data_file', location='files', type=FileStorage, required=True, help='CSV training data file')
+# Ensure required directories exist
+for directory in [app.config['UPLOAD_FOLDER'], 
+                 app.config['USER_DATA_FOLDER'], 
+                 'logs']:
+    os.makedirs(directory, exist_ok=True)
 
-# Food image parser - FIX HERE
-food_image_parser = api.parser()
-# Changed from type='file' to type=FileStorage for file uploads
-food_image_parser.add_argument('food_image', location='files', type=FileStorage, required=True, help='Food image file')
-food_image_parser.add_argument('person_info', location='form', type=str, required=False, help='Person information in JSON format')
+# Initialize database on startup
+initialize_database()
 
-# Define API endpoints
-
+# API Routes
 @health_ns.route('')
 class HealthCheck(Resource):
-    @health_ns.doc('health_check')
-    @health_ns.marshal_with(health_response_model)
     def get(self):
-        """Check if the API is running and model is loaded"""
-        return {
-            'status': 'ok',
-            'model_loaded': predictor.model is not None
-        }
+        """Health check endpoint"""
+        return {'status': 'healthy'}
 
-@prediction_ns.route('/glucose')
-class GlucoseResponsePrediction(Resource):
-    @prediction_ns.doc('predict_glucose_response')
-    @prediction_ns.expect(prediction_request_model)
-    @prediction_ns.marshal_with(prediction_response_model, code=200)
-    @prediction_ns.response(400, 'Validation Error')
-    @prediction_ns.response(503, 'Model Not Loaded')
+@users_ns.route('')
+class UserCreation(Resource):
+    @api.expect(user_profile_model)
     def post(self):
-        """Predict glucose response based on person and meal details"""
-        # Check if model is loaded
-        if predictor.model is None:
-            api.abort(503, "Model not loaded. Please train the model first.")
-        
-        # Parse request data
-        data = request.json
-        
-        # Validate input
+        """Create a new user profile"""
         try:
-            person = data.get('person', {})
-            meal = data.get('meal', {})
+            data = request.json
+            print("===============Inside Create User Method =================== ")
+            print (f"Received Request Payload: {data}")
             
-            # Make prediction
-            prediction = predictor.predict_glucose_response(person, meal)
+            # Validate user data
+            validation_error = validate_user_data(data)
+            if validation_error:
+                print(f"Validation Errr:---> {validation_error}")
+                return {'error': validation_error}, 400
             
-            # Enhance response with general guidelines
-            guidelines = []
+            # Generate unique user ID
+            user_id = str(uuid.uuid4())
             
-            if prediction['risk_level'] == 'High':
-                guidelines.append("Consider reducing carbohydrates or adding more fiber to this meal.")
-                guidelines.append("Pairing carbohydrates with protein and healthy fats may help reduce glucose impact.")
-            elif prediction['risk_level'] == 'Medium':
-                guidelines.append("This meal has a moderate impact on blood glucose.")
-                guidelines.append("Consider physical activity after eating to help manage glucose levels.")
-            else:
-                guidelines.append("This meal should have minimal impact on blood glucose levels.")
+            # Calculate BMI
+            data['bmi'] = float(data['weight']) / ((float(data['height'])/100) ** 2)
+            print(f"BMI Calculation Results: ---> {data['bmi']}")
             
-            # Add personalized recommendations
-            recommendations = []
-            
-            # Check if high carbs with low fiber
-            if meal['carbs'] > 50 and meal['fiber'] < 5:
-                recommendations.append("This meal is high in carbs and low in fiber. Adding fiber can help reduce glucose impact.")
-            
-            # Check if high sugar
-            if meal['sugar'] > 25:
-                recommendations.append("This meal is high in sugar. Consider reducing added sugars.")
-            
-            # Check if balanced macros
-            total_cals = meal['carbs'] * 4 + meal['fat'] * 9 + meal['protein'] * 4
-            carb_pct = (meal['carbs'] * 4 / total_cals) * 100 if total_cals > 0 else 0
-            
-            if carb_pct > 60:
-                recommendations.append("This meal is very high in carbohydrates. Consider adding more protein or healthy fats.")
-            
-            # Enhance the response
-            enhanced_response = {
-                **prediction,
-                "guidelines": guidelines,
-                "recommendations": recommendations
+            # Create user profile
+            user_profile = {
+                "user_id": user_id,
+                "profile": data,
+                "meals": [],
+                "calibration": {},
+                "created_at": datetime.now().isoformat()
             }
             
-            return enhanced_response
+            # Save user profile
+            save_user_data(user_id, user_profile)
             
+            return {"user_id": user_id}, 201
+        
         except Exception as e:
-            api.abort(400, f"Error processing request: {str(e)}")
+            logger.error(f"Error creating user: {str(e)}", exc_info=True)
+            return {"error": f"Failed to create user: {str(e)}"}, 500
 
-@meal_ns.route('/analyze')
-class MealAnalysis(Resource):
-    @meal_ns.doc('analyze_meal')
-    @meal_ns.expect(meal_analysis_request_model)
-    @meal_ns.marshal_with(meal_analysis_response_model, code=200)
-    @meal_ns.response(400, 'Validation Error')
-    def post(self):
-        """Analyze a meal without making a full glucose prediction"""
-        # Parse request data
-        data = request.json
-        if not data or 'meal' not in data:
-            api.abort(400, "No meal data provided")
-        
-        meal = data['meal']
-        
-        # Analyze meal composition
+@users_ns.route('/<string:user_id>')
+class UserManagement(Resource):
+    def get(self, user_id):
+        """Get user profile"""
         try:
-            total_macros = meal['carbs'] + meal['fat'] + meal['protein']
-            carb_pct = (meal['carbs'] / total_macros) * 100 if total_macros > 0 else 0
-            fat_pct = (meal['fat'] / total_macros) * 100 if total_macros > 0 else 0
-            protein_pct = (meal['protein'] / total_macros) * 100 if total_macros > 0 else 0
+            print("===============Inside GET/Retrieve User Method =================== ")
+            user_data = get_user_data(user_id)
             
-            # Calculate calorie distribution
-            carb_cals = meal['carbs'] * 4
-            fat_cals = meal['fat'] * 9
-            protein_cals = meal['protein'] * 4
-            total_cals = carb_cals + fat_cals + protein_cals
+            if not user_data:
+                return {"error": "User not found"}, 404
             
-            carb_cal_pct = (carb_cals / total_cals) * 100 if total_cals > 0 else 0
-            fat_cal_pct = (fat_cals / total_cals) * 100 if total_cals > 0 else 0
-            protein_cal_pct = (protein_cals / total_cals) * 100 if total_cals > 0 else 0
+            # Remove sensitive info for response
+            response_data = {
+                "user_id": user_data["user_id"],
+                "profile": user_data["profile"],
+                "calibration": user_data.get("calibration", {}),
+                "created_at": user_data["created_at"]
+            }
             
-            # Calculate fiber-to-carb ratio
-            fiber_to_carb = meal['fiber'] / meal['carbs'] if meal['carbs'] > 0 else 0
+            return response_data, 200
+        
+        except Exception as e:
+            logger.error(f"Error getting user {user_id}: {str(e)}", exc_info=True)
+            return {"error": "Failed to get user profile"}, 500
             
-            # Analyze meal characteristics
-            characteristics = []
+    @api.expect(user_profile_model)
+    def put(self, user_id):
+        """Update user profile"""
+        try:
+            print("===============Inside Update User Method =================== ")
+            user_data = get_user_data(user_id)
             
-            if carb_pct > 60:
-                characteristics.append("High-carbohydrate meal")
-            elif carb_pct < 20:
-                characteristics.append("Low-carbohydrate meal")
+            if not user_data:
+                return {"error": "User not found"}, 404
+            
+            # Update profile with new data
+            data = request.json
+            print (f"Received Request Payload: {data}")
+
+            # Validate user data
+            validation_error = validate_user_data(data, required_fields=False)
+            if validation_error:
+                return {"error": validation_error}, 400
+            
+            user_data['profile'].update(data)
+            
+            # Recalculate BMI if weight or height was updated
+            if 'weight' in data or 'height' in data:
+                weight = float(user_data['profile']['weight'])
+                height = float(user_data['profile']['height'])
+                user_data['profile']['bmi'] = weight / ((height/100) ** 2)
+            
+            # Save updated profile
+            save_user_data(user_id, user_data)
+            
+            return {"message": "User profile updated"}, 200
+        
+        except Exception as e:
+            logger.error(f"Error updating user {user_id}: {str(e)}", exc_info=True)
+            return {"error": "Failed to update user profile"}, 500
+
+@food_ns.route('/analyze')
+class FoodAnalysis(Resource):
+    @api.doc(params={'food_image': 'Food image file', 'user_id': 'User ID'})
+    @api.expect(api.parser().add_argument('food_image', location='files', type='file', required=True, help='Food image file'))
+    def post(self):
+        """Analyze food image and provide personalized GI info"""
+        try:
+            # Check if the post request has the file part
+            if 'food_image' not in request.files:
+                return {"error": "No file part"}, 400
+            
+            file = request.files['food_image']
+            user_id = request.form.get('user_id')
+            
+            # If user doesn't submit a file
+            if file.filename == '':
+                return {"error": "No selected file"}, 400
+            
+            # Check if user exists
+            user_data = get_user_data(user_id)
+            if not user_data:
+                return {"error": "User not found"}, 404
+            
+            if file and allowed_file(file.filename):
+                # Save the file
+                filename = secure_filename(f"{user_id}_{datetime.now().strftime('%Y%m%d%H%M%S')}_{file.filename}")
+                filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                file.save(filepath)
+                print(f"Media file is saved successfully in the filepath: {filepath}")
+
+                # Identify food in the image
+                food_items = identify_food_in_image(filepath)
                 
-            if fat_pct > 40:
-                characteristics.append("High-fat meal")
-            elif fat_pct < 15:
-                characteristics.append("Low-fat meal")
-                
-            if protein_pct > 30:
-                characteristics.append("High-protein meal")
-            elif protein_pct < 10:
-                characteristics.append("Low-protein meal")
-                
-            if meal['fiber'] > 8:
-                characteristics.append("High-fiber meal")
-            elif meal['fiber'] < 2:
-                characteristics.append("Low-fiber meal")
-                
-            if meal['sugar'] > 25:
-                characteristics.append("High-sugar meal")
-            
-            # Generate recommendations
-            recommendations = []
-            
-            if meal['fiber'] < 5 and meal['carbs'] > 30:
-                recommendations.append("Consider adding more fiber to help slow glucose absorption.")
-                
-            if meal['sugar'] > 20 and meal['sugar'] / meal['carbs'] > 0.5:
-                recommendations.append("This meal is high in sugar relative to total carbs. Consider reducing added sugars.")
-                
-            if fiber_to_carb < 0.1 and meal['carbs'] > 30:
-                recommendations.append("The fiber-to-carb ratio is low. Adding fiber may help moderate glucose response.")
-                
-            if fat_pct < 10 and carb_pct > 60:
-                recommendations.append("Consider adding healthy fats to help balance this high-carb meal.")
-            
-            # Estimate glycemic impact
-            glycemic_impact = estimate_glycemic_impact(meal)
-            
-            return {
-                "analysis": {
-                    "macronutrient_composition": {
-                        "carbs_g": meal['carbs'],
-                        "fat_g": meal['fat'],
-                        "protein_g": meal['protein'],
-                        "fiber_g": meal['fiber'],
-                        "sugar_g": meal['sugar'],
-                        "carbs_pct": round(carb_pct, 1),
-                        "fat_pct": round(fat_pct, 1),
-                        "protein_pct": round(protein_pct, 1)
-                    },
-                    "calorie_distribution": {
-                        "total_calories": round(total_cals, 0),
-                        "carbs_calories": round(carb_cals, 0),
-                        "fat_calories": round(fat_cals, 0),
-                        "protein_calories": round(protein_cals, 0),
-                        "carbs_cal_pct": round(carb_cal_pct, 1),
-                        "fat_cal_pct": round(fat_cal_pct, 1),
-                        "protein_cal_pct": round(protein_cal_pct, 1)
-                    },
-                    "nutrient_ratios": {
-                        "fiber_to_carb_ratio": round(fiber_to_carb, 3),
-                        "protein_to_carb_ratio": round(meal['protein'] / meal['carbs'], 3) if meal['carbs'] > 0 else 0
-                    },
-                    "glycemic_impact_factors": {
-                        "meal_characteristics": characteristics,
-                        "sugar_to_carb_ratio": round(meal['sugar'] / meal['carbs'], 2) if meal['carbs'] > 0 else 0,
-                        "estimated_glycemic_impact": glycemic_impact
+                # Get personalized GI values
+                results = []
+                for food in food_items:
+                    # Look up base GI value
+                    base_gi = models.lookup_gi(food['name'])
+                    
+                    # Personalize GI impact
+                    personalized = models.personalize_gi_impact(base_gi, user_data['profile'])
+                    
+                    # Apply calibration factor if available
+                    if 'calibration' in user_data and 'calibration_factor' in user_data['calibration']:
+                        personalized['personalized_gi_score'] *= user_data['calibration']['calibration_factor']
+                    
+                    # Add to results
+                    food_result = {
+                        "food_name": food['name'],
+                        "confidence": food['confidence'],
+                        "base_gi": base_gi,
+                        "personalized_gi": personalized
                     }
-                },
-                "recommendations": recommendations
-            }
+                    results.append(food_result)
+                
+                # Save this analysis to user history
+                meal_id = str(uuid.uuid4())
+                meal_data = {
+                    "meal_id": meal_id,
+                    "timestamp": datetime.now().isoformat(),
+                    "food_items": results,
+                    "image_path": filepath
+                }
+                user_data['meals'].append(meal_data)
+                
+                # Save updated user data
+                save_user_data(user_id, user_data)
+                
+                return {
+                    "meal_id": meal_id,
+                    "results": results
+                }, 200
+            
+            return {"error": "Invalid file format"}, 400
         
         except Exception as e:
-            api.abort(400, f"Analysis error: {str(e)}")
+            logger.error(f"Error analyzing food: {str(e)}", exc_info=True)
+            return {"error": "Failed to analyze food"}, 500
 
-def estimate_glycemic_impact(meal):
-    """Estimate glycemic impact of a meal without using the ML model"""
-    # Simple heuristic estimation based on meal composition
-    # This is a simplified approach - the ML model provides more accurate predictions
-    
-    # Base impact from carbs
-    impact = meal['carbs'] * 1.0
-    
-    # Reduce impact based on fiber
-    if meal['fiber'] > 0:
-        fiber_factor = min(0.5, meal['fiber'] / meal['carbs'] if meal['carbs'] > 0 else 0)
-        impact *= (1 - fiber_factor)
-    
-    # Increase impact based on sugar
-    sugar_factor = min(0.5, meal['sugar'] / meal['carbs'] if meal['carbs'] > 0 else 0)
-    impact *= (1 + sugar_factor)
-    
-    # Reduce impact based on fat and protein
-    fat_protein = meal['fat'] + meal['protein']
-    if fat_protein > 0:
-        fp_factor = min(0.4, (fat_protein) / (meal['carbs'] * 2) if meal['carbs'] > 0 else 0)
-        impact *= (1 - fp_factor)
-    
-    # Categorize the impact
-    if impact < 20:
-        return "Low"
-    elif impact < 40:
-        return "Medium"
-    else:
-        return "High"
+def allowed_file(filename):
+    """Check if file has an allowed extension."""
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
 
-@image_ns.route('/analyze-food')
-class FoodImageAnalysis(Resource):
-    @image_ns.doc('analyze_food_image')
-    @image_ns.expect(food_image_parser)
-    @image_ns.marshal_with(food_image_response_model, code=200)
-    @image_ns.response(400, 'Validation Error')
-    def post(self):
-        """Analyze a food image and predict nutritional content and glucose response"""
-        args = food_image_parser.parse_args()
-        
-        if 'food_image' not in request.files:
-            api.abort(400, "No image file provided")
-        
-        file = request.files['food_image']
-        if file.filename == '':
-            api.abort(400, "No file selected")
-        
-        # Get person info if provided
-        person = {}
-        if args['person_info']:
-            try:
-                person = json.loads(args['person_info'])
-            except:
-                api.abort(400, "Invalid person_info format")
-        
-        # Save uploaded image temporarily
-        temp_image_path = "temp_food_image.jpg"
-        file.save(temp_image_path)
-        
+@calibration_ns.route('/<string:user_id>')
+class CalibrationSubmission(Resource):
+    @api.expect(api.model('CalibrationSubmission', {
+        'glucose_readings': fields.List(fields.Nested(glucose_reading_model), required=True)
+    }))
+    def post(self, user_id):
+        """Submit calibration meal data"""
         try:
-            # This is where you would integrate with your food recognition model
-            # For demonstration, we'll use placeholder data
-            food_analysis = {
-                "identified_foods": [
-                    {"name": "White rice", "confidence": 0.92, "portion_size": "1 cup", 
-                     "nutrients": {"calories": 200, "carbs": 45, "fat": 0.5, "protein": 4, "fiber": 0.5, "sugar": 0.1}},
-                    {"name": "Grilled chicken", "confidence": 0.87, "portion_size": "3 oz", 
-                     "nutrients": {"calories": 150, "carbs": 0, "fat": 3, "protein": 28, "fiber": 0, "sugar": 0}}
-                ],
-                "total_nutrients": {
-                    "calories": 350,
-                    "carbs": 45,
-                    "fat": 3.5,
-                    "protein": 32,
-                    "fiber": 0.5,
-                    "sugar": 0.1
-                }
+            # Check if user exists
+            user_data = get_user_data(user_id)
+            if not user_data:
+                return {"error": "User not found"}, 404
+            
+            # Get glucose readings from request
+            data = request.json
+            if 'glucose_readings' not in data:
+                return {"error": "Missing glucose readings"}, 400
+            
+            glucose_readings = data['glucose_readings']
+            
+            # Validate glucose readings
+            validation_error = validate_glucose_readings(glucose_readings)
+            if validation_error:
+                return {"error": validation_error}, 400
+            
+            # Process calibration meal
+            response_factor = models.process_calibration_meal(glucose_readings)
+            
+            # Update user profile with calibration data
+            user_data['calibration'] = {
+                "calibration_factor": response_factor,
+                "timestamp": datetime.now().isoformat(),
+                "readings": glucose_readings
             }
             
-            # If person info is provided, make glucose prediction
-            glucose_prediction = None
-            if person and all(k in person for k in ['bmi', 'age', 'sex']) and predictor.model is not None:
-                glucose_prediction = predictor.predict_glucose_response(
-                    person,
-                    food_analysis["total_nutrients"]
-                )
-                
-                # Add guidelines and recommendations as in the prediction endpoint
-                if glucose_prediction:
-                    guidelines = []
-                    
-                    if glucose_prediction['risk_level'] == 'High':
-                        guidelines.append("Consider reducing carbohydrates or adding more fiber to this meal.")
-                        guidelines.append("Pairing carbohydrates with protein and healthy fats may help reduce glucose impact.")
-                    elif glucose_prediction['risk_level'] == 'Medium':
-                        guidelines.append("This meal has a moderate impact on blood glucose.")
-                        guidelines.append("Consider physical activity after eating to help manage glucose levels.")
-                    else:
-                        guidelines.append("This meal should have minimal impact on blood glucose levels.")
-                    
-                    recommendations = []
-                    nutrients = food_analysis["total_nutrients"]
-                    
-                    if nutrients['carbs'] > 50 and nutrients['fiber'] < 5:
-                        recommendations.append("This meal is high in carbs and low in fiber. Adding fiber can help reduce glucose impact.")
-                    
-                    if nutrients['sugar'] > 25:
-                        recommendations.append("This meal is high in sugar. Consider reducing added sugars.")
-                    
-                    glucose_prediction["guidelines"] = guidelines
-                    glucose_prediction["recommendations"] = recommendations
+            # Save updated profile
+            save_user_data(user_id, user_data)
             
             return {
-                "food_analysis": food_analysis,
-                "glucose_prediction": glucose_prediction
-            }
+                "calibration_factor": response_factor,
+                "message": "Calibration completed successfully"
+            }, 200
         
         except Exception as e:
-            api.abort(500, f"Image analysis error: {str(e)}")
-        
-        finally:
-            # Clean up temporary image file
-            if os.path.exists(temp_image_path):
-                os.remove(temp_image_path)
+            logger.error(f"Error processing calibration for user {user_id}: {str(e)}", exc_info=True)
+            return {"error": "Failed to process calibration"}, 500
 
-@model_ns.route('/train')
-class ModelTraining(Resource):
-    @model_ns.doc('train_model')
-    @model_ns.expect(upload_parser)
-    @model_ns.marshal_with(training_response_model, code=200)
-    @model_ns.response(400, 'Validation Error')
-    @model_ns.response(500, 'Training Error')
-    def post(self):
-        """Train or retrain the model with provided data"""
-        args = upload_parser.parse_args()
-        
-        if 'data_file' not in request.files:
-            api.abort(400, "No file provided")
-        
-        file = request.files['data_file']
-        if file.filename == '':
-            api.abort(400, "No file selected")
-        
-        # Save uploaded file temporarily
-        temp_path = "temp_upload.csv"
-        file.save(temp_path)
-        
+@meals_ns.route('/<string:user_id>/<string:meal_id>/response')
+class MealResponse(Resource):
+    @api.expect(meal_response_model)
+    def post(self, user_id, meal_id):
+        """Log user's response to a meal"""
         try:
-            # Train the model
-            training_result = predictor.train_model(temp_path)
+            # Check if user exists
+            user_data = get_user_data(user_id)
+            if not user_data:
+                return {"error": "User not found"}, 404
             
-            if training_result:
-                # Save the trained model
-                predictor.save_model(MODEL_PATH)
-                return {
-                    "status": "success",
-                    "message": "Model trained successfully",
-                    "details": training_result
-                }
-            else:
-                api.abort(500, "Model training failed")
+            # Find the meal
+            meal_found = False
+            for meal in user_data['meals']:
+                if meal['meal_id'] == meal_id:
+                    # Add user response
+                    meal['user_response'] = request.json
+                    meal['response_time'] = datetime.now().isoformat()
+                    meal_found = True
+                    break
+            
+            if not meal_found:
+                return {"error": "Meal not found"}, 404
+            
+            # Update user's personal model if enough data points
+            model_updated = False
+            meals_with_responses = [m for m in user_data['meals'] if 'user_response' in m]
+            
+            if len(meals_with_responses) >= 5:
+                # Prepare training data
+                feature_data, response_data = models.prepare_training_data(meals_with_responses)
+                
+                # Train model if we have enough data
+                if len(feature_data) > 0 and len(response_data) > 0:
+                    # Update user's personalized model
+                    model_updated = models.update_user_model(user_id, feature_data, response_data)
+                    
+                    # Record model update
+                    if model_updated:
+                        user_data['model_updated_at'] = datetime.now().isoformat()
+                        user_data['model_version'] = user_data.get('model_version', 0) + 1
+            
+            # Save updated user data
+            save_user_data(user_id, user_data)
+            
+            response = {"message": "Response recorded"}
+            if model_updated:
+                response["model_updated"] = True
+                response["message"] = "Your personal profile has been updated based on your response"
+            
+            return response, 200
         
         except Exception as e:
-            api.abort(500, f"Training error: {str(e)}")
-        
-        finally:
-            # Clean up temporary file
-            if os.path.exists(temp_path):
-                os.remove(temp_path)
+            logger.error(f"Error logging meal response for user {user_id}, meal {meal_id}: {str(e)}", exc_info=True)
+            return {"error": "Failed to log meal response"}, 500
 
+@meals_ns.route('/<string:user_id>')
+class UserMeals(Resource):
+    def get(self, user_id):
+        """Get user's meal history"""
+        try:
+            # Check if user exists
+            user_data = get_user_data(user_id)
+            if not user_data:
+                return {"error": "User not found"}, 404
+            
+            # Return meals
+            return {"meals": user_data.get('meals', [])}, 200
+        
+        except Exception as e:
+            logger.error(f"Error getting meals for user {user_id}: {str(e)}", exc_info=True)
+            return {"error": "Failed to get meal history"}, 500
+
+# Application entry point
+def create_app(config_class=Config):
+    return app
+
+# Run the application when executed directly
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
+
+# Add this at the module level
+app = create_app()
+
