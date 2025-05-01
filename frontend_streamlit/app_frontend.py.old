@@ -1,0 +1,1469 @@
+import streamlit as st
+import requests
+import json
+import base64
+import os
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import uuid
+from io import BytesIO
+from PIL import Image
+from datetime import datetime
+
+# Configure page settings
+st.set_page_config(
+    page_title="Eat Health AI",
+    page_icon="🍎",
+    layout="centered",
+    initial_sidebar_state="collapsed"
+)
+
+# Global variables
+API_BASE_URL = "http://localhost:5000"  # Default API base URL
+
+# Initialize session state variables
+if 'page' not in st.session_state:
+    st.session_state.page = 'home'
+if 'selected_user_id' not in st.session_state:
+    st.session_state.selected_user_id = None
+if 'food_image' not in st.session_state:
+    st.session_state.food_image = None
+if 'analysis_results' not in st.session_state:
+    st.session_state.analysis_results = None
+if 'api_url' not in st.session_state:
+    st.session_state.api_url = API_BASE_URL
+if 'feedback_glucose_readings' not in st.session_state:
+    st.session_state.feedback_glucose_readings = []
+if 'last_meal_id' not in st.session_state:
+    st.session_state.last_meal_id = None
+if 'user_profile_data' not in st.session_state:
+    st.session_state.user_profile_data = None
+if 'meal_history' not in st.session_state:
+    st.session_state.meal_history = []
+
+# Custom CSS
+st.markdown("""
+<style>
+    .header-text {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #27ae60;
+        margin-bottom: 0.5rem;
+    }
+    .subheader-text {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+    }
+    .card {
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .user-profile-card {
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-left: 4px solid #27ae60;
+    }
+    .user-profile-card.selected {
+        background-color: #e6f7ef;
+        border-left: 4px solid #27ae60;
+    }
+    .primary-btn {
+        background-color: #27ae60;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .secondary-btn {
+        background-color: #f0f0f0;
+        color: #333;
+        padding: 8px 15px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .nav-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .icon-green {
+        color: #27ae60;
+        font-size: 1.5rem;
+        margin-right: 10px;
+    }
+    .recommendations {
+        background-color: #e6f7ef;
+        border-radius: 10px;
+        padding: 15px;
+        margin-top: 20px;
+    }
+    .high-risk {
+        background-color: #e74c3c;
+        color: white;
+        padding: 3px 8px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+    .medium-risk {
+        background-color: #f39c12;
+        color: white;
+        padding: 3px 8px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+    .low-risk {
+        background-color: #27ae60;
+        color: white;
+        padding: 3px 8px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+    .metric-container {
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .metric-value {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #27ae60;
+    }
+    .metric-label {
+        font-size: 0.9rem;
+        color: #666;
+    }
+    .history-card {
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-left: 4px solid #3498db;
+    }
+    .feedback-form {
+        background-color: #f0f7ff;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# CSV file management for user persistence (keeping this for local storage)
+def init_profiles_csv():
+    """Initialize the CSV file for user profiles if it doesn't exist"""
+    profiles_path = 'eatsmart_profiles.csv'
+    
+    if not os.path.exists(profiles_path):
+        # Create empty dataframe with the correct columns
+        columns = ['id', 'name', 'age', 'gender', 'height', 'weight', 
+                  'exercise_days', 'activity_level', 'diabetes_status', 'date_created']
+        df = pd.DataFrame(columns=columns)
+        df.to_csv(profiles_path, index=False)
+        
+    return profiles_path
+
+def get_all_users():
+    """Retrieve all users from the CSV file"""
+    try:
+        # First try to get users from the API
+        response = requests.get(f"{st.session_state.api_url}/users")
+        if response.status_code == 200:
+            users = pd.DataFrame(response.json())
+            return users
+    except Exception as e:
+        st.warning(f"Could not fetch users from API: {e}. Falling back to local storage.")
+    
+    # Fallback to local storage
+    profiles_path = init_profiles_csv()
+    try:
+        users = pd.read_csv(profiles_path)
+        return users
+    except Exception as e:
+        st.error(f"Error loading user profiles: {e}")
+        return pd.DataFrame()
+
+def save_user_to_csv(profile_data):
+    """Save a new user to the CSV file or update existing user"""
+    try:
+        # First try to save to the API
+        if 'id' in profile_data and profile_data['id']:
+            # Update existing user
+            user_id = profile_data['id']
+            response = requests.put(
+                f"{st.session_state.api_url}/users/{user_id}", 
+                json=profile_data
+            )
+        else:
+            # Create new user
+            response = requests.post(
+                f"{st.session_state.api_url}/users", 
+                json=profile_data
+            )
+        
+        if response.status_code in [200, 201]:
+            result = response.json()
+            user_id = result.get('user_id', profile_data.get('id'))
+            # Fetch the full user profile
+            get_user_by_id(user_id)
+            return user_id
+        else:
+            st.warning(f"API returned status {response.status_code}. Falling back to local storage.")
+    except Exception as e:
+        st.warning(f"Could not save user to API: {e}. Falling back to local storage.")
+    
+    # Fallback to local storage
+    profiles_path = init_profiles_csv()
+    
+    try:
+        # Load existing profiles
+        if os.path.exists(profiles_path) and os.path.getsize(profiles_path) > 0:
+            users_df = pd.read_csv(profiles_path)
+        else:
+            # Create a new dataframe if file doesn't exist or is empty
+            columns = ['id', 'name', 'age', 'gender', 'height', 'weight', 
+                      'exercise_days', 'activity_level', 'diabetes_status', 'date_created']
+            users_df = pd.DataFrame(columns=columns)
+        
+        # Check if user with same name exists
+        existing_user = users_df[users_df['name'] == profile_data['name']]
+        
+        if not existing_user.empty:
+            # Update existing user
+            user_id = existing_user.iloc[0]['id']
+            users_df.loc[users_df['name'] == profile_data['name'], [
+                'age', 'gender', 'height', 'weight', 'exercise_days', 
+                'activity_level', 'diabetes_status'
+            ]] = [
+                profile_data['age'], profile_data['gender'], profile_data['height'], 
+                profile_data['weight'], profile_data['exercise_days'], 
+                profile_data['activity_level'], profile_data['diabetes_status']
+            ]
+        else:
+            # Create a new user
+            user_id = str(uuid.uuid4()) if 'id' not in profile_data or not profile_data['id'] else profile_data['id']
+            new_user = {
+                'id': user_id,
+                'name': profile_data['name'],
+                'age': profile_data['age'],
+                'gender': profile_data['gender'],
+                'height': profile_data['height'],
+                'weight': profile_data['weight'],
+                'exercise_days': profile_data['exercise_days'],
+                'activity_level': profile_data['activity_level'],
+                'diabetes_status': profile_data['diabetes_status'],
+                'date_created': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            }
+            users_df = pd.concat([users_df, pd.DataFrame([new_user])], ignore_index=True)
+        
+        # Save the updated dataframe
+        users_df.to_csv(profiles_path, index=False)
+        return user_id
+    
+    except Exception as e:
+        st.error(f"Error saving user profile: {e}")
+        return None
+
+def get_user_by_id(user_id):
+    """Get a user's profile by ID"""
+    if not user_id:
+        return None
+    
+    try:
+        # First try to get from the API
+        response = requests.get(f"{st.session_state.api_url}/users/{user_id}")
+        if response.status_code == 200:
+            user_data = response.json()
+            # Store the full user data in session state
+            st.session_state.user_profile_data = user_data
+            # Extract just the profile part for compatibility with existing code
+            return user_data.get('profile', user_data)
+    except Exception as e:
+        st.warning(f"Could not fetch user from API: {e}. Falling back to local storage.")
+    
+    # Fallback to local storage
+    profiles_path = init_profiles_csv()
+    
+    try:
+        users_df = pd.read_csv(profiles_path)
+        user = users_df[users_df['id'] == user_id]
+        
+        if not user.empty:
+            return user.iloc[0].to_dict()
+        return None
+    
+    except Exception as e:
+        st.error(f"Error retrieving user profile: {e}")
+        return None
+
+def get_user_meal_history(user_id):
+    """Get a user's meal history"""
+    if not user_id:
+        return []
+    
+    try:
+        # Try to get from the API
+        response = requests.get(f"{st.session_state.api_url}/users/{user_id}")
+        if response.status_code == 200:
+            user_data = response.json()
+            st.session_state.meal_history = user_data.get('meals', [])
+            return st.session_state.meal_history
+    except Exception as e:
+        st.warning(f"Could not fetch meal history from API: {e}")
+    
+    return st.session_state.meal_history if hasattr(st.session_state, 'meal_history') else []
+
+def check_api_health():
+    """Check if the API is healthy"""
+    try:
+        response = requests.get(f"{st.session_state.api_url}/health")
+        if response.status_code == 200:
+            health_data = response.json()
+            return health_data.get('status') == 'healthy', health_data.get('glucose_model_loaded', False)
+        return False, False
+    except Exception as e:
+        return False, False
+
+# Initialize profiles CSV for local fallback
+init_profiles_csv()
+
+# Navigation functions
+def go_to_home():
+    st.session_state.page = 'home'
+
+def go_to_profile_list():
+    st.session_state.page = 'profile_list'
+
+def go_to_create_profile():
+    st.session_state.page = 'create_profile'
+    st.session_state.profile_data = {
+        'name': '',
+        'age': 30,
+        'gender': 'Male',
+        'height': 170,
+        'weight': 70,
+        'exercise_days': 3,
+        'activity_level': 'Moderate (moderate exercise 3-5 days/week)',
+        'diabetes_status': 'Normal',
+        'weight_goal': 'Maintain',
+        'hba1c': None,
+        'fasting_glucose': None
+    }
+
+def go_to_edit_profile(user_id):
+    st.session_state.page = 'create_profile'
+    user_data = get_user_by_id(user_id)
+    st.session_state.profile_data = user_data
+    st.session_state.editing_user_id = user_id
+
+def go_to_analyze():
+    st.session_state.page = 'analyze'
+
+def go_to_results():
+    st.session_state.page = 'results'
+
+def go_to_history():
+    st.session_state.page = 'history'
+    # Refresh meal history
+    if st.session_state.selected_user_id:
+        get_user_meal_history(st.session_state.selected_user_id)
+
+def go_to_feedback(meal_id=None):
+    st.session_state.page = 'feedback'
+    if meal_id:
+        st.session_state.last_meal_id = meal_id
+
+def select_user(user_id):
+    st.session_state.selected_user_id = user_id
+    # Get full user data
+    get_user_by_id(user_id)
+    # Get meal history
+    get_user_meal_history(user_id)
+
+def save_profile(profile_data):
+    user_id = save_user_to_csv(profile_data)
+    if user_id:
+        st.session_state.selected_user_id = user_id
+        st.session_state.page = 'profile_list'
+        st.success(f"Profile for {profile_data['name']} saved successfully!")
+    else:
+        st.error("Failed to save profile. Please try again.")
+
+def analyze_food(image=None, user_id=None):
+    """Send the food image to the API for analysis"""
+    if image is not None:
+        st.session_state.food_image = image
+    
+    if user_id is not None:
+        st.session_state.selected_user_id = user_id
+    
+    # Get the selected user's profile
+    user_profile = get_user_by_id(st.session_state.selected_user_id)
+    if not user_profile:
+        st.error("Selected user profile not found")
+        return None
+    
+    # Check if we have an API URL and an image
+    if not st.session_state.api_url:
+        st.error("Please enter the API URL first")
+        return None
+    
+    if st.session_state.food_image is None:
+        st.error("Please upload a food image first")
+        return None
+    
+    try:
+        # Prepare the image for sending
+        buffered = BytesIO()
+        st.session_state.food_image.save(buffered, format="PNG")
+        image_base64 = base64.b64encode(buffered.getvalue()).decode()
+        
+        # Create a multipart form data request
+        files = {
+            'food_image': ('image.png', buffered.getvalue(), 'image/png')
+        }
+        
+        # Include user profile data
+        # Convert profile data to expected format
+        user_data = {
+            'age': user_profile["age"],
+            'gender': user_profile["gender"].lower(),
+            'height': user_profile["height"],
+            'weight': user_profile["weight"],
+            'activity_level': user_profile["activity_level"].split(" ")[0].lower() + "_active",
+            'diabetes_status': convert_diabetes_status(user_profile["diabetes_status"])
+        }
+        
+        data = {
+            'user_id': st.session_state.selected_user_id,
+            'person_info': json.dumps(user_data)
+        }
+        
+        # Make API request
+        try:
+            # First try the /food/analyze-food endpoint
+            api_url = f"{st.session_state.api_url}/food/analyze-food"
+            with st.spinner("Analyzing food image..."):
+                response = requests.post(api_url, files=files, data=data)
+            
+            if response.status_code != 200:
+                # Fall back to /food/analyze endpoint
+                api_url = f"{st.session_state.api_url}/food/analyze"
+                with st.spinner("Trying alternative endpoint..."):
+                    response = requests.post(api_url, files=files, data=data)
+        except Exception as e:
+            st.error(f"API request failed: {e}")
+            # Fall back to mock data for demo purposes
+            return use_mock_data(user_profile)
+        
+        if response.status_code == 200:
+            result = response.json()
+            st.session_state.analysis_results = result
+            # Store the meal_id for feedback
+            st.session_state.last_meal_id = result.get('meal_id')
+            st.session_state.page = 'results'
+            return result
+        else:
+            st.error(f"Error: {response.status_code} - {response.text}")
+            
+            # Fallback to mock results for demo purposes
+            return use_mock_data(user_profile)
+    except Exception as e:
+        st.error(f"Error connecting to the API: {e}")
+        # Fallback to mock results for demo purposes
+        return use_mock_data(user_profile)
+
+def convert_diabetes_status(status):
+    """Convert diabetes status to the format expected by the API"""
+    mapping = {
+        'Normal': 'none',
+        'Prediabetes': 'pre_diabetic',
+        'Type 1 Diabetes': 'type1_diabetes',
+        'Type 2 Diabetes': 'type2_diabetes',
+        'Gestational': 'gestational_diabetes'
+    }
+    return mapping.get(status, 'none')
+
+def submit_feedback(meal_id, glucose_readings, feedback_text):
+    """Submit feedback for a meal"""
+    if not meal_id:
+        st.error("No meal ID provided for feedback")
+        return False
+    
+    # Convert glucose readings to the expected format
+    glucose_data = []
+    for reading in glucose_readings:
+        glucose_data.append({
+            'time': reading['time'],
+            'glucose': reading['glucose']
+        })
+    
+    feedback_data = {
+        'user_id': st.session_state.selected_user_id,
+        'glucose_readings': glucose_data,
+        'feedback': feedback_text
+    }
+    
+    try:
+        response = requests.post(
+            f"{st.session_state.api_url}/food/{meal_id}/feedback",
+            json=feedback_data
+        )
+        
+        if response.status_code == 200:
+            st.success("Feedback submitted successfully!")
+            return True
+        else:
+            st.error(f"Error submitting feedback: {response.status_code} - {response.text}")
+            return False
+    except Exception as e:
+        st.error(f"Error connecting to the API: {e}")
+        return False
+
+def use_mock_data(user_profile):
+    """Fallback to mock results for testing purposes"""
+    mock_results = {
+        "meal_id": str(uuid.uuid4()),
+        "food_analysis": {
+            "identified_foods": [
+                {
+                    "food_name": "Chocolate Cake",
+                    "confidence": 0.92,
+                    "category": "Dessert",
+                    "base_gi": 65,
+                    "personalized_gi": 70,
+                    "nutrients": {
+                        "calories": 350,
+                        "carbs": 45,
+                        "protein": 5,
+                        "fat": 15,
+                        "fiber": 2,
+                        "sugar": 30
+                    }
+                }
+            ],
+            "total_nutrients": {
+                "calories": 350,
+                "carbs": 45,
+                "protein": 5,
+                "fat": 15,
+                "fiber": 2,
+                "sugar": 30
+            }
+        },
+        "glucose_prediction": {
+            "predicted_glucose": 155,
+            "glucose_category": "Elevated",
+            "time_series": [
+                {"minute": 0, "glucose": 80},
+                {"minute": 15, "glucose": 100},
+                {"minute": 30, "glucose": 130},
+                {"minute": 45, "glucose": 155},
+                {"minute": 60, "glucose": 140},
+                {"minute": 75, "glucose": 120},
+                {"minute": 90, "glucose": 100},
+                {"minute": 105, "glucose": 90},
+                {"minute": 120, "glucose": 85}
+            ],
+            "max_glucose_time": 45,
+            "guidelines": [
+                "This meal may cause a moderate glucose spike.",
+                "Consider reducing portion size or balancing with protein and healthy fats."
+            ],
+            "recommendations": [
+                "This meal has a poor carb-to-fiber ratio. Adding fiber-rich vegetables or whole grains could improve the glucose response.",
+                "The sugar content in this meal is high, which can lead to rapid glucose spikes. Consider reducing added sugars.",
+                "A 15-20 minute walk after this meal could significantly reduce the glucose impact."
+            ]
+        }
+    }
+    st.session_state.analysis_results = mock_results
+    st.session_state.last_meal_id = mock_results['meal_id']
+    st.session_state.page = 'results'
+    return mock_results
+
+# Home Page
+def render_home():
+    st.markdown("<h1 style='color: #27ae60;'>Eat Health AI</h1>", unsafe_allow_html=True)
+    
+    st.markdown("<h2 class='header-text'>Your Personal Food Health Assistant</h2>", unsafe_allow_html=True)
+    st.markdown("<p class='subheader-text'>Make informed food choices with AI-powered analysis that predicts glucose spikes based on your unique health profile.</p>", unsafe_allow_html=True)
+    
+    # Check API health
+    is_api_healthy, is_model_loaded = check_api_health()
+    
+    # Setup API URL
+    with st.expander("API Configuration", expanded=not is_api_healthy):
+        api_url = st.text_input("API Base URL", value=st.session_state.api_url)
+        if st.button("Connect to API"):
+            st.session_state.api_url = api_url
+            is_api_healthy, is_model_loaded = check_api_health()
+            if is_api_healthy:
+                st.success("Connected to API successfully!")
+                if is_model_loaded:
+                    st.success("Glucose prediction model is loaded.")
+                else:
+                    st.warning("API is healthy but glucose prediction model is not loaded.")
+            else:
+                st.error("Could not connect to API. Using local storage as fallback.")
+    
+    # Main action buttons
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("<div class='primary-btn'>", unsafe_allow_html=True)
+        if st.button("Manage Profiles 👤", key="manage_profiles_btn"):
+            go_to_profile_list()
+        st.markdown("</div>", unsafe_allow_html=True)
+    with col2:
+        st.markdown("<div class='primary-btn'>", unsafe_allow_html=True)
+        if st.button("Analyze Food 📊", key="analyze_food_btn"):
+            go_to_analyze()
+        st.markdown("</div>", unsafe_allow_html=True)
+    
+    # Feature cards
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    st.markdown("<div><span class='icon-green'>❤️</span> <b>Personalized Health Profile</b></div>", unsafe_allow_html=True)
+    st.markdown("<p>Create your detailed health profile including age, weight, exercise habits, and lifestyle factors.</p>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    st.markdown("<div><span class='icon-green'>🍽️</span> <b>Instant Food Analysis</b></div>", unsafe_allow_html=True)
+    st.markdown("<p>Take a photo of your meal and get immediate identification of what you're about to eat.</p>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    st.markdown("<div><span class='icon-green'>📊</span> <b>Glucose Impact Prediction</b></div>", unsafe_allow_html=True)
+    st.markdown("<p>Understand how your food choices will affect your glucose levels based on your unique profile.</p>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    st.markdown("<div><span class='icon-green'>📈</span> <b>Meal History & Trends</b></div>", unsafe_allow_html=True)
+    st.markdown("<p>Track your eating patterns and glucose responses over time to improve your health.</p>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    st.markdown("<div><span class='icon-green'>🤓</span> <b>Machine Learning Personalization</b></div>", unsafe_allow_html=True)
+    st.markdown("<p>The more you use it, the more it learns about your unique glucose responses.</p>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+
+# Profile List Page
+def render_profile_list():
+    # Navigation bar
+    st.markdown("<div class='nav-bar'>", unsafe_allow_html=True)
+    st.markdown("<h2>User Profiles</h2>", unsafe_allow_html=True)
+    st.markdown("<div>", unsafe_allow_html=True)
+    st.markdown("<div class='secondary-btn' style='width: 120px;'>", unsafe_allow_html=True)
+    if st.button("← Back", key="profile_list_back_btn"):
+        go_to_home()
+    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    st.markdown("<p class='subheader-text'>Select a profile to edit or create a new one.</p>", unsafe_allow_html=True)
+    
+    # Get all users
+    users = get_all_users()
+    
+    if not users.empty:
+        st.markdown("<h3>Existing Profiles</h3>", unsafe_allow_html=True)
+        for index, user in users.iterrows():
+            cols = st.columns([3, 1, 1, 1])
+            with cols[0]:
+                # User card
+                is_selected = st.session_state.selected_user_id == user['id']
+                card_class = "user-profile-card selected" if is_selected else "user-profile-card"
+                st.markdown(f"<div class='{card_class}' id='user-{user['id']}'>", unsafe_allow_html=True)
+                st.markdown(f"<b>{user['name']}</b> ({user['age']})", unsafe_allow_html=True)
+                st.markdown(f"{user['gender']} | {user['height']} cm | {user['weight']} kg", unsafe_allow_html=True)
+                st.markdown("</div>", unsafe_allow_html=True)
+            
+            with cols[1]:
+                if st.button("Select", key=f"select_user_{user['id']}"):
+                    select_user(user['id'])
+                    st.success(f"Selected {user['name']}")
+                    st.experimental_rerun()
+            
+            with cols[2]:
+                if st.button("Edit", key=f"edit_user_{user['id']}"):
+                    go_to_edit_profile(user['id'])
+            
+            with cols[3]:
+                if st.button("History", key=f"history_user_{user['id']}"):
+                    select_user(user['id'])
+                    go_to_history()
+    else:
+        st.info("No user profiles found. Create your first profile!")
+    
+    st.markdown("<div class='primary-btn' style='margin-top: 20px;'>", unsafe_allow_html=True)
+    if st.button("+ Create New Profile", key="create_profile_btn"):
+        go_to_create_profile()
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    if st.session_state.selected_user_id:
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown("<div class='primary-btn'>", unsafe_allow_html=True)
+            if st.button("Analyze Food with Selected Profile", key="analyze_with_profile_btn"):
+                go_to_analyze()
+            st.markdown("</div>", unsafe_allow_html=True)
+        with col2:
+            st.markdown("<div class='primary-btn'>", unsafe_allow_html=True)
+            if st.button("View Meal History", key="view_history_btn"):
+                go_to_history()
+            st.markdown("</div>", unsafe_allow_html=True)
+
+# Profile Creation Page
+def render_create_profile():
+    # Check if we're editing an existing profile or creating a new one
+    editing = 'editing_user_id' in st.session_state
+    
+    # Navigation bar
+    st.markdown("<div class='nav-bar'>", unsafe_allow_html=True)
+    title = "Edit Profile" if editing else "Create New Profile"
+    st.markdown(f"<h2>{title}</h2>", unsafe_allow_html=True)
+    st.markdown("<div>", unsafe_allow_html=True)
+    st.markdown("<div class='secondary-btn' style='width: 120px;'>", unsafe_allow_html=True)
+    if st.button("← Back", key="create_profile_back_btn"):
+        if 'editing_user_id' in st.session_state:
+            del st.session_state.editing_user_id
+        go_to_profile_list()
+    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    st.markdown("<p class='subheader-text'>Enter your information to create a personalized profile for glucose predictions.</p>", unsafe_allow_html=True)
+    
+    # Load profile data
+    profile_data = st.session_state.profile_data if 'profile_data' in st.session_state else {
+        'name': '',
+        'age': 30,
+        'gender': 'Male',
+        'height': 170,
+        'weight': 70,
+        'exercise_days': 3,
+        'activity_level': 'Moderate (moderate exercise 3-5 days/week)',
+        'diabetes_status': 'Normal',
+        'weight_goal': 'Maintain',
+        'hba1c': None,
+        'fasting_glucose': None
+    }
+    
+    # Basic Information
+    st.markdown("<h3>Basic Information</h3>", unsafe_allow_html=True)
+    profile_data['name'] = st.text_input("Full Name", value=profile_data.get('name', ''))
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        profile_data['age'] = st.number_input("Age", value=int(profile_data.get('age', 30)), min_value=1, max_value=120)
+    with col2:
+        profile_data['gender'] = st.radio("Gender", options=["Male", "Female", "Other"], horizontal=True, index=["Male", "Female", "Other"].index(profile_data.get('gender', 'Male')))
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        profile_data['height'] = st.number_input("Height (cm)", value=float(profile_data.get('height', 170)), min_value=50.0, max_value=250.0)
+    with col2:
+        profile_data['weight'] = st.number_input("Weight (kg)", value=float(profile_data.get('weight', 70)), min_value=20.0, max_value=300.0)
+    
+    # Calculate BMI
+    height_m = profile_data['height'] / 100
+    bmi = profile_data['weight'] / (height_m * height_m)
+    st.info(f"BMI: {bmi:.1f} ({get_bmi_category(bmi)})")
+    
+    # Lifestyle Information
+    st.markdown("<h3>Lifestyle Information</h3>", unsafe_allow_html=True)
+    profile_data['exercise_days'] = st.slider("Exercise (days per week)", 0, 7, int(profile_data.get('exercise_days', 3)))
+    
+    activity_options = [
+        "Sedentary (little or no exercise)",
+        "Light (light exercise 1-3 days/week)",
+        "Moderate (moderate exercise 3-5 days/week)",
+        "Active (hard exercise 6-7 days/week)",
+        "Very Active (twice daily training)"
+    ]
+    profile_data['activity_level'] = st.selectbox(
+        "Activity Level",
+        options=activity_options,
+        index=activity_options.index(profile_data.get('activity_level', 'Moderate (moderate exercise 3-5 days/week)'))
+    )
+    
+    weight_goal_options = ["Lose Weight", "Maintain", "Gain Weight"]
+    profile_data['weight_goal'] = st.selectbox(
+        "Weight Goal",
+        options=weight_goal_options,
+        index=weight_goal_options.index(profile_data.get('weight_goal', 'Maintain'))
+    )
+    
+    # Health Information
+    st.markdown("<h3>Health Information</h3>", unsafe_allow_html=True)
+    diabetes_options = ["Normal", "Prediabetes", "Type 1 Diabetes", "Type 2 Diabetes", "Gestational"]
+    profile_data['diabetes_status'] = st.selectbox(
+        "Diabetes Status",
+        options=diabetes_options,
+        index=diabetes_options.index(profile_data.get('diabetes_status', 'Normal'))
+    )
+    
+    # Additional health metrics for diabetes management
+    if profile_data['diabetes_status'] != "Normal":
+        col1, col2 = st.columns(2)
+        with col1:
+            profile_data['hba1c'] = st.number_input(
+                "HbA1c (%)", 
+                value=float(profile_data.get('hba1c', 5.7)) if profile_data.get('hba1c') is not None else 5.7,
+                min_value=4.0, 
+                max_value=15.0, 
+                step=0.1
+            )
+        with col2:
+            profile_data['fasting_glucose'] = st.number_input(
+                "Fasting Glucose (mg/dL)", 
+                value=float(profile_data.get('fasting_glucose', 100)) if profile_data.get('fasting_glucose') is not None else 100,
+                min_value=50.0, 
+                max_value=300.0
+            )
+    
+    # Family history
+    profile_data['family_history'] = st.checkbox(
+        "Family history of diabetes",
+        value=profile_data.get('family_history', False)
+    )
+    
+    # Save and Cancel buttons
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("<div class='secondary-btn'>", unsafe_allow_html=True)
+        if st.button("Cancel", key="cancel_profile_btn"):
+            if 'editing_user_id' in st.session_state:
+                del st.session_state.editing_user_id
+            go_to_profile_list()
+        st.markdown("</div>", unsafe_allow_html=True)
+    with col2:
+        st.markdown("<div class='primary-btn'>", unsafe_allow_html=True)
+        if st.button("Save Profile", key="save_profile_btn"):
+            if not profile_data['name']:
+                st.error("Please enter a name for the profile")
+            else:
+                # Add user_id if editing
+                if 'editing_user_id' in st.session_state:
+                    profile_data['id'] = st.session_state.editing_user_id
+                
+                save_profile(profile_data)
+                if 'editing_user_id' in st.session_state:
+                    del st.session_state.editing_user_id
+        st.markdown("</div>", unsafe_allow_html=True)
+
+def get_bmi_category(bmi):
+    """Return the BMI category based on the BMI value"""
+    if bmi < 18.5:
+        return "Underweight"
+    elif bmi < 25:
+        return "Normal weight"
+    elif bmi < 30:
+        return "Overweight"
+    else:
+        return "Obese"
+
+# Food Analysis Page
+def render_analyze():
+    # Navigation bar
+    st.markdown("<div class='nav-bar'>", unsafe_allow_html=True)
+    st.markdown("<h2>Analyze Your Food</h2>", unsafe_allow_html=True)
+    st.markdown("<div>", unsafe_allow_html=True)
+    st.markdown("<div class='secondary-btn' style='width: 120px;'>", unsafe_allow_html=True)
+    if st.button("← Back", key="analyze_back_btn"):
+        go_to_home()
+    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    st.markdown("<p class='subheader-text'>Take a photo of your food to get nutritional insights and glucose impact.</p>", unsafe_allow_html=True)
+    
+    # User Profile Selection
+    st.markdown("<h3>Select User Profile</h3>", unsafe_allow_html=True)
+    users = get_all_users()
+    
+    if users.empty:
+        st.warning("No user profiles found. Please create a profile first.")
+        st.markdown("<div class='primary-btn' style='margin-top: 20px;'>", unsafe_allow_html=True)
+        if st.button("Create Profile", key="create_profile_from_analyze"):
+            go_to_create_profile()
+        st.markdown("</div>", unsafe_allow_html=True)
+        return
+    
+    # Create a dropdown of users
+    user_options = users[['id', 'name']].set_index('id')['name'].to_dict()
+    selected_user_id = st.selectbox(
+        "Choose a profile",
+        options=list(user_options.keys()),
+        format_func=lambda x: user_options[x],
+        index=0 if st.session_state.selected_user_id not in user_options else list(user_options.keys()).index(st.session_state.selected_user_id)
+    )
+    
+    st.session_state.selected_user_id = selected_user_id
+    selected_user = get_user_by_id(selected_user_id)
+    
+    # Display selected user info
+    if selected_user:
+        st.markdown("<div class='card'>", unsafe_allow_html=True)
+        st.markdown(f"<div><b>{selected_user['name']}</b> ({selected_user['age']}, {selected_user['gender']})</div>", unsafe_allow_html=True)
+        st.markdown(f"<div>Height: {selected_user['height']} cm | Weight: {selected_user['weight']} kg</div>", unsafe_allow_html=True)
+        st.markdown(f"<div>Activity Level: {selected_user['activity_level']}</div>", unsafe_allow_html=True)
+        st.markdown(f"<div>Diabetes Status: {selected_user['diabetes_status']}</div>", unsafe_allow_html=True)
+        st.markdown("</div>", unsafe_allow_html=True)
+    
+    # Additional context for analysis
+    with st.expander("Additional Context (Optional)", expanded=False):
+        st.markdown("<p>Provide additional information to improve the glucose prediction accuracy</p>", unsafe_allow_html=True)
+        
+        col1, col2 = st.columns(2)
+        with col1:
+            st.slider("Stress Level (1-10)", 1, 10, 5, key="stress_level")
+        with col2:
+            st.slider("Sleep Quality (1-10)", 1, 10, 7, key="sleep_quality")
+        
+        col1, col2 = st.columns(2)
+        with col1:
+            st.selectbox(
+                "Activity Timing",
+                ["None", "Before Meal", "After Meal"],
+                index=0,
+                key="activity_timing"
+            )
+        with col2:
+            st.number_input(
+                "Hours Since Last Meal",
+                min_value=0.5,
+                max_value=24.0,
+                value=4.0,
+                step=0.5,
+                key="hours_since_last_meal"
+            )
+    
+    # Image upload area
+    st.markdown("<h3>Food Image</h3>", unsafe_allow_html=True)
+    
+    # Image upload/capture options
+    image_source = st.radio("Image Source", ["Upload Image", "Take Photo"], horizontal=True)
+    
+    if image_source == "Upload Image":
+        uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"])
+        if uploaded_file is not None:
+            image = Image.open(uploaded_file)
+            st.image(image, caption="Uploaded Food Image", use_column_width=True)
+            st.session_state.food_image = image
+    else:  # Take Photo
+        # Streamlit camera input component
+        try:
+            camera_image = st.camera_input("Take a picture of your food")
+            if camera_image is not None:
+                image = Image.open(camera_image)
+                st.session_state.food_image = image
+        except:
+            st.warning("Camera input not supported in this Streamlit version.")
+            st.markdown("""
+            <div style="border: 2px dashed #ccc; border-radius: 5px; padding: 20px; text-align: center;">
+                <p>For camera access, we recommend using a mobile device or installing a webcam extension.</p>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    # Analysis button
+    st.markdown("<div class='primary-btn' style='margin-top: 20px;'>", unsafe_allow_html=True)
+    if st.button("Analyze Food", key="analyze_food_action_btn", disabled=st.session_state.food_image is None):
+        # Gather additional context if provided
+        additional_context = {
+            'stress_level': st.session_state.get('stress_level', 5),
+            'sleep_quality': st.session_state.get('sleep_quality', 7),
+            'activity_timing': st.session_state.get('activity_timing', 'None'),
+            'time_since_last_meal': st.session_state.get('hours_since_last_meal', 4.0)
+        }
+        
+        # Pass the additional context to the analyze_food function
+        analyze_food(st.session_state.food_image, st.session_state.selected_user_id)
+    st.markdown("</div>", unsafe_allow_html=True)
+
+# Results Page
+def render_results():
+    if st.session_state.analysis_results is None:
+        st.warning("No analysis results available. Please analyze a food first.")
+        if st.button("Go to Analyze", key="go_to_analyze_btn"):
+            go_to_analyze()
+        return
+    
+    results = st.session_state.analysis_results
+    
+    # Navigation bar
+    st.markdown("<div class='nav-bar'>", unsafe_allow_html=True)
+    st.markdown("<h2>Food Analysis Results</h2>", unsafe_allow_html=True)
+    st.markdown("<div>", unsafe_allow_html=True)
+    st.markdown("<div class='secondary-btn' style='width: 120px;'>", unsafe_allow_html=True)
+    if st.button("← Back", key="results_back_btn"):
+        go_to_analyze()
+    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    # Get user name if available
+    user_name = ""
+    if st.session_state.selected_user_id:
+        user = get_user_by_id(st.session_state.selected_user_id)
+        if user:
+            user_name = user["name"]
+    
+    # Extract food analysis results
+    food_analysis = results.get('food_analysis', {})
+    identified_foods = food_analysis.get('identified_foods', [])
+    total_nutrients = food_analysis.get('total_nutrients', {})
+    first_food = identified_foods[0] if identified_foods else {}
+    food_name = first_food.get('food_name', 'Unknown Food')
+    
+    # Extract glucose prediction results
+    glucose_prediction = results.get('glucose_prediction', {})
+    predicted_glucose = glucose_prediction.get('predicted_glucose', 0)
+    glucose_category = glucose_prediction.get('glucose_category', 'Unknown')
+    time_series = glucose_prediction.get('time_series', [])
+    max_glucose_time = glucose_prediction.get('max_glucose_time', 0)
+    guidelines = glucose_prediction.get('guidelines', [])
+    recommendations = glucose_prediction.get('recommendations', [])
+    
+    if user_name:
+        st.markdown(f"<p class='subheader-text'>Here's how {food_name} would affect {user_name}'s glucose levels.</p>", unsafe_allow_html=True)
+    else:
+        st.markdown(f"<p class='subheader-text'>Here's how {food_name} would affect your glucose levels.</p>", unsafe_allow_html=True)
+    
+    # Display food image and name
+    col1, col2 = st.columns([1, 2])
+    with col1:
+        if st.session_state.food_image is not None:
+            st.image(st.session_state.food_image, width=150)
+        else:
+            st.markdown(
+                """
+                <div style="
+                    width: 100px;
+                    height: 100px;
+                    background-color: #eee;
+                    border-radius: 5px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                ">
+                    <span style="color: #aaa;">No image</span>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+    with col2:
+        st.markdown(f"<h3>{food_name}</h3>", unsafe_allow_html=True)
+        if len(identified_foods) > 1:
+            st.markdown(f"<p>...and {len(identified_foods) - 1} other food items</p>", unsafe_allow_html=True)
+        if 'category' in first_food:
+            st.markdown(f"<p>{first_food['category']}</p>", unsafe_allow_html=True)
+    
+    # Display all identified foods in expander
+    if len(identified_foods) > 1:
+        with st.expander("View All Identified Foods", expanded=False):
+            for i, food in enumerate(identified_foods):
+                st.markdown(f"<b>{i+1}. {food.get('food_name', 'Unknown')}</b> (Confidence: {food.get('confidence', 0)*100:.1f}%)", unsafe_allow_html=True)
+                st.markdown(f"GI: {food.get('base_gi', 0)}", unsafe_allow_html=True)
+                nutrients = food.get('nutrients', {})
+                if nutrients:
+                    st.markdown("<b>Nutrients:</b>", unsafe_allow_html=True)
+                    for nutrient, value in nutrients.items():
+                        st.markdown(f"- {nutrient.capitalize()}: {value}", unsafe_allow_html=True)
+                st.markdown("<hr>", unsafe_allow_html=True)
+    
+    # Nutritional information
+    st.markdown("<h3>Nutritional Information</h3>", unsafe_allow_html=True)
+    
+    # Display nutrients in a grid
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.markdown("<div class='metric-container'>", unsafe_allow_html=True)
+        st.markdown(f"<div class='metric-value'>{total_nutrients.get('calories', 0)}</div>", unsafe_allow_html=True)
+        st.markdown("<div class='metric-label'>Calories</div>", unsafe_allow_html=True)
+        st.markdown("</div>", unsafe_allow_html=True)
+    with col2:
+        st.markdown("<div class='metric-container'>", unsafe_allow_html=True)
+        st.markdown(f"<div class='metric-value'>{total_nutrients.get('carbs', 0)}g</div>", unsafe_allow_html=True)
+        st.markdown("<div class='metric-label'>Carbs</div>", unsafe_allow_html=True)
+        st.markdown("</div>", unsafe_allow_html=True)
+    with col3:
+        st.markdown("<div class='metric-container'>", unsafe_allow_html=True)
+        st.markdown(f"<div class='metric-value'>{total_nutrients.get('protein', 0)}g</div>", unsafe_allow_html=True)
+        st.markdown("<div class='metric-label'>Protein</div>", unsafe_allow_html=True)
+        st.markdown("</div>", unsafe_allow_html=True)
+    with col4:
+        st.markdown("<div class='metric-container'>", unsafe_allow_html=True)
+        st.markdown(f"<div class='metric-value'>{total_nutrients.get('fat', 0)}g</div>", unsafe_allow_html=True)
+        st.markdown("<div class='metric-label'>Fat</div>", unsafe_allow_html=True)
+        st.markdown("</div>", unsafe_allow_html=True)
+    
+    # Additional nutrients
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.markdown("<div class='metric-container'>", unsafe_allow_html=True)
+        st.markdown(f"<div class='metric-value'>{total_nutrients.get('fiber', 0)}g</div>", unsafe_allow_html=True)
+        st.markdown("<div class='metric-label'>Fiber</div>", unsafe_allow_html=True)
+        st.markdown("</div>", unsafe_allow_html=True)
+    with col2:
+        st.markdown("<div class='metric-container'>", unsafe_allow_html=True)
+        st.markdown(f"<div class='metric-value'>{total_nutrients.get('sugar', 0)}g</div>", unsafe_allow_html=True)
+        st.markdown("<div class='metric-label'>Sugar</div>", unsafe_allow_html=True)
+        st.markdown("</div>", unsafe_allow_html=True)
+    with col3:
+        base_gi = first_food.get('base_gi', 0)
+        personalized_gi = first_food.get('personalized_gi', 0)
+        
+        st.markdown("<div class='metric-container'>", unsafe_allow_html=True)
+        st.markdown(f"<div class='metric-value'>{personalized_gi}</div>", unsafe_allow_html=True)
+        st.markdown("<div class='metric-label'>Glycemic Index</div>", unsafe_allow_html=True)
+        st.markdown("</div>", unsafe_allow_html=True)
+    
+    # Glucose impact
+    st.markdown("<h3>Glucose Impact</h3>", unsafe_allow_html=True)
+    
+    # Impact level badge
+    impact_level = glucose_category
+    impact_color_class = ""
+    if impact_level == "High":
+        impact_color_class = "high-risk"
+    elif impact_level == "Elevated":
+        impact_color_class = "medium-risk"
+    elif impact_level == "Normal":
+        impact_color_class = "low-risk"
+    else:
+        impact_color_class = "low-risk"
+    
+    # Progress bar for impact score
+    st.progress(predicted_glucose / 200)  # Normalize to 0-1 scale assuming max 200mg/dL
+    
+    st.markdown(
+        f"<div style='display: flex; justify-content: space-between; align-items: center;'>"
+        f"<span><b>Peak Glucose:</b> {predicted_glucose} mg/dL</span>"
+        f"<span><b>Time to Peak:</b> {max_glucose_time} minutes</span>"
+        f"<span class='{impact_color_class}'>{impact_level}</span>"
+        f"</div>",
+        unsafe_allow_html=True
+    )
+    
+    # Glucose curve visualization
+    if time_series:
+        try:
+            # Extract time and glucose values from time_series
+            if isinstance(time_series, list) and all(isinstance(item, dict) for item in time_series):
+                # If time_series is a list of dictionaries with 'minute' and 'glucose' keys
+                time_points = [item.get('minute', 0) for item in time_series]
+                glucose_curve = [item.get('glucose', 0) for item in time_series]
+            else:
+                # Use the provided time_series data directly
+                time_points = glucose_prediction.get('time_points', range(len(time_series)))
+                glucose_curve = time_series
+            
+            fig, ax = plt.subplots(figsize=(10, 6))
+            ax.plot(time_points, glucose_curve, 'b-', linewidth=2)
+            ax.set_title('Predicted Blood Glucose Response', fontsize=16)
+            ax.set_xlabel('Time (minutes)', fontsize=12)
+            ax.set_ylabel('Blood Glucose (mg/dL)', fontsize=12)
+            ax.grid(True, linestyle='--', alpha=0.7)
+            ax.axhline(y=140, color='r', linestyle='--', alpha=0.5, label='High threshold')
+            ax.axhline(y=70, color='orange', linestyle='--', alpha=0.5, label='Low threshold')
+            
+            # Fill areas
+            ax.fill_between(time_points, glucose_curve, 80, 
+                           where=(np.array(glucose_curve) > 140), 
+                           color='red', alpha=0.3)
+            ax.fill_between(time_points, glucose_curve, 80, 
+                           where=(np.array(glucose_curve) <= 140) & (np.array(glucose_curve) >= 70), 
+                           color='green', alpha=0.3)
+            
+            ax.legend()
+            st.pyplot(fig)
+        except Exception as e:
+            st.error(f"Could not render glucose curve: {e}")
+    
+    st.markdown("<p>Based on your profile, this food may cause a glucose response as shown above.</p>", unsafe_allow_html=True)
+    
+    # Recommendations
+    st.markdown("<div class='recommendations'>", unsafe_allow_html=True)
+    st.markdown("<h4>ℹ️ Guidelines</h4>", unsafe_allow_html=True)
+    for guideline in guidelines:
+        st.markdown(f"<li>{guideline}</li>", unsafe_allow_html=True)
+    
+    st.markdown("<h4>ℹ️ Recommendations</h4>", unsafe_allow_html=True)
+    for rec in recommendations:
+        st.markdown(f"<li>{rec}</li>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    # Action buttons
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.markdown("<div class='secondary-btn'>", unsafe_allow_html=True)
+        if st.button("📷 Analyze Another", key="analyze_another_btn"):
+            go_to_analyze()
+        st.markdown("</div>", unsafe_allow_html=True)
+    with col2:
+        st.markdown("<div class='primary-btn'>", unsafe_allow_html=True)
+        if st.button("📝 Submit Feedback", key="submit_feedback_btn"):
+            go_to_feedback(results.get('meal_id'))
+        st.markdown("</div>", unsafe_allow_html=True)
+    with col3:
+        st.markdown("<div class='secondary-btn'>", unsafe_allow_html=True)
+        if st.button("🏠 Back to Home", key="back_to_home_btn"):
+            go_to_home()
+        st.markdown("</div>", unsafe_allow_html=True)
+
+# Meal History Page
+def render_history():
+    # Navigation bar
+    st.markdown("<div class='nav-bar'>", unsafe_allow_html=True)
+    st.markdown("<h2>Meal History</h2>", unsafe_allow_html=True)
+    st.markdown("<div>", unsafe_allow_html=True)
+    st.markdown("<div class='secondary-btn' style='width: 120px;'>", unsafe_allow_html=True)
+    if st.button("← Back", key="history_back_btn"):
+        go_to_profile_list()
+    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    # Check if user is selected
+    if not st.session_state.selected_user_id:
+        st.warning("No user selected. Please select a user profile first.")
+        if st.button("Go to Profiles", key="go_to_profiles_btn"):
+            go_to_profile_list()
+        return
+    
+    user = get_user_by_id(st.session_state.selected_user_id)
+    if not user:
+        st.error("Selected user not found.")
+        return
+    
+    st.markdown(f"<p class='subheader-text'>Viewing meal history for {user['name']}</p>", unsafe_allow_html=True)
+    
+    # Get meal history
+    meal_history = get_user_meal_history(st.session_state.selected_user_id)
+    
+    if not meal_history:
+        st.info("No meal history found. Start by analyzing some meals.")
+        st.markdown("<div class='primary-btn' style='margin-top: 20px;'>", unsafe_allow_html=True)
+        if st.button("Analyze Food", key="analyze_food_from_history"):
+            go_to_analyze()
+        st.markdown("</div>", unsafe_allow_html=True)
+        return
+    
+    # Sort meals by timestamp (most recent first)
+    meal_history = sorted(meal_history, key=lambda x: x.get('timestamp', ''), reverse=True)
+    
+    # Display meal history
+    for i, meal in enumerate(meal_history):
+        meal_id = meal.get('meal_id', f"meal_{i}")
+        timestamp = meal.get('timestamp', '')
+        try:
+            # Format timestamp as readable date/time
+            dt = datetime.fromisoformat(timestamp)
+            formatted_time = dt.strftime("%B %d, %Y at %I:%M %p")
+        except:
+            formatted_time = timestamp
+        
+        # Get food items
+        food_items = meal.get('food_items', [])
+        food_names = [item.get('food_name', 'Unknown Food') for item in food_items]
+        
+        # Get glucose prediction
+        glucose_prediction = meal.get('glucose_prediction', {})
+        predicted_glucose = glucose_prediction.get('predicted_glucose', 0)
+        glucose_category = glucose_prediction.get('glucose_category', '')
+        
+        # Determine impact color class
+        impact_color_class = ""
+        if glucose_category == "High":
+            impact_color_class = "high-risk"
+        elif glucose_category == "Elevated":
+            impact_color_class = "medium-risk"
+        else:
+            impact_color_class = "low-risk"
+        
+        # Create expandable card for each meal
+        with st.expander(f"{formatted_time} - {', '.join(food_names[:2])}{' and more...' if len(food_names) > 2 else ''}"):
+            # Display meal details
+            col1, col2 = st.columns([1, 3])
+            with col1:
+                if 'image_path' in meal and os.path.exists(meal['image_path']):
+                    try:
+                        img = Image.open(meal['image_path'])
+                        st.image(img, width=150)
+                    except:
+                        st.markdown("📷 [Image not available]")
+                else:
+                    st.markdown("📷 [Image not available]")
+            
+            with col2:
+                # Food items
+                st.markdown("<b>Food Items:</b>", unsafe_allow_html=True)
+                for food in food_names:
+                    st.markdown(f"- {food}", unsafe_allow_html=True)
+                
+                # Glucose impact
+                st.markdown(f"<b>Glucose Impact:</b> <span class='{impact_color_class}'>{glucose_category}</span> (Peak: {predicted_glucose} mg/dL)", unsafe_allow_html=True)
+                
+                # Total nutrients
+                total_nutrients = meal.get('total_nutrients', {})
+                if total_nutrients:
+                    st.markdown("<b>Total Nutrients:</b>", unsafe_allow_html=True)
+                    cols = st.columns(4)
+                    with cols[0]:
+                        st.markdown(f"Calories: {total_nutrients.get('calories', 0)}", unsafe_allow_html=True)
+                    with cols[1]:
+                        st.markdown(f"Carbs: {total_nutrients.get('carbs', 0)}g", unsafe_allow_html=True)
+                    with cols[2]:
+                        st.markdown(f"Protein: {total_nutrients.get('protein', 0)}g", unsafe_allow_html=True)
+                    with cols[3]:
+                        st.markdown(f"Fat: {total_nutrients.get('fat', 0)}g", unsafe_allow_html=True)
+            
+            # Action buttons
+            col1, col2 = st.columns(2)
+            with col1:
+                if st.button("View Details", key=f"view_details_{meal_id}"):
+                    # Load the meal data into analysis_results and go to results page
+                    st.session_state.analysis_results = {
+                        'meal_id': meal_id,
+                        'food_analysis': {
+                            'identified_foods': food_items,
+                            'total_nutrients': total_nutrients
+                        },
+                        'glucose_prediction': glucose_prediction
+                    }
+                    # Try to load the image if available
+                    if 'image_path' in meal and os.path.exists(meal['image_path']):
+                        try:
+                            st.session_state.food_image = Image.open(meal['image_path'])
+                        except:
+                            st.session_state.food_image = None
+                    go_to_results()
+            
+            with col2:
+                if st.button("Add Feedback", key=f"add_feedback_{meal_id}"):
+                    st.session_state.last_meal_id = meal_id
+                    go_to_feedback(meal_id)
+
+# Feedback Page
+def render_feedback():
+    # Navigation bar
+    st.markdown("<div class='nav-bar'>", unsafe_allow_html=True)
+    st.markdown("<h2>Glucose Feedback</h2>", unsafe_allow_html=True)
+    st.markdown("<div>", unsafe_allow_html=True)
+    st.markdown("<div class='secondary-btn' style='width: 120px;'>", unsafe_allow_html=True)
+    if st.button("← Back", key="feedback_back_btn"):
+        if st.session_state.analysis_results:
+            go_to_results()
+        else:
+            go_to_history()
+    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    st.markdown("<p class='subheader-text'>Provide your actual glucose readings to improve future predictions.</p>", unsafe_allow_html=True)
+    
+    if not st.session_state.last_meal_id:
+        st.warning("No meal selected. Please select a meal from your history first.")
+        if st.button("Go to History", key="go_to_history_from_feedback"):
+            go_to_history()
+        return
+    
+    # Display current meal info if available
+    if st.session_state.analysis_results:
+        results = st.session_state.analysis_results
+        food_analysis = results.get('food_analysis', {})
+        identified_foods = food_analysis.get('identified_foods', [])
+        first_food = identified_foods[0] if identified_foods else {}
+        food_name = first_food.get('food_name', 'Unknown Food')
+        
+        st.markdown("<div class='card'>", unsafe_allow_html=True)
+        st.markdown(f"<b>Meal:</b> {food_name}" + (f" and {len(identified_foods)-1} other items" if len(identified_foods) > 1 else ""), unsafe_allow_html=True)
+        if st.session_state.food_image:
+            st.image(st.session_state.food_image, width=100)
+        st.markdown("</div>", unsafe_allow_html=True)
+    
+    # Glucose readings form
+    st.markdown("<div class='feedback-form'>", unsafe_allow_html=True)
+    st.markdown("<h3>Glucose Readings</h3>", unsafe_allow_html=True)
+    st.markdown("<p>Enter your actual glucose readings after consuming this meal. This helps improve future predictions.</p>", unsafe_allow_html=True)
+    
+    # Add fields for glucose readings
+    st.markdown("<b>Enter glucose readings (mg/dL):</b>", unsafe_allow_html=True)
+    
+    # Initialize readings if not present
+    if 'feedback_glucose_readings' not in st.session_state or not st.session_state.feedback_glucose_readings:
+        st.session_state.feedback_glucose_readings = [
+            {'time': 0, 'glucose': 0},
+            {'time': 30, 'glucose': 0},
+            {'time': 60, 'glucose': 0},
+            {'time': 120, 'glucose': 0}
+        ]
+    
+    # Display reading inputs
+    readings = st.session_state.feedback_glucose_readings
+    updated_readings = []
+    
+    for i, reading in enumerate(readings):
+        col1, col2, col3 = st.columns([1, 2, 1])
+        with col1:
+            time = st.number_input(f"Time (minutes)", value=reading['time'], key=f"time_{i}")
+        with col2:
+            glucose = st.number_input(f"Glucose (mg/dL)", value=reading['glucose'], min_value=0, max_value=500, key=f"glucose_{i}")
+        with col3:
+            if st.button("Remove", key=f"remove_{i}") and len(readings) > 1:
+                pass  # Skip this reading when adding to updated_readings
+            else:
+                updated_readings.append({'time': time, 'glucose': glucose})
+    
+    # Update readings in session state
+    st.session_state.feedback_glucose_readings = updated_readings
+    
+    # Add button for new reading
+    if st.button("+ Add Reading"):
+        # Add a new empty reading
+        last_time = updated_readings[-1]['time'] if updated_readings else 0
+        st.session_state.feedback_glucose_readings.append({'time': last_time + 30, 'glucose': 0})
+        st.experimental_rerun()
+    
+    # Text feedback
+    st.markdown("<h3>Additional Feedback</h3>", unsafe_allow_html=True)
+    feedback_text = st.text_area("Any comments about how this meal affected you?", height=100)
+    
+    # Submit button
+    if st.button("Submit Feedback", key="submit_glucose_feedback"):
+        success = submit_feedback(
+            st.session_state.last_meal_id,
+            st.session_state.feedback_glucose_readings,
+            feedback_text
+        )
+        if success:
+            st.success("Thank you for your feedback! Your data helps improve future predictions.")
+            # Reset feedback data
+            st.session_state.feedback_glucose_readings = []
+            st.session_state.last_meal_id = None
+            # Go back to history
+            go_to_history()
+    
+    st.markdown("</div>", unsafe_allow_html=True)
+
+# Render the appropriate page based on session state
+if st.session_state.page == 'home':
+    render_home()
+elif st.session_state.page == 'profile_list':
+    render_profile_list()
+elif st.session_state.page == 'create_profile':
+    render_create_profile()
+elif st.session_state.page == 'analyze':
+    render_analyze()
+elif st.session_state.page == 'results':
+    render_results()
+elif st.session_state.page == 'history':
+    render_history()
+elif st.session_state.page == 'feedback':
+    render_feedback()

@@ -98,7 +98,7 @@ training_model = api.model('ModelTraining', {
 
 # Create parser for food analysis endpoint
 food_image_parser = api.parser()
-food_image_parser.add_argument('food_image', location='files', type='FileStorage', required=True, help='Food image file')
+food_image_parser.add_argument('food_image', location='files', type=FileStorage, required=True, help='Food image file')
 food_image_parser.add_argument('user_id', location='form', type=str, required=True, help='User ID')
 food_image_parser.add_argument('person_info', location='form', type=str, required=False, help='JSON string with person info')
 
