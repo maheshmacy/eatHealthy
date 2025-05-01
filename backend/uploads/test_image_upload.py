@@ -15,7 +15,8 @@ print(response.json())
 import requests
 import sys
 """
-url =  "https://8000-m-s-l9jil7pzal0f-b.us-west4-1.prod.colab.dev/predict/"
+#url =  "https://8000-m-s-l9jil7pzal0f-b.us-west4-1.prod.colab.dev/predict/"
+url =  "http://107.131.102.130:8000/predict"
 
 
 # Define headers

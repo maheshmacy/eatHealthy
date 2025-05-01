@@ -22,7 +22,8 @@ def identify_food_in_image(image_path):
     """
     try:
         # API endpoint URL
-        api_url = 'https://8000-gpu-t4-s-1uih3rpc0grkm-a.us-west4-1.prod.colab.dev/predict/'
+        #api_url = 'https://8000-gpu-t4-s-1uih3rpc0grkm-a.us-west4-1.prod.colab.dev/predict/'
+        api_url = 'http://107.131.102.130:8000/predict'
 
         logger.info(f"Sending image to food recognition API: {image_path}")
         
@@ -43,13 +44,15 @@ def identify_food_in_image(image_path):
             
             logger.info(f"Sending Rest call to {api_url}")
             # Make the API request
-            #response = requests.post(api_url, files=files)
+            response = requests.post(api_url, files=files)
+            logger.info(str(response.json()))
             
-            status_code = 200
+            #status_code = 200
             # Check if request was successful
-            #if response.status_code == 200:
-            if status_code == 200:
-                #food_data = response.json()
+            if response.status_code == 200:
+            #if status_code == 200:
+                food_data = response.json()
+                """
                 food_data = {
                          "predicted_class": "apple",
                          "confidence": 0.24025315046310425,
@@ -64,6 +67,7 @@ def identify_food_in_image(image_path):
                        "glycemic_load": "5.32",
                        "timestamp": "2025-05-01T05:48:28.421385"
                      }
+                """
                 logger.info(f"Food recognition successful: {food_data['predicted_class']}")
                 
                 # Format the response to match our expected structure

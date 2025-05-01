@@ -1,0 +1,484 @@
+{
+  "user_id": "d830c684-36fa-4ce0-afcf-5246baf058d0",
+  "profile": {
+    "name": "Bharath Thiruveedula",
+    "age": 35,
+    "gender": "male",
+    "height": 170,
+    "weight": 70,
+    "activity_level": "moderately_active",
+    "diabetes_status": "pre_diabetic",
+    "weight_goal": "lose",
+    "hba1c": 5.0,
+    "fasting_glucose": 60,
+    "bmi": 24.221453287197235
+  },
+  "meals": [
+    {
+      "meal_id": "704036dd-e2a7-4f90-9f32-96ba1b930fdb",
+      "timestamp": "2025-05-01T09:52:44.205342",
+      "food_items": [
+        {
+          "food_name": "sushi",
+          "confidence": 0.7022155523300171,
+          "portion_size": "100g",
+          "base_gi": 55.0,
+          "personalized_gi": {
+            "personalized_gi_score": 72.60000000000002,
+            "impact_level": "high",
+            "warning_level": "Moderate Risk",
+            "recommended_portion": "Medium",
+            "risk_factor": 1.3200000000000003,
+            "recommendations": [
+              "Consider pairing with protein or healthy fat to reduce glycemic impact",
+              "Consume earlier in the day when insulin sensitivity is typically higher",
+              "Monitor your blood glucose response if you consume this food"
+            ]
+          },
+          "nutrients": {
+            "calories": 570.0,
+            "carbs": 38.0,
+            "fat": 12.0,
+            "protein": 69.0,
+            "weight_grams": 100.0,
+            "fiber": 2,
+            "sugar": 7.6000000000000005
+          }
+        }
+      ],
+      "image_path": "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg",
+      "total_nutrients": {
+        "calories": 570.0,
+        "carbs": 38.0,
+        "fat": 12.0,
+        "protein": 69.0,
+        "fiber": 2,
+        "sugar": 7.6000000000000005
+      },
+      "glucose_prediction": {
+        "predicted_glucose": 97.46839861441075,
+        "glucose_category": "Normal",
+        "time_series": [],
+        "max_glucose_time": 0,
+        "guidelines": [
+          "This meal should result in a healthy glucose response.",
+          "This type of meal helps maintain good metabolic health."
+        ],
+        "recommendations": [
+          "This meal has a poor carb-to-fiber ratio. Adding fiber-rich vegetables or whole grains could improve the glucose response."
+        ]
+      },
+      "meal_features": {
+        "Age": 35,
+        "Sex": 1,
+        "BMI": 24.221453287197235,
+        "Category": 1,
+        "Carbs": 38.0,
+        "Fat": 12.0,
+        "Fiber": 2,
+        "Protein": 69.0,
+        "GI": 55.0,
+        "Glycemic_Load": 20.9,
+        "Activity_Level": 5.0,
+        "Activity_Timing": 2,
+        "Stress_Level": 5.0,
+        "Sleep_Quality": 7.0,
+        "Takes_Medication": 0,
+        "Family_History": 0,
+        "Time_Since_Last_Meal": 4.0
+      },
+      "feedback": {
+        "timestamp": "2025-05-01T10:36:22.994556",
+        "glucose_readings": [
+          {
+            "timestamp": "2025-05-01T15:34:01.620Z",
+            "value": 0
+          }
+        ],
+        "user_response": "less_than_expected",
+        "notes": "string"
+      }
+    },
+    {
+      "meal_id": "9577aaff-cffc-4a00-9691-0a0f4579dd4d",
+      "timestamp": "2025-05-01T09:57:12.392652",
+      "food_items": [
+        {
+          "food_name": "pizza",
+          "confidence": 0.9949060678482056,
+          "portion_size": "100g",
+          "base_gi": 80.0,
+          "personalized_gi": {
+            "personalized_gi_score": 100,
+            "impact_level": "high",
+            "warning_level": "Moderate Risk",
+            "recommended_portion": "Medium",
+            "risk_factor": 1.3200000000000003,
+            "recommendations": [
+              "Consider pairing with protein or healthy fat to reduce glycemic impact",
+              "Consume earlier in the day when insulin sensitivity is typically higher",
+              "Monitor your blood glucose response if you consume this food"
+            ]
+          },
+          "nutrients": {
+            "calories": 390.0,
+            "carbs": 43.0,
+            "fat": 17.0,
+            "protein": 17.0,
+            "weight_grams": 100.0,
+            "fiber": 2,
+            "sugar": 8.6
+          }
+        }
+      ],
+      "image_path": "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg",
+      "total_nutrients": {
+        "calories": 390.0,
+        "carbs": 43.0,
+        "fat": 17.0,
+        "protein": 17.0,
+        "fiber": 2,
+        "sugar": 8.6
+      },
+      "glucose_prediction": {
+        "predicted_glucose": 113.64239791817901,
+        "glucose_category": "Normal",
+        "time_series": [],
+        "max_glucose_time": 0,
+        "guidelines": [
+          "This meal should result in a healthy glucose response.",
+          "This type of meal helps maintain good metabolic health."
+        ],
+        "recommendations": [
+          "This meal has a poor carb-to-fiber ratio. Adding fiber-rich vegetables or whole grains could improve the glucose response."
+        ]
+      },
+      "meal_features": {
+        "Age": 35,
+        "Sex": 1,
+        "BMI": 24.221453287197235,
+        "Category": 1,
+        "Carbs": 43.0,
+        "Fat": 17.0,
+        "Fiber": 2,
+        "Protein": 17.0,
+        "GI": 80.0,
+        "Glycemic_Load": 34.4,
+        "Activity_Level": 5.0,
+        "Activity_Timing": 2,
+        "Stress_Level": 5.0,
+        "Sleep_Quality": 7.0,
+        "Takes_Medication": 0,
+        "Family_History": 0,
+        "Time_Since_Last_Meal": 4.0
+      }
+    },
+    {
+      "meal_id": "c6ebe674-dced-4c4c-99ef-604efdafeae7",
+      "timestamp": "2025-05-01T10:14:03.089740",
+      "food_items": [
+        {
+          "food_name": "pizza",
+          "confidence": 0.9949060678482056,
+          "portion_size": "100g",
+          "base_gi": 80.0,
+          "personalized_gi": {
+            "personalized_gi_score": 100,
+            "impact_level": "high",
+            "warning_level": "Moderate Risk",
+            "recommended_portion": "Medium",
+            "risk_factor": 1.3200000000000003,
+            "recommendations": [
+              "Consider pairing with protein or healthy fat to reduce glycemic impact",
+              "Consume earlier in the day when insulin sensitivity is typically higher",
+              "Monitor your blood glucose response if you consume this food"
+            ]
+          },
+          "nutrients": {
+            "calories": 390.0,
+            "carbs": 43.0,
+            "fat": 17.0,
+            "protein": 17.0,
+            "weight_grams": 100.0,
+            "fiber": 2,
+            "sugar": 8.6
+          }
+        }
+      ],
+      "image_path": "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg",
+      "total_nutrients": {
+        "calories": 390.0,
+        "carbs": 43.0,
+        "fat": 17.0,
+        "protein": 17.0,
+        "fiber": 2,
+        "sugar": 8.6
+      },
+      "glucose_prediction": {
+        "predicted_glucose": 113.64239791817896,
+        "glucose_category": "Normal",
+        "time_series": [],
+        "max_glucose_time": 0,
+        "guidelines": [
+          "This meal should result in a healthy glucose response.",
+          "This type of meal helps maintain good metabolic health."
+        ],
+        "recommendations": [
+          "This meal has a poor carb-to-fiber ratio. Adding fiber-rich vegetables or whole grains could improve the glucose response."
+        ]
+      },
+      "meal_features": {
+        "Age": 35,
+        "Sex": 1,
+        "BMI": 24.221453287197235,
+        "Category": 1,
+        "Carbs": 43.0,
+        "Fat": 17.0,
+        "Fiber": 2,
+        "Protein": 17.0,
+        "GI": 80.0,
+        "Glycemic_Load": 34.4,
+        "Activity_Level": 5.0,
+        "Activity_Timing": 2,
+        "Stress_Level": 5.0,
+        "Sleep_Quality": 7.0,
+        "Takes_Medication": 0,
+        "Family_History": 0,
+        "Time_Since_Last_Meal": 4.0
+      },
+      "feedback": {
+        "timestamp": "2025-05-01T11:50:53.838949",
+        "glucose_readings": [
+          {
+            "timestamp": "2025-05-01T11:50:53.832905",
+            "value": 120
+          }
+        ],
+        "user_response": "more_than_expected",
+        "notes": "glucose-readings: 160 mg/Dl"
+      }
+    },
+    {
+      "meal_id": "6973f6f1-8429-419e-89d8-fbe034eb6211",
+      "timestamp": "2025-05-01T10:14:56.196590",
+      "food_items": [
+        {
+          "food_name": "pasta",
+          "confidence": 0.8415707349777222,
+          "portion_size": "100g",
+          "base_gi": 50.0,
+          "personalized_gi": {
+            "personalized_gi_score": 66.00000000000001,
+            "impact_level": "medium",
+            "warning_level": "Low Risk",
+            "recommended_portion": "Standard",
+            "risk_factor": 1.3200000000000003,
+            "recommendations": [
+              "Monitor your blood glucose response if you consume this food",
+              "Moderate portion sizes to help with weight management goals"
+            ]
+          },
+          "nutrients": {
+            "calories": 397.0,
+            "carbs": 48.0,
+            "fat": 16.0,
+            "protein": 14.0,
+            "weight_grams": 100.0,
+            "fiber": 2,
+            "sugar": 9.600000000000001
+          }
+        }
+      ],
+      "image_path": "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg",
+      "total_nutrients": {
+        "calories": 397.0,
+        "carbs": 48.0,
+        "fat": 16.0,
+        "protein": 14.0,
+        "fiber": 2,
+        "sugar": 9.600000000000001
+      },
+      "glucose_prediction": {
+        "predicted_glucose": 101.5273966420155,
+        "glucose_category": "Normal",
+        "time_series": [],
+        "max_glucose_time": 0,
+        "guidelines": [
+          "This meal should result in a healthy glucose response.",
+          "This type of meal helps maintain good metabolic health."
+        ],
+        "recommendations": [
+          "This meal has a poor carb-to-fiber ratio. Adding fiber-rich vegetables or whole grains could improve the glucose response."
+        ]
+      },
+      "meal_features": {
+        "Age": 35,
+        "Sex": 1,
+        "BMI": 24.221453287197235,
+        "Category": 1,
+        "Carbs": 48.0,
+        "Fat": 16.0,
+        "Fiber": 2,
+        "Protein": 14.0,
+        "GI": 50.0,
+        "Glycemic_Load": 24.0,
+        "Activity_Level": 5.0,
+        "Activity_Timing": 2,
+        "Stress_Level": 5.0,
+        "Sleep_Quality": 7.0,
+        "Takes_Medication": 0,
+        "Family_History": 0,
+        "Time_Since_Last_Meal": 4.0
+      }
+    },
+    {
+      "meal_id": "47df3654-c725-4c31-ac75-99a5dc9c65d7",
+      "timestamp": "2025-05-01T10:55:55.796885",
+      "food_items": [
+        {
+          "food_name": "pizza",
+          "confidence": 0.9949060678482056,
+          "portion_size": "100g",
+          "base_gi": 80.0,
+          "personalized_gi": {
+            "personalized_gi_score": 100,
+            "impact_level": "high",
+            "warning_level": "Moderate Risk",
+            "recommended_portion": "Medium",
+            "risk_factor": 1.3200000000000003,
+            "recommendations": [
+              "Consider pairing with protein or healthy fat to reduce glycemic impact",
+              "Consume earlier in the day when insulin sensitivity is typically higher",
+              "Monitor your blood glucose response if you consume this food"
+            ]
+          },
+          "nutrients": {
+            "calories": 390.0,
+            "carbs": 43.0,
+            "fat": 17.0,
+            "protein": 17.0,
+            "weight_grams": 100.0,
+            "fiber": 2,
+            "sugar": 8.6
+          }
+        }
+      ],
+      "image_path": "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg",
+      "total_nutrients": {
+        "calories": 390.0,
+        "carbs": 43.0,
+        "fat": 17.0,
+        "protein": 17.0,
+        "fiber": 2,
+        "sugar": 8.6
+      },
+      "glucose_prediction": {
+        "predicted_glucose": 113.642397918179,
+        "glucose_category": "Normal",
+        "time_series": [],
+        "max_glucose_time": 0,
+        "guidelines": [
+          "This meal should result in a healthy glucose response.",
+          "This type of meal helps maintain good metabolic health."
+        ],
+        "recommendations": [
+          "This meal has a poor carb-to-fiber ratio. Adding fiber-rich vegetables or whole grains could improve the glucose response."
+        ]
+      },
+      "meal_features": {
+        "Age": 35,
+        "Sex": 1,
+        "BMI": 24.221453287197235,
+        "Category": 1,
+        "Carbs": 43.0,
+        "Fat": 17.0,
+        "Fiber": 2,
+        "Protein": 17.0,
+        "GI": 80.0,
+        "Glycemic_Load": 34.4,
+        "Activity_Level": 5.0,
+        "Activity_Timing": 2,
+        "Stress_Level": 5.0,
+        "Sleep_Quality": 7.0,
+        "Takes_Medication": 0,
+        "Family_History": 0,
+        "Time_Since_Last_Meal": 4.0
+      }
+    },
+    {
+      "meal_id": "e0969b2f-6cd4-4355-a2d9-90b1f437c485",
+      "timestamp": "2025-05-01T11:49:05.584470",
+      "food_items": [
+        {
+          "food_name": "pizza",
+          "confidence": 0.9949060678482056,
+          "portion_size": "100g",
+          "base_gi": 80.0,
+          "personalized_gi": {
+            "personalized_gi_score": 100,
+            "impact_level": "high",
+            "warning_level": "Moderate Risk",
+            "recommended_portion": "Medium",
+            "risk_factor": 1.3200000000000003,
+            "recommendations": [
+              "Consider pairing with protein or healthy fat to reduce glycemic impact",
+              "Consume earlier in the day when insulin sensitivity is typically higher",
+              "Monitor your blood glucose response if you consume this food"
+            ]
+          },
+          "nutrients": {
+            "calories": 390.0,
+            "carbs": 43.0,
+            "fat": 17.0,
+            "protein": 17.0,
+            "weight_grams": 100.0,
+            "fiber": 2,
+            "sugar": 8.6
+          }
+        }
+      ],
+      "image_path": "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg",
+      "total_nutrients": {
+        "calories": 390.0,
+        "carbs": 43.0,
+        "fat": 17.0,
+        "protein": 17.0,
+        "fiber": 2,
+        "sugar": 8.6
+      },
+      "glucose_prediction": {
+        "predicted_glucose": 113.64239791817897,
+        "glucose_category": "Normal",
+        "time_series": [],
+        "max_glucose_time": 0,
+        "guidelines": [
+          "This meal should result in a healthy glucose response.",
+          "This type of meal helps maintain good metabolic health."
+        ],
+        "recommendations": [
+          "This meal has a poor carb-to-fiber ratio. Adding fiber-rich vegetables or whole grains could improve the glucose response."
+        ]
+      },
+      "meal_features": {
+        "Age": 35,
+        "Sex": 1,
+        "BMI": 24.221453287197235,
+        "Category": 1,
+        "Carbs": 43.0,
+        "Fat": 17.0,
+        "Fiber": 2,
+        "Protein": 17.0,
+        "GI": 80.0,
+        "Glycemic_Load": 34.4,
+        "Activity_Level": 5.0,
+        "Activity_Timing": 2,
+        "Stress_Level": 5.0,
+        "Sleep_Quality": 7.0,
+        "Takes_Medication": 0,
+        "Family_History": 0,
+        "Time_Since_Last_Meal": 4.0
+      }
+    }
+  ],
+  "created_at": "2025-05-01T09:50:57.784402"
+}

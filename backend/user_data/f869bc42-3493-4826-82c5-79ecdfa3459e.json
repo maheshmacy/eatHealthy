@@ -1,0 +1,235 @@
+{
+  "user_id": "f869bc42-3493-4826-82c5-79ecdfa3459e",
+  "profile": {
+    "name": "Abhishek Kumar",
+    "age": 35,
+    "gender": "male",
+    "height": 170,
+    "weight": 70,
+    "activity_level": "sedentary",
+    "diabetes_status": "pre_diabetic",
+    "weight_goal": "lose",
+    "hba1c": 5.29,
+    "fasting_glucose": 50,
+    "bmi": 24.221453287197235
+  },
+  "meals": [
+    {
+      "meal_id": "026bafd2-470b-4717-8da6-7e4cbebeeede",
+      "timestamp": "2025-05-01T07:20:09.718503",
+      "food_items": [
+        {
+          "food_name": "apple",
+          "confidence": 0.24025315046310425,
+          "portion_size": "100g",
+          "base_gi": 38.0,
+          "personalized_gi": {
+            "personalized_gi_score": 62.7,
+            "impact_level": "medium",
+            "warning_level": "Low Risk",
+            "recommended_portion": "Standard",
+            "risk_factor": 1.6500000000000001,
+            "recommendations": [
+              "Monitor your blood glucose response if you consume this food",
+              "Moderate portion sizes to help with weight management goals"
+            ]
+          },
+          "nutrients": {
+            "calories": 52,
+            "carbs": 14,
+            "fat": 0.2,
+            "protein": 0.3,
+            "weight_grams": 100,
+            "fiber": 2,
+            "sugar": 2.8000000000000003
+          }
+        }
+      ],
+      "image_path": "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501072009_noodles_46.jpg",
+      "total_nutrients": {
+        "calories": 52,
+        "carbs": 14,
+        "fat": 0.2,
+        "protein": 0.3,
+        "fiber": 2,
+        "sugar": 2.8000000000000003
+      },
+      "glucose_prediction": {
+        "predicted_glucose": 103.53048605158966,
+        "glucose_category": "Normal",
+        "time_series": [],
+        "max_glucose_time": 0,
+        "guidelines": [
+          "This meal should result in a healthy glucose response.",
+          "This type of meal helps maintain good metabolic health."
+        ],
+        "recommendations": []
+      },
+      "meal_features": {
+        "Age": 35,
+        "Sex": 1,
+        "BMI": 24.221453287197235,
+        "Category": 1,
+        "Carbs": 14,
+        "Fat": 0.2,
+        "Fiber": 2,
+        "Protein": 0.3,
+        "GI": 38.0,
+        "Glycemic_Load": 5.32,
+        "Activity_Level": 1.5,
+        "Activity_Timing": 2,
+        "Stress_Level": 5.0,
+        "Sleep_Quality": 7.0,
+        "Takes_Medication": 0,
+        "Family_History": 0,
+        "Time_Since_Last_Meal": 4.0
+      }
+    },
+    {
+      "meal_id": "f506002a-7b69-4150-80ab-9d296af90941",
+      "timestamp": "2025-05-01T08:11:11.323437",
+      "food_items": [
+        {
+          "food_name": "apple",
+          "confidence": 0.24025315046310425,
+          "portion_size": "100g",
+          "base_gi": 38.0,
+          "personalized_gi": {
+            "personalized_gi_score": 62.7,
+            "impact_level": "medium",
+            "warning_level": "Low Risk",
+            "recommended_portion": "Standard",
+            "risk_factor": 1.6500000000000001,
+            "recommendations": [
+              "Monitor your blood glucose response if you consume this food",
+              "Moderate portion sizes to help with weight management goals"
+            ]
+          },
+          "nutrients": {
+            "calories": 52,
+            "carbs": 14,
+            "fat": 0.2,
+            "protein": 0.3,
+            "weight_grams": 100,
+            "fiber": 2,
+            "sugar": 2.8000000000000003
+          }
+        }
+      ],
+      "image_path": "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501081111_istockphoto-184276818-612x612.jpg",
+      "total_nutrients": {
+        "calories": 52,
+        "carbs": 14,
+        "fat": 0.2,
+        "protein": 0.3,
+        "fiber": 2,
+        "sugar": 2.8000000000000003
+      },
+      "glucose_prediction": {
+        "predicted_glucose": 103.53048605158965,
+        "glucose_category": "Normal",
+        "time_series": [],
+        "max_glucose_time": 0,
+        "guidelines": [
+          "This meal should result in a healthy glucose response.",
+          "This type of meal helps maintain good metabolic health."
+        ],
+        "recommendations": []
+      },
+      "meal_features": {
+        "Age": 35,
+        "Sex": 1,
+        "BMI": 24.221453287197235,
+        "Category": 1,
+        "Carbs": 14,
+        "Fat": 0.2,
+        "Fiber": 2,
+        "Protein": 0.3,
+        "GI": 38.0,
+        "Glycemic_Load": 5.32,
+        "Activity_Level": 1.5,
+        "Activity_Timing": 2,
+        "Stress_Level": 5.0,
+        "Sleep_Quality": 7.0,
+        "Takes_Medication": 0,
+        "Family_History": 0,
+        "Time_Since_Last_Meal": 4.0
+      }
+    },
+    {
+      "meal_id": "8e7a11c0-da0c-4b24-80e1-83b9d3e7ee67",
+      "timestamp": "2025-05-01T09:37:02.212479",
+      "food_items": [
+        {
+          "food_name": "sushi",
+          "confidence": 0.7022155523300171,
+          "portion_size": "100g",
+          "base_gi": 55.0,
+          "personalized_gi": {
+            "personalized_gi_score": 90.75000000000001,
+            "impact_level": "high",
+            "warning_level": "High Risk",
+            "recommended_portion": "Small",
+            "risk_factor": 1.6500000000000001,
+            "recommendations": [
+              "Consider pairing with protein or healthy fat to reduce glycemic impact",
+              "Consume earlier in the day when insulin sensitivity is typically higher",
+              "Monitor your blood glucose response if you consume this food"
+            ]
+          },
+          "nutrients": {
+            "calories": 570.0,
+            "carbs": 38.0,
+            "fat": 12.0,
+            "protein": 69.0,
+            "weight_grams": 100.0,
+            "fiber": 2,
+            "sugar": 7.6000000000000005
+          }
+        }
+      ],
+      "image_path": "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg",
+      "total_nutrients": {
+        "calories": 570.0,
+        "carbs": 38.0,
+        "fat": 12.0,
+        "protein": 69.0,
+        "fiber": 2,
+        "sugar": 7.6000000000000005
+      },
+      "glucose_prediction": {
+        "predicted_glucose": 99.64277675887698,
+        "glucose_category": "Normal",
+        "time_series": [],
+        "max_glucose_time": 0,
+        "guidelines": [
+          "This meal should result in a healthy glucose response.",
+          "This type of meal helps maintain good metabolic health."
+        ],
+        "recommendations": [
+          "This meal has a poor carb-to-fiber ratio. Adding fiber-rich vegetables or whole grains could improve the glucose response."
+        ]
+      },
+      "meal_features": {
+        "Age": 35,
+        "Sex": 1,
+        "BMI": 24.221453287197235,
+        "Category": 1,
+        "Carbs": 38.0,
+        "Fat": 12.0,
+        "Fiber": 2,
+        "Protein": 69.0,
+        "GI": 55.0,
+        "Glycemic_Load": 20.9,
+        "Activity_Level": 1.5,
+        "Activity_Timing": 2,
+        "Stress_Level": 5.0,
+        "Sleep_Quality": 7.0,
+        "Takes_Medication": 0,
+        "Family_History": 0,
+        "Time_Since_Last_Meal": 4.0
+      }
+    }
+  ],
+  "created_at": "2025-05-01T07:19:04.020993"
+}

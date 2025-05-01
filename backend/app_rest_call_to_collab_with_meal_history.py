@@ -1320,6 +1320,14 @@ class MealStats(Resource):
             logger.error(f"Error getting meal stats for user {user_id}: {str(e)}", exc_info=True)
             return {"error": "Failed to get meal statistics"}, 500
 
+@app.route('/api/images/<path:image_path>')
+def get_image(image_path):
+    # Validate and serve the image securely
+    validated_path = secure_filename(os.path.basename(image_path))
+    full_path = os.path.join(app.config['UPLOAD_FOLDER'], validated_path)
+    if os.path.exists(full_path):
+        return send_file(full_path)
+    return "Image not found", 404
 
 # Application entry point
 def create_app(config_class=Config):

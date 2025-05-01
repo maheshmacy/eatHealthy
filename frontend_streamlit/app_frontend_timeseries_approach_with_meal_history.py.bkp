@@ -9,7 +9,7 @@ from PIL import Image
 import io
 import base64
 import os
-from datetime import datetime, timedelta
+from datetime import datetime
 
 # Set page configuration
 st.set_page_config(
@@ -65,17 +65,6 @@ def analyze_food_image(user_id, image_file):
     response = requests.post(url, files=files, data=data)
     return response.json() if response.status_code == 200 else None
 
-def display_meal_image_production(meal, width=150):
-    image_path = meal.get('image_path')
-    if image_path:
-        # Convert local path to API URL
-        filename = os.path.basename(image_path)
-        image_url = f"{API_ENDPOINT}/api/images/{filename}"
-        st.image(image_url, width=width)
-    else:
-        # Fall back to placeholder
-        st.image(f"data:image/png;base64,{create_placeholder_image_base64()}", width=width)
-
 def get_health_check():
     """Check API health"""
     url = f"{API_ENDPOINT}/health"
@@ -83,78 +72,6 @@ def get_health_check():
         response = requests.get(url)
         return response.json() if response.status_code == 200 else None
     except:
-        return None
-
-def get_meal_history(user_id, start_date=None, end_date=None, food_type=None, sort_by='date', sort_order='desc', limit=50):
-    """Get meal history for a user with optional filters"""
-    try:
-        url = f"{API_ENDPOINT}/meals/{user_id}"
-        
-        # Build query parameters
-        params = {}
-        if start_date:
-            params['start_date'] = start_date
-        if end_date:
-            params['end_date'] = end_date
-        if food_type:
-            params['food_type'] = food_type
-        if sort_by:
-            params['sort_by'] = sort_by
-        if sort_order:
-            params['sort_order'] = sort_order
-        if limit:
-            params['limit'] = str(limit)
-        
-        response = requests.get(url, params=params)
-        if response.status_code == 200:
-            return response.json()
-        else:
-            st.error(f"Error fetching meal history: {response.text}")
-            return None
-    except Exception as e:
-        st.error(f"Error connecting to API: {str(e)}")
-        return None
-
-def get_meal_details(user_id, meal_id):
-    """Get detailed information about a specific meal"""
-    try:
-        url = f"{API_ENDPOINT}/meals/{user_id}/{meal_id}"
-        response = requests.get(url)
-        if response.status_code == 200:
-            return response.json()
-        else:
-            st.error(f"Error fetching meal details: {response.text}")
-            return None
-    except Exception as e:
-        st.error(f"Error connecting to API: {str(e)}")
-        return None
-
-def get_meal_stats(user_id):
-    """Get meal statistics for a user"""
-    try:
-        url = f"{API_ENDPOINT}/meals/{user_id}/stats"
-        response = requests.get(url)
-        if response.status_code == 200:
-            return response.json()
-        else:
-            st.error(f"Error fetching meal statistics: {response.text}")
-            return None
-    except Exception as e:
-        st.error(f"Error connecting to API: {str(e)}")
-        return None
-
-def submit_meal_feedback(user_id, meal_id, feedback_data):
-    """Submit feedback for a meal"""
-    try:
-        url = f"{API_ENDPOINT}/meals/{user_id}/{meal_id}/feedback"
-        response = requests.post(url, json=feedback_data)
-        if response.status_code == 200:
-            return response.json()
-        else:
-            st.error(f"Error submitting feedback: {response.text}")
-            return None
-    except Exception as e:
-        st.error(f"Error connecting to API: {str(e)}")
         return None
 
 # Helper functions
@@ -219,7 +136,7 @@ def create_glucose_graph(glucose_prediction):
         time_series = glucose_prediction['time_series']
         
         # If the time series is a list of dictionaries
-        if isinstance(time_series, list) and len(time_series) > 0 and isinstance(time_series[0], dict):
+        if isinstance(time_series, list) and isinstance(time_series[0], dict):
             df = pd.DataFrame(time_series)
             x = df.get('minute', [])
             y = df.get('glucose', [])
@@ -376,22 +293,6 @@ def image_to_base64(image_file):
     """Convert image to base64 for display"""
     return base64.b64encode(image_file.getvalue()).decode("utf-8")
 
-def format_timestamp(timestamp):
-    """Format ISO timestamp to a readable date/time"""
-    try:
-        dt = datetime.fromisoformat(timestamp)
-        return dt.strftime("%b %d, %Y %I:%M %p")
-    except:
-        return timestamp
-
-def format_date(date_str):
-    """Format date string to readable format"""
-    try:
-        dt = datetime.fromisoformat(date_str)
-        return dt.strftime("%b %d, %Y")
-    except:
-        return date_str
-
 # Session state management
 if 'user_id' not in st.session_state:
     st.session_state.user_id = None
@@ -401,16 +302,6 @@ if 'analysis_result' not in st.session_state:
     st.session_state.analysis_result = None
 if 'force_rerun' not in st.session_state:
     st.session_state.force_rerun = False
-if 'selected_meal' not in st.session_state:
-    st.session_state.selected_meal = None
-if 'history_view' not in st.session_state:
-    st.session_state.history_view = "list"  # Can be "list", "detail", or "stats"
-if 'meal_history_data' not in st.session_state:
-    st.session_state.meal_history_data = None
-if 'meal_stats_data' not in st.session_state:
-    st.session_state.meal_stats_data = None
-if 'feedback_submitted' not in st.session_state:
-    st.session_state.feedback_submitted = False
 
 # App title and description
 st.title("🍏 EATSMART-AI")
@@ -442,14 +333,13 @@ if page == "Home":
     - **Food Recognition**: Upload food images for automatic analysis
     - **Glucose Prediction**: See how your meal will likely affect your blood glucose
     - **Smart Recommendations**: Receive customized dietary suggestions
-    - **Meal History Tracking**: Track your meals and glucose responses over time
     
     ### Getting Started:
     
     1. Register your profile in the "User Registration" section
     2. Upload food images in the "Food Analysis" section
     3. View your personalized recommendations
-    4. Track your meal history and patterns in the "History" section
+    4. Track your meal history and patterns
     
     Let's start your journey to better health through smart eating!
     """)
@@ -457,22 +347,12 @@ if page == "Home":
     # If user is logged in, show quick access
     if st.session_state.user_id:
         st.success(f"Logged in as User ID: {st.session_state.user_id}")
-        
-        col1, col2 = st.columns(2)
-        with col1:
-            if st.button("Analyze Food", use_container_width=True):
-                st.session_state.page = "Food Analysis"
-                st.rerun()
-        with col2:
-            if st.button("View Meal History", use_container_width=True):
-                st.session_state.page = "History"
-                st.rerun()
+        st.button("Go to Food Analysis", on_click=lambda: st.session_state.update({"page": "Food Analysis"}))
         
     # Check if a rerun is needed after login
     if st.session_state.force_rerun:
         st.session_state.force_rerun = False
         st.rerun()
-
 # User Registration page
 elif page == "User Registration":
     st.header("User Registration")
@@ -557,11 +437,6 @@ elif page == "User Registration":
             st.session_state.user_id = None
             st.session_state.user_profile = None
             st.session_state.analysis_result = None
-            st.session_state.meal_history_data = None
-            st.session_state.meal_stats_data = None
-            st.session_state.selected_meal = None
-            st.session_state.history_view = "list"
-            st.session_state.feedback_submitted = False
             st.rerun()
     
     # Registration form for new users
@@ -663,9 +538,7 @@ elif page == "Food Analysis":
     
     if not st.session_state.user_id:
         st.warning("Please register or login first to analyze food.")
-        if st.button("Go to Registration"):
-            st.session_state.page = "User Registration"
-            st.rerun()
+        st.button("Go to Registration", on_click=lambda: st.session_state.update({"page": "User Registration"}))
     else:
         st.info(f"Logged in as User ID: {st.session_state.user_id}")
         
@@ -823,9 +696,103 @@ elif page == "Food Analysis":
                             st.info("The system provided a glucose prediction but no specific recommendations for this meal.")
                     else:
                         st.warning("No glucose prediction data available for this meal.")
-
 # History page
 elif page == "History":
+    st.header("Meal History")
+
+    # Add these functions to the frontend_streamlit/app_frontend_timeseries_approach.py file
+
+# Additional API functions for meal history
+def get_meal_history(user_id, start_date=None, end_date=None, food_type=None, sort_by='date', sort_order='desc', limit=50):
+    """Get meal history for a user with optional filters"""
+    try:
+        url = f"{API_ENDPOINT}/meals/{user_id}"
+        
+        # Build query parameters
+        params = {}
+        if start_date:
+            params['start_date'] = start_date
+        if end_date:
+            params['end_date'] = end_date
+        if food_type:
+            params['food_type'] = food_type
+        if sort_by:
+            params['sort_by'] = sort_by
+        if sort_order:
+            params['sort_order'] = sort_order
+        if limit:
+            params['limit'] = str(limit)
+        
+        response = requests.get(url, params=params)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            st.error(f"Error fetching meal history: {response.text}")
+            return None
+    except Exception as e:
+        st.error(f"Error connecting to API: {str(e)}")
+        return None
+
+def get_meal_details(user_id, meal_id):
+    """Get detailed information about a specific meal"""
+    try:
+        url = f"{API_ENDPOINT}/meals/{user_id}/{meal_id}"
+        response = requests.get(url)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            st.error(f"Error fetching meal details: {response.text}")
+            return None
+    except Exception as e:
+        st.error(f"Error connecting to API: {str(e)}")
+        return None
+
+def get_meal_stats(user_id):
+    """Get meal statistics for a user"""
+    try:
+        url = f"{API_ENDPOINT}/meals/{user_id}/stats"
+        response = requests.get(url)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            st.error(f"Error fetching meal statistics: {response.text}")
+            return None
+    except Exception as e:
+        st.error(f"Error connecting to API: {str(e)}")
+        return None
+
+def submit_meal_feedback(user_id, meal_id, feedback_data):
+    """Submit feedback for a meal"""
+    try:
+        url = f"{API_ENDPOINT}/meals/{user_id}/{meal_id}/feedback"
+        response = requests.post(url, json=feedback_data)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            st.error(f"Error submitting feedback: {response.text}")
+            return None
+    except Exception as e:
+        st.error(f"Error connecting to API: {str(e)}")
+        return None
+
+def format_timestamp(timestamp):
+    """Format ISO timestamp to a readable date/time"""
+    try:
+        dt = datetime.fromisoformat(timestamp)
+        return dt.strftime("%b %d, %Y %I:%M %p")
+    except:
+        return timestamp
+
+def format_date(date_str):
+    """Format date string to readable format"""
+    try:
+        dt = datetime.fromisoformat(date_str)
+        return dt.strftime("%b %d, %Y")
+    except:
+        return date_str
+
+# Update the History page in the Streamlit app
+if page == "History":
     st.header("Meal History")
     
     if not st.session_state.user_id:
@@ -834,6 +801,18 @@ elif page == "History":
             st.session_state.page = "User Registration"
             st.rerun()
     else:
+        # Initialize session state for this page
+        if 'selected_meal' not in st.session_state:
+            st.session_state.selected_meal = None
+        if 'history_view' not in st.session_state:
+            st.session_state.history_view = "list"  # Can be "list", "detail", or "stats"
+        if 'meal_history_data' not in st.session_state:
+            st.session_state.meal_history_data = None
+        if 'meal_stats_data' not in st.session_state:
+            st.session_state.meal_stats_data = None
+        if 'feedback_submitted' not in st.session_state:
+            st.session_state.feedback_submitted = False
+            
         # Create tabs for different views
         tab1, tab2 = st.tabs(["Meal History", "Statistics"])
         
@@ -1081,311 +1060,26 @@ elif page == "History":
                                 st.session_state.history_view = "list"
                                 st.session_state.selected_meal = None
                                 st.rerun()
-                    
-                    # List view for all meals
-                    else:
-                        # Add a search box for quick filtering
-                        search_term = st.text_input("Search meals by food name", "")
-                        
-                        # Create a table for meal history
-                        for i, meal in enumerate(meals):
-                            # Apply search filter if provided
-                            if search_term and not any(search_term.lower() in food.lower() for food in meal.get('foods', [])):
-                                continue
-                                
-                            # Create a card-like display for each meal
-                            with st.container():
-                                st.markdown("---")
-                                col1, col2, col3 = st.columns([1, 2, 1])
-                                
-                                with col1:
-                                    # In a real app, you'd fetch the image from the server
-                                    st.image("https://via.placeholder.com/150x100?text=Meal", width=150)
-                                
-                                with col2:
-                                    # Display date and foods
-                                    st.markdown(f"**{format_timestamp(meal['timestamp'])}**")
-                                    st.markdown(f"**Foods:** {', '.join(meal.get('foods', ['Unknown']))}")
-                                    
-                                    # Display nutrients if available
-                                    if 'total_nutrients' in meal and meal['total_nutrients']:
-                                        nutrients = meal['total_nutrients']
-                                        if 'calories' in nutrients:
-                                            st.markdown(f"**Calories:** {nutrients['calories']:.1f} kcal")
-                                        
-                                        # Show macronutrients if available
-                                        macros = []
-                                        if 'carbs' in nutrients:
-                                            macros.append(f"Carbs: {nutrients['carbs']:.1f}g")
-                                        if 'protein' in nutrients:
-                                            macros.append(f"Protein: {nutrients['protein']:.1f}g")
-                                        if 'fat' in nutrients:
-                                            macros.append(f"Fat: {nutrients['fat']:.1f}g")
-                                        
-                                        if macros:
-                                            st.markdown(f"**Macros:** {' | '.join(macros)}")
-                                
-                                with col3:
-                                    # Display glucose prediction if available
-                                    if 'predicted_glucose' in meal and meal['predicted_glucose']:
-                                        glucose_value = meal['predicted_glucose']
-                                        category = meal.get('glucose_category', 'Unknown')
-                                        
-                                        # Color code based on category
-                                        category_color = {
-                                            'Low': 'red',
-                                            'Normal': 'green',
-                                            'Elevated': 'orange',
-                                            'High': 'red'
-                                        }.get(category, 'blue')
-                                        
-                                        st.markdown(f"**Glucose:** <span style='color:{category_color};'>{glucose_value:.1f} mg/dL</span>", unsafe_allow_html=True)
-                                        st.markdown(f"**Category:** <span style='color:{category_color};'>{category}</span>", unsafe_allow_html=True)
-                                    
-                                    # View details button
-                                    if st.button(f"View Details", key=f"view_meal_{meal.get('meal_id')}"):
-                                        st.session_state.selected_meal = meal.get('meal_id')
-                                        st.session_state.history_view = "detail"
-                                        st.session_state.feedback_submitted = False
-                                        st.rerun()
-                            
-                        # Pagination (simplified)
-                        if len(meals) >= 50:  # If we have the maximum number of results
-                            st.markdown("Note: Showing up to 50 meals. Use filters to narrow down results.")
-            else:
-                st.info("No meal history data found. Try analyzing some meals first.")
-                
-                # Demo button for first-time users
-                if st.button("Analyze a Food Image"):
-                    st.session_state.page = "Food Analysis"
-                    st.rerun()
+
+    '''
+    
+    if not st.session_state.user_id:
+        st.warning("Please register or login first to view your history.")
+        st.button("Go to Registration", on_click=lambda: st.session_state.update({"page": "User Registration"}))
+    else:
+        st.info("History view is not implemented in this demo as it would require additional API endpoints to retrieve meal history.")
+        st.markdown("""
+        In a complete implementation, this page would:
         
-        # Statistics tab
-        with tab2:
-            # Fetch meal statistics if not already loaded
-            if st.session_state.meal_stats_data is None:
-                with st.spinner("Loading meal statistics..."):
-                    stats_data = get_meal_stats(st.session_state.user_id)
-                    if stats_data:
-                        st.session_state.meal_stats_data = stats_data
-            
-            # Display statistics
-            if st.session_state.meal_stats_data:
-                stats = st.session_state.meal_stats_data
-                
-                if stats.get('total_meals', 0) == 0:
-                    st.info("No meal data available for statistics.")
-                else:
-                    # Display summary metrics
-                    st.subheader("Summary")
-                    col1, col2, col3 = st.columns(3)
-                    
-                    with col1:
-                        st.metric("Total Meals", stats.get('total_meals', 0))
-                    
-                    with col2:
-                        avg_glucose = stats.get('stats', {}).get('avg_glucose', 0)
-                        st.metric("Average Glucose Impact", f"{avg_glucose:.1f} mg/dL")
-                    
-                    with col3:
-                        # Calculate percentage of normal glucose responses
-                        categories = stats.get('stats', {}).get('glucose_categories', {})
-                        normal_count = categories.get('Normal', 0)
-                        total = sum(categories.values()) if categories else 0
-                        
-                        if total > 0:
-                            normal_pct = (normal_count / total) * 100
-                            st.metric("Normal Glucose Responses", f"{normal_pct:.1f}%")
-                    
-                    # Display glucose category distribution
-                    st.subheader("Glucose Response Categories")
-                    categories = stats.get('stats', {}).get('glucose_categories', {})
-                    
-                    if categories:
-                        # Create data for plotting
-                        category_names = list(categories.keys())
-                        category_counts = list(categories.values())
-                        
-                        # Create pie chart
-                        fig = px.pie(
-                            values=category_counts,
-                            names=category_names,
-                            color=category_names,
-                            color_discrete_map={
-                                'Low': 'red',
-                                'Normal': 'green',
-                                'Elevated': 'orange',
-                                'High': 'darkred'
-                            },
-                            title="Glucose Response Distribution"
-                        )
-                        fig.update_traces(textposition='inside', textinfo='percent+label')
-                        st.plotly_chart(fig, use_container_width=True)
-                    
-                    # Display top foods
-                    st.subheader("Most Frequently Consumed Foods")
-                    top_foods = stats.get('stats', {}).get('top_foods', [])
-                    
-                    if top_foods:
-                        # Create bar chart for top foods
-                        food_names = [food['name'].capitalize() for food in top_foods]
-                        food_counts = [food['count'] for food in top_foods]
-                        
-                        fig = px.bar(
-                            x=food_names,
-                            y=food_counts,
-                            labels={"x": "Food", "y": "Count"},
-                            title="Most Common Foods",
-                            color=food_names,
-                            color_discrete_sequence=px.colors.qualitative.Pastel
-                        )
-                        st.plotly_chart(fig, use_container_width=True)
-                    
-                    # Display problem foods
-                    st.subheader("Foods with Highest Glucose Impact")
-                    problem_foods = stats.get('stats', {}).get('problem_foods', [])
-                    
-                    if problem_foods:
-                        # Create bar chart for problem foods
-                        problem_food_names = [food['name'].capitalize() for food in problem_foods]
-                        problem_food_glucose = [food['avg_glucose'] for food in problem_foods]
-                        
-                        fig = px.bar(
-                            x=problem_food_names,
-                            y=problem_food_glucose,
-                            labels={"x": "Food", "y": "Average Glucose (mg/dL)"},
-                            title="Foods with Highest Glucose Impact",
-                            color=problem_food_names,
-                            color_discrete_sequence=px.colors.qualitative.Pastel
-                        )
-                        
-                        # Add a line for average glucose
-                        avg_glucose = stats.get('stats', {}).get('avg_glucose', 0)
-                        fig.add_shape(
-                            type="line",
-                            x0=-0.5,
-                            x1=len(problem_food_names) - 0.5,
-                            y0=avg_glucose,
-                            y1=avg_glucose,
-                            line=dict(color="red", width=2, dash="dash")
-                        )
-                        fig.add_annotation(
-                            x=len(problem_food_names) - 1,
-                            y=avg_glucose + 5,
-                            text=f"Avg: {avg_glucose:.1f}",
-                            showarrow=False,
-                            font=dict(color="red")
-                        )
-                        
-                        st.plotly_chart(fig, use_container_width=True)
-                    
-                    # Display weekly trends
-                    st.subheader("Glucose Trends Over Time")
-                    weekly_trends = stats.get('stats', {}).get('weekly_trends', [])
-                    
-                    if weekly_trends:
-                        # Create line chart for weekly trends
-                        weeks = [format_date(trend['week']) for trend in weekly_trends]
-                        avg_glucose_values = [trend['avg_glucose'] for trend in weekly_trends]
-                        meal_counts = [trend['meal_count'] for trend in weekly_trends]
-                        
-                        # Create figure with two y-axes
-                        fig = go.Figure()
-                        
-                        # Add traces
-                        fig.add_trace(
-                            go.Scatter(
-                                x=weeks,
-                                y=avg_glucose_values,
-                                name="Average Glucose",
-                                line=dict(color='blue', width=3)
-                            )
-                        )
-                        
-                        fig.add_trace(
-                            go.Bar(
-                                x=weeks,
-                                y=meal_counts,
-                                name="Meal Count",
-                                marker_color='lightblue',
-                                opacity=0.5,
-                                yaxis="y2"
-                            )
-                        )
-                        
-                        # Set up layout with two y-axes
-                        fig.update_layout(
-                            title="Weekly Glucose Trends",
-                            xaxis_title="Week",
-                            yaxis=dict(
-                                title="Average Glucose (mg/dL)",
-                                titlefont=dict(color="blue"),
-                            ),
-                            yaxis2=dict(
-                                title="Meal Count",
-                                titlefont=dict(color="lightblue"),
-                                anchor="x",
-                                overlaying="y",
-                                side="right"
-                            ),
-                            legend=dict(
-                                orientation="h",
-                                yanchor="bottom",
-                                y=1.02,
-                                xanchor="right",
-                                x=1
-                            ),
-                            height=400,
-                            margin=dict(l=20, r=20, t=60, b=20)
-                        )
-                        
-                        st.plotly_chart(fig, use_container_width=True)
-                    
-                    # Recommendations based on statistics
-                    st.subheader("Personalized Recommendations")
-                    
-                    recommendations = []
-                    
-                    # Add recommendations based on problem foods
-                    if problem_foods:
-                        recommendations.append(f"Consider limiting consumption of **{problem_foods[0]['name'].capitalize()}** as it has the highest glucose impact.")
-                    
-                    # Add recommendations based on glucose categories
-                    if categories:
-                        high_count = categories.get('High', 0) + categories.get('Elevated', 0)
-                        total = sum(categories.values())
-                        
-                        if total > 0 and (high_count / total) > 0.3:
-                            recommendations.append("Over 30% of your meals cause elevated glucose responses. Consider balancing your meals with more protein and fiber.")
-                    
-                    # Add recommendations based on weekly trends
-                    if weekly_trends and len(weekly_trends) >= 2:
-                        latest_week = weekly_trends[-1]
-                        previous_week = weekly_trends[-2]
-                        
-                        if latest_week['avg_glucose'] > previous_week['avg_glucose'] * 1.1:
-                            recommendations.append("Your glucose responses have increased in the last week. Review recent dietary changes.")
-                        elif latest_week['avg_glucose'] < previous_week['avg_glucose'] * 0.9:
-                            recommendations.append("Great job! Your average glucose response has improved compared to the previous week.")
-                    
-                    # Display recommendations
-                    if recommendations:
-                        for i, rec in enumerate(recommendations):
-                            st.markdown(f"{i+1}. {rec}")
-                    else:
-                        st.info("Not enough data to generate personalized recommendations yet. Continue tracking your meals.")
-                    
-                    # Add refresh button
-                    if st.button("Refresh Statistics"):
-                        st.session_state.meal_stats_data = None
-                        st.rerun()
-            else:
-                st.info("No meal statistics available. Try analyzing some meals first.")
-                
-                # Demo button for first-time users
-                if st.button("Analyze a Food Image"):
-                    st.session_state.page = "Food Analysis"
-                    st.rerun()
+        1. Fetch meal history data for the user from the backend API
+        2. Display a chronological list of analyzed meals
+        3. Show trends in glucose responses over time
+        4. Provide insights on which foods consistently cause glucose spikes
+        5. Recommend dietary adjustments based on historical data
+        
+        You can create these additional API endpoints in your Flask backend to support these features.
+        """)
+    '''
 
 # Add footer
 st.markdown("---")
@@ -1410,33 +1104,6 @@ st.markdown("""
     }
     .css-1kyxreq {
         justify-content: center;
-    }
-    
-    /* Card styling for meal history */
-    .meal-card {
-        border-radius: 5px;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #e0e0e0;
-        background-color: #ffffff;
-    }
-    
-    /* Custom styling for glucose categories */
-    .glucose-normal {
-        color: green;
-        font-weight: bold;
-    }
-    .glucose-elevated {
-        color: orange;
-        font-weight: bold;
-    }
-    .glucose-high {
-        color: red;
-        font-weight: bold;
-    }
-    .glucose-low {
-        color: red;
-        font-weight: bold;
     }
 </style>
 """, unsafe_allow_html=True)

@@ -1,0 +1,1019 @@
+2025-04-30 23:19:55,994 - models - INFO - GI database loaded successfully
+2025-04-30 23:19:55,995 - models - INFO - Reference values loaded successfully
+2025-04-30 23:19:56,003 - utils.database - INFO - Database initialized successfully
+2025-04-30 23:19:56,003 - __main__ - WARNING - Glucose prediction model not found at: models/standard_glucose_model.pkl
+2025-04-30 23:19:56,510 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-04-30 23:19:56,510 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-30 23:19:56,512 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 23:19:58,114 - models - INFO - GI database loaded successfully
+2025-04-30 23:19:58,114 - models - INFO - Reference values loaded successfully
+2025-04-30 23:19:58,118 - utils.database - INFO - Database initialized successfully
+2025-04-30 23:19:58,119 - __main__ - WARNING - Glucose prediction model not found at: models/standard_glucose_model.pkl
+2025-04-30 23:19:58,153 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 23:19:58,184 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-04-30 23:20:44,241 - models - INFO - GI database loaded successfully
+2025-04-30 23:20:44,242 - models - INFO - Reference values loaded successfully
+2025-04-30 23:20:44,250 - utils.database - INFO - Database initialized successfully
+2025-04-30 23:20:44,311 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-04-30 23:20:44,370 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-04-30 23:20:44,371 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-30 23:20:44,372 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 23:20:45,948 - models - INFO - GI database loaded successfully
+2025-04-30 23:20:45,948 - models - INFO - Reference values loaded successfully
+2025-04-30 23:20:45,951 - utils.database - INFO - Database initialized successfully
+2025-04-30 23:20:46,010 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-04-30 23:20:46,049 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 23:20:46,077 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-04-30 23:23:00,460 - utils.database - INFO - Database initialized successfully
+2025-04-30 23:23:00,527 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-04-30 23:23:01,051 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-04-30 23:23:01,051 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-30 23:23:01,053 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 23:23:02,704 - utils.database - INFO - Database initialized successfully
+2025-04-30 23:23:02,763 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-04-30 23:23:02,806 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 23:23:02,836 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-04-30 23:23:16,366 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 23:23:16] "GET /swagger HTTP/1.1" 200 -
+2025-04-30 23:23:16,445 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 23:23:16] "GET /swagger HTTP/1.1" 200 -
+2025-04-30 23:23:16,517 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 23:23:16] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2025-04-30 23:23:16,517 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 23:23:16] "[36mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-04-30 23:23:16,518 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 23:23:16] "[36mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-04-30 23:23:16,536 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 23:23:16] "[36mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-04-30 23:23:16,576 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 23:23:16] "GET /swagger.json HTTP/1.1" 200 -
+2025-04-30 23:23:17,884 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 23:23:17] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-04-30 23:28:26,634 - __main__ - INFO - Received user creation request
+2025-04-30 23:28:26,788 - models - INFO - User f64fcdf4-99c1-4e58-bfc9-cf2f7b4f0c27 model - Training R²: 1.0000, Validation R²: -14.7581
+2025-04-30 23:28:26,793 - models - INFO - Personalized glucose model updated for user f64fcdf4-99c1-4e58-bfc9-cf2f7b4f0c27
+2025-04-30 23:28:26,793 - models - INFO - Initial model created for user f64fcdf4-99c1-4e58-bfc9-cf2f7b4f0c27 with 10 simulated meals
+2025-04-30 23:28:26,793 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 23:28:26] "[35m[1mPOST /users HTTP/1.1[0m" 201 -
+2025-04-30 23:38:08,977 - __main__ - ERROR - Error analyzing food: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/flask_restx/reqparse.py", line 177, in convert
+    return self.type(value, self.name, op)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'str' object is not callable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/flask_restx/reqparse.py", line 183, in convert
+    return self.type(value, self.name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'str' object is not callable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/flask_restx/reqparse.py", line 249, in parse
+    value = self.convert(value, operator)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/flask_restx/reqparse.py", line 185, in convert
+    return self.type(value)
+           ^^^^^^^^^^^^^^^^
+TypeError: 'str' object is not callable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/app_rest_call_to_collab.py", line 414, in post
+    args = food_image_parser.parse_args()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/flask_restx/reqparse.py", line 389, in parse_args
+    value, found = arg.parse(req, self.bundle_errors)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/flask_restx/reqparse.py", line 253, in parse
+    return self.handle_validation_error(error, bundle_errors)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/flask_restx/reqparse.py", line 203, in handle_validation_error
+    abort(HTTPStatus.BAD_REQUEST, "Input payload validation failed", errors=errors)
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/flask_restx/errors.py", line 28, in abort
+    flask.abort(code)
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/flask/helpers.py", line 284, in abort
+    current_app.aborter(code, *args, **kwargs)
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/werkzeug/exceptions.py", line 876, in __call__
+    raise self.mapping[code](*args, **kwargs)
+werkzeug.exceptions.BadRequest: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-04-30 23:38:08,996 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 23:38:08] "[35m[1mPOST /food/analyze-food HTTP/1.1[0m" 500 -
+2025-04-30 23:43:11,556 - utils.database - INFO - Database initialized successfully
+2025-04-30 23:43:11,629 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-04-30 23:43:13,156 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-04-30 23:43:13,156 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-30 23:43:13,159 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 23:43:14,770 - utils.database - INFO - Database initialized successfully
+2025-04-30 23:43:14,831 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-04-30 23:43:14,873 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 23:43:14,907 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-04-30 23:43:31,434 - __main__ - ERROR - Error analyzing food: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/flask_restx/reqparse.py", line 177, in convert
+    return self.type(value, self.name, op)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'str' object is not callable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/flask_restx/reqparse.py", line 183, in convert
+    return self.type(value, self.name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'str' object is not callable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/flask_restx/reqparse.py", line 249, in parse
+    value = self.convert(value, operator)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/flask_restx/reqparse.py", line 185, in convert
+    return self.type(value)
+           ^^^^^^^^^^^^^^^^
+TypeError: 'str' object is not callable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/app_rest_call_to_collab.py", line 416, in post
+    args = food_image_parser.parse_args()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/flask_restx/reqparse.py", line 389, in parse_args
+    value, found = arg.parse(req, self.bundle_errors)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/flask_restx/reqparse.py", line 253, in parse
+    return self.handle_validation_error(error, bundle_errors)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/flask_restx/reqparse.py", line 203, in handle_validation_error
+    abort(HTTPStatus.BAD_REQUEST, "Input payload validation failed", errors=errors)
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/flask_restx/errors.py", line 28, in abort
+    flask.abort(code)
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/flask/helpers.py", line 284, in abort
+    current_app.aborter(code, *args, **kwargs)
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/werkzeug/exceptions.py", line 876, in __call__
+    raise self.mapping[code](*args, **kwargs)
+werkzeug.exceptions.BadRequest: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-04-30 23:43:31,444 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 23:43:31] "[35m[1mPOST /food/analyze-food HTTP/1.1[0m" 500 -
+2025-04-30 23:49:16,635 - utils.database - INFO - Database initialized successfully
+2025-04-30 23:49:16,707 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-04-30 23:49:17,251 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-04-30 23:49:17,251 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-30 23:49:17,252 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 23:49:18,920 - utils.database - INFO - Database initialized successfully
+2025-04-30 23:49:18,984 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-04-30 23:49:19,025 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 23:49:19,059 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-04-30 23:49:27,157 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f64fcdf4-99c1-4e58-bfc9-cf2f7b4f0c27_20250430234927_noodles_46.jpg
+2025-04-30 23:49:27,157 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f64fcdf4-99c1-4e58-bfc9-cf2f7b4f0c27_20250430234927_noodles_46.jpg
+2025-04-30 23:49:27,538 - utils.food_recognition - ERROR - API request failed with status code 404: 
+2025-04-30 23:49:27,542 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 23:49:27] "[31m[1mPOST /food/analyze-food HTTP/1.1[0m" 400 -
+2025-05-01 00:05:15,632 - werkzeug - INFO -  * Detected change in '/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/utils/food_recognition.py', reloading
+2025-05-01 00:05:15,831 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 00:05:17,811 - utils.database - INFO - Database initialized successfully
+2025-05-01 00:05:17,875 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 00:05:17,917 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 00:05:17,949 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 00:06:05,620 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 00:06:05] "GET /swagger HTTP/1.1" 200 -
+2025-05-01 00:06:05,730 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 00:06:05] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2025-05-01 00:06:05,730 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 00:06:05] "[36mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-05-01 00:06:05,731 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 00:06:05] "[36mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-05-01 00:06:05,731 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 00:06:05] "[36mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-05-01 00:06:05,789 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 00:06:05] "GET /swagger.json HTTP/1.1" 200 -
+2025-05-01 00:06:05,791 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 00:06:05] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-05-01 00:06:42,383 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f64fcdf4-99c1-4e58-bfc9-cf2f7b4f0c27_20250501000642_noodles_46.jpg
+2025-05-01 00:06:42,384 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f64fcdf4-99c1-4e58-bfc9-cf2f7b4f0c27_20250501000642_noodles_46.jpg
+2025-05-01 00:06:42,384 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 00:06:42,384 - utils.food_recognition - INFO - Sending Rest call to https://8000-gpu-t4-s-1uih3rpc0grkm-a.us-west4-1.prod.colab.dev/predict/
+2025-05-01 00:06:44,726 - utils.food_recognition - ERROR - API request failed with status code 404: 
+2025-05-01 00:06:44,733 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 00:06:44] "[31m[1mPOST /food/analyze-food HTTP/1.1[0m" 400 -
+2025-05-01 00:25:46,659 - werkzeug - INFO -  * Detected change in '/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/test.py', reloading
+2025-05-01 00:25:46,911 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 00:25:49,261 - utils.database - INFO - Database initialized successfully
+2025-05-01 00:25:49,322 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 00:25:49,370 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 00:25:49,399 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 00:26:19,298 - werkzeug - INFO -  * Detected change in '/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/test.py', reloading
+2025-05-01 00:26:19,452 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 00:26:21,292 - utils.database - INFO - Database initialized successfully
+2025-05-01 00:26:21,360 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 00:26:21,402 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 00:26:21,431 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 00:26:22,483 - werkzeug - INFO -  * Detected change in '/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/test.py', reloading
+2025-05-01 00:26:22,648 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 00:26:24,244 - utils.database - INFO - Database initialized successfully
+2025-05-01 00:26:24,300 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 00:26:24,338 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 00:26:24,366 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 00:32:34,930 - werkzeug - INFO -  * Detected change in '/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/test.py', reloading
+2025-05-01 00:32:35,117 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 00:32:37,102 - utils.database - INFO - Database initialized successfully
+2025-05-01 00:32:37,172 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 00:32:37,221 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 00:32:37,261 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 00:32:54,746 - werkzeug - INFO -  * Detected change in '/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/test.py', reloading
+2025-05-01 00:32:54,918 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 00:32:56,732 - utils.database - INFO - Database initialized successfully
+2025-05-01 00:32:56,794 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 00:32:56,833 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 00:32:56,860 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 00:34:06,874 - werkzeug - INFO -  * Detected change in '/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/test.py', reloading
+2025-05-01 00:34:07,050 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 00:34:08,969 - utils.database - INFO - Database initialized successfully
+2025-05-01 00:34:09,037 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 00:34:09,079 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 00:34:09,106 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 00:42:16,969 - werkzeug - INFO -  * Detected change in '/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/test.py', reloading
+2025-05-01 00:42:17,203 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 00:42:19,523 - utils.database - INFO - Database initialized successfully
+2025-05-01 00:42:19,583 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 00:42:19,653 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 00:42:19,685 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 00:42:26,990 - werkzeug - INFO -  * Detected change in '/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/test.py', reloading
+2025-05-01 00:42:27,293 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 00:42:29,050 - utils.database - INFO - Database initialized successfully
+2025-05-01 00:42:29,113 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 00:42:29,152 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 00:42:29,184 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 01:02:03,774 - werkzeug - INFO -  * Detected change in '/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/utils/food_recognition.py', reloading
+2025-05-01 01:02:04,018 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 01:02:06,410 - utils.database - INFO - Database initialized successfully
+2025-05-01 01:02:06,471 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 01:02:06,517 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 01:02:06,552 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 01:02:18,149 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f64fcdf4-99c1-4e58-bfc9-cf2f7b4f0c27_20250501010218_noodles_46.jpg
+2025-05-01 01:02:18,149 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f64fcdf4-99c1-4e58-bfc9-cf2f7b4f0c27_20250501010218_noodles_46.jpg
+2025-05-01 01:02:18,152 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 01:02:18,153 - utils.food_recognition - INFO - Sending Rest call to https://8000-gpu-t4-s-1uih3rpc0grkm-a.us-west4-1.prod.colab.dev/predict/
+2025-05-01 01:02:18,154 - utils.food_recognition - INFO - Food recognition successful: apple
+2025-05-01 01:02:18,206 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:02:18] "POST /food/analyze-food HTTP/1.1" 200 -
+2025-05-01 01:18:32,847 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:18:32] "GET /health HTTP/1.1" 200 -
+2025-05-01 01:20:07,177 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:20:07] "GET /health HTTP/1.1" 200 -
+2025-05-01 01:20:23,746 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:20:23] "GET /health HTTP/1.1" 200 -
+2025-05-01 01:20:35,450 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:20:35] "[31m[1mGET /users HTTP/1.1[0m" 405 -
+2025-05-01 01:20:37,676 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:20:37] "[31m[1mGET /users HTTP/1.1[0m" 405 -
+2025-05-01 01:20:39,928 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:20:39] "GET /health HTTP/1.1" 200 -
+2025-05-01 01:20:41,136 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:20:41] "GET /health HTTP/1.1" 200 -
+2025-05-01 01:20:41,691 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:20:41] "[31m[1mGET /users HTTP/1.1[0m" 405 -
+2025-05-01 01:20:43,115 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:20:43] "[31m[1mGET /users HTTP/1.1[0m" 405 -
+2025-05-01 01:20:47,483 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:20:47] "GET /health HTTP/1.1" 200 -
+2025-05-01 01:20:50,702 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:20:50] "GET /health HTTP/1.1" 200 -
+2025-05-01 01:20:50,720 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:20:50] "GET /health HTTP/1.1" 200 -
+2025-05-01 01:20:55,201 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:20:55] "GET /health HTTP/1.1" 200 -
+2025-05-01 01:20:58,614 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:20:58] "[31m[1mGET /users HTTP/1.1[0m" 405 -
+2025-05-01 01:21:00,939 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:21:00] "[31m[1mGET /users HTTP/1.1[0m" 405 -
+2025-05-01 01:25:49,237 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:25:49] "GET /health HTTP/1.1" 200 -
+2025-05-01 01:25:54,404 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:25:54] "GET /health HTTP/1.1" 200 -
+2025-05-01 01:25:57,412 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:25:57] "[31m[1mGET /users HTTP/1.1[0m" 405 -
+2025-05-01 01:26:01,968 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:26:01] "[31m[1mGET /users HTTP/1.1[0m" 405 -
+2025-05-01 01:26:12,345 - __main__ - INFO - Received user creation request
+2025-05-01 01:26:12,346 - __main__ - WARNING - Validation error: Gender must be either 'male' or 'female'
+2025-05-01 01:26:12,346 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:26:12] "[31m[1mPOST /users HTTP/1.1[0m" 400 -
+2025-05-01 01:26:31,130 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:26:31] "[31m[1mGET /users HTTP/1.1[0m" 405 -
+2025-05-01 01:26:36,044 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:26:36] "[31m[1mGET /users HTTP/1.1[0m" 405 -
+2025-05-01 01:26:36,063 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:26:36] "[33mGET /users/d6bc0637-1a50-407d-9b0a-fdec9dcce3b5 HTTP/1.1[0m" 404 -
+2025-05-01 01:26:43,406 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:26:43] "[33mPUT /users/d6bc0637-1a50-407d-9b0a-fdec9dcce3b5 HTTP/1.1[0m" 404 -
+2025-05-01 01:27:49,104 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:27:49] "[31m[1mGET /users HTTP/1.1[0m" 405 -
+2025-05-01 01:27:54,416 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:27:54] "[31m[1mGET /users HTTP/1.1[0m" 405 -
+2025-05-01 01:27:56,912 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:27:56] "[31m[1mGET /users HTTP/1.1[0m" 405 -
+2025-05-01 01:27:56,926 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:27:56] "[33mGET /users/d6bc0637-1a50-407d-9b0a-fdec9dcce3b5 HTTP/1.1[0m" 404 -
+2025-05-01 01:28:02,958 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:28:02] "[31m[1mGET /users HTTP/1.1[0m" 405 -
+2025-05-01 01:28:02,975 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:28:02] "[33mGET /users/d6bc0637-1a50-407d-9b0a-fdec9dcce3b5 HTTP/1.1[0m" 404 -
+2025-05-01 01:28:06,244 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:28:06] "[31m[1mGET /users HTTP/1.1[0m" 405 -
+2025-05-01 01:28:06,263 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:28:06] "[33mGET /users/d6bc0637-1a50-407d-9b0a-fdec9dcce3b5 HTTP/1.1[0m" 404 -
+2025-05-01 01:28:06,285 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:28:06] "[33mGET /users/d6bc0637-1a50-407d-9b0a-fdec9dcce3b5 HTTP/1.1[0m" 404 -
+2025-05-01 01:28:06,320 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:28:06] "[33mPOST /food/analyze-food HTTP/1.1[0m" 404 -
+2025-05-01 01:28:06,324 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 01:28:06] "[33mPOST /food/analyze HTTP/1.1[0m" 404 -
+2025-05-01 07:17:58,939 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:17:58] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:10,646 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:10] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:19,039 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:19] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:34,022 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:34] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:35,698 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:35] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:42,754 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:42] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:42,931 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:42] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:43,083 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:43] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:43,223 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:43] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:43,367 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:43] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:43,508 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:43] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:43,644 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:43] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:43,800 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:43] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:43,949 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:43] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:44,092 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:44] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:44,250 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:44] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:44,405 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:44] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:44,559 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:44] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:44,714 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:44] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:44,871 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:44] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:45,014 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:45] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:45,177 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:45] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:45,326 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:45] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:45,479 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:45] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:45,641 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:45] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:45,795 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:45] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:45,941 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:45] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:46,110 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:46] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:46,279 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:46] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:46,445 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:46] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:46,670 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:46] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:46,871 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:46] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:47,086 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:47] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:47,261 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:47] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:51,331 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:51] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:54,449 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:54] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:54,669 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:54] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:54,839 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:54] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:55,006 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:55] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:55,170 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:55] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:55,313 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:55] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:55,475 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:55] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:55,628 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:55] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:55,780 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:55] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:55,949 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:55] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:56,106 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:56] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:56,259 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:56] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:56,414 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:56] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:56,569 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:56] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:56,725 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:56] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:56,892 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:56] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:57,077 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:57] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:57,233 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:57] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:57,392 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:57] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:57,550 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:57] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:57,726 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:57] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:57,883 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:57] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:58,045 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:58] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:58,211 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:58] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:58,374 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:58] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:58,529 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:58] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:58,701 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:58] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:58,857 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:58] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:18:59,043 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:18:59] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:19:02,216 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:19:02] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:19:04,004 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:19:04] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:19:04,018 - __main__ - INFO - Received user creation request
+2025-05-01 07:19:04,227 - models - INFO - User f869bc42-3493-4826-82c5-79ecdfa3459e model - Training R²: 1.0000, Validation R²: 0.8854
+2025-05-01 07:19:04,238 - models - INFO - Personalized glucose model updated for user f869bc42-3493-4826-82c5-79ecdfa3459e
+2025-05-01 07:19:04,238 - models - INFO - Initial model created for user f869bc42-3493-4826-82c5-79ecdfa3459e with 10 simulated meals
+2025-05-01 07:19:04,238 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:19:04] "[35m[1mPOST /users HTTP/1.1[0m" 201 -
+2025-05-01 07:19:54,765 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:19:54] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:20:02,183 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:20:02] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:20:09,599 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:20:09] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:20:09,628 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501072009_noodles_46.jpg
+2025-05-01 07:20:09,628 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501072009_noodles_46.jpg
+2025-05-01 07:20:09,629 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 07:20:09,629 - utils.food_recognition - INFO - Sending Rest call to https://8000-gpu-t4-s-1uih3rpc0grkm-a.us-west4-1.prod.colab.dev/predict/
+2025-05-01 07:20:09,631 - utils.food_recognition - INFO - Food recognition successful: apple
+2025-05-01 07:20:09,723 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:20:09] "POST /food/analyze-food HTTP/1.1" 200 -
+2025-05-01 07:25:49,653 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:25:49] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:28:59,441 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:28:59] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:29:06,275 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:29:06] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:29:22,845 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:29:22] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:29:22,931 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:29:22] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:29:22,939 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:29:22] "GET /users/f869bc42-3493-4826-82c5-79ecdfa3459e HTTP/1.1" 200 -
+2025-05-01 07:39:43,149 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:39:43] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:39:59,692 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:39:59] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:40:09,782 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:40:09] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:40:12,024 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:40:12] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:40:14,917 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:40:14] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:40:16,764 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:40:16] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:42:34,532 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:42:34] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:42:38,680 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:42:38] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:42:41,260 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:42:41] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:42:49,943 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:42:49] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:42:51,216 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:42:51] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:43:00,979 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:43:00] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:43:03,964 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:43:03] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:43:16,377 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:43:16] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:43:16,952 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:43:16] "GET /health HTTP/1.1" 200 -
+2025-05-01 07:43:19,678 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 07:43:19] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:03:06,129 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:03:06] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:03:18,595 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:03:18] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:03:20,491 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:03:20] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:06:02,923 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:06:02] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:06:05,645 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:06:05] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:06:15,518 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:06:15] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:06:16,585 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:06:16] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:06:18,045 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:06:18] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:10:20,289 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:10:20] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:10:21,577 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:10:21] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:10:35,770 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:10:35] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:10:35,857 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:10:35] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:10:35,873 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:10:35] "GET /users/f869bc42-3493-4826-82c5-79ecdfa3459e HTTP/1.1" 200 -
+2025-05-01 08:10:35,899 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:10:35] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:10:49,967 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:10:49] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:11:08,880 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:11:08] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:11:11,244 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:11:11] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:11:11,269 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501081111_istockphoto-184276818-612x612.jpg
+2025-05-01 08:11:11,269 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501081111_istockphoto-184276818-612x612.jpg
+2025-05-01 08:11:11,269 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 08:11:11,269 - utils.food_recognition - INFO - Sending Rest call to https://8000-gpu-t4-s-1uih3rpc0grkm-a.us-west4-1.prod.colab.dev/predict/
+2025-05-01 08:11:11,269 - utils.food_recognition - INFO - Food recognition successful: apple
+2025-05-01 08:11:11,331 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:11:11] "POST /food/analyze-food HTTP/1.1" 200 -
+2025-05-01 08:11:26,263 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:11:26] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:11:53,477 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:11:53] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:11:55,313 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:11:55] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:11:56,801 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:11:56] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:12:00,205 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:12:00] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:12:02,276 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:12:02] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:12:12,948 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:12:12] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:21:44,704 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:21:44] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:21:46,706 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:21:46] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:36:59,111 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:36:59] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:37:23,537 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:37:23] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:54:15,500 - werkzeug - INFO -  * Detected change in '/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/test_docs_for_ml_training/test_image_upload.py', reloading
+2025-05-01 08:54:15,879 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 08:54:18,601 - utils.database - INFO - Database initialized successfully
+2025-05-01 08:54:18,666 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 08:54:18,711 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 08:54:18,745 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 08:58:58,742 - werkzeug - INFO -  * Detected change in '/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/utils/food_recognition.py', reloading
+2025-05-01 08:58:58,904 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 08:59:00,808 - utils.database - INFO - Database initialized successfully
+2025-05-01 08:59:00,871 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 08:59:00,917 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 08:59:00,956 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 08:59:27,492 - utils.database - INFO - Database initialized successfully
+2025-05-01 08:59:27,559 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 08:59:29,141 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-05-01 08:59:29,141 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 08:59:29,144 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 08:59:30,799 - utils.database - INFO - Database initialized successfully
+2025-05-01 08:59:30,859 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 08:59:30,900 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 08:59:30,932 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 08:59:34,429 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:59:34] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:59:38,275 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:59:38] "GET /health HTTP/1.1" 200 -
+2025-05-01 08:59:40,846 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 08:59:40] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:00:05,592 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:00:05] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:00:06,382 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:00:06] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:00:13,921 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:00:13] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:00:29,251 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:00:29] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:00:29,345 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:00:29] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:00:29,351 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:00:29] "[33mGET /users/%20f869bc42-3493-4826-82c5-79ecdfa3459e HTTP/1.1[0m" 404 -
+2025-05-01 09:00:49,284 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:00:49] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:00:49,390 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:00:49] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:00:49,398 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:00:49] "GET /users/f869bc42-3493-4826-82c5-79ecdfa3459e HTTP/1.1" 200 -
+2025-05-01 09:00:49,429 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:00:49] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:01:01,031 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:01:01] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:01:12,063 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:01:12] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:01:15,302 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:01:15] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:01:15,323 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501090115_tobiko-roll-1200.jpg
+2025-05-01 09:01:15,323 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501090115_tobiko-roll-1200.jpg
+2025-05-01 09:01:15,323 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 09:01:15,323 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 09:01:16,150 - utils.food_recognition - INFO - Food recognition successful: enchiladas_dish
+2025-05-01 09:01:16,151 - utils.food_recognition - ERROR - Error in food recognition: 'calories'
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/utils/food_recognition.py", line 78, in identify_food_in_image
+    'calories': food_data['nutrition']['calories'],
+                ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'calories'
+2025-05-01 09:01:16,158 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:01:16] "[31m[1mPOST /food/analyze-food HTTP/1.1[0m" 400 -
+2025-05-01 09:04:12,632 - utils.database - INFO - Database initialized successfully
+2025-05-01 09:04:12,698 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 09:04:14,299 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-05-01 09:04:14,300 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 09:04:14,302 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 09:04:15,947 - utils.database - INFO - Database initialized successfully
+2025-05-01 09:04:16,013 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 09:04:16,052 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 09:04:16,088 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 09:04:20,937 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:04:20] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:04:20,966 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501090420_tobiko-roll-1200.jpg
+2025-05-01 09:04:20,967 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501090420_tobiko-roll-1200.jpg
+2025-05-01 09:04:20,968 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 09:04:20,968 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 09:04:21,870 - utils.food_recognition - INFO - {'predicted_class': 'enchiladas_dish', 'confidence': 0.6311242580413818, 'nutrition': {}, 'glycemic_index': 'Unknown', 'glycemic_load': 'Unknown', 'timestamp': '2025-05-01T09:04:22.007434'}
+2025-05-01 09:04:21,871 - utils.food_recognition - INFO - Food recognition successful: enchiladas_dish
+2025-05-01 09:04:21,871 - utils.food_recognition - ERROR - Error in food recognition: 'calories'
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/utils/food_recognition.py", line 79, in identify_food_in_image
+    'calories': food_data['nutrition']['calories'],
+                ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'calories'
+2025-05-01 09:04:21,878 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:04:21] "[31m[1mPOST /food/analyze-food HTTP/1.1[0m" 400 -
+2025-05-01 09:04:51,197 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:04:51] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:04:52,981 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:04:52] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:04:53,330 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501090453_pasta.jpg
+2025-05-01 09:04:53,330 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501090453_pasta.jpg
+2025-05-01 09:04:53,330 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 09:04:53,330 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 09:04:54,438 - utils.food_recognition - INFO - {'predicted_class': 'golden_waffles', 'confidence': 0.7960596084594727, 'nutrition': {}, 'glycemic_index': 'Unknown', 'glycemic_load': 'Unknown', 'timestamp': '2025-05-01T09:04:54.578209'}
+2025-05-01 09:04:54,438 - utils.food_recognition - INFO - Food recognition successful: golden_waffles
+2025-05-01 09:04:54,438 - utils.food_recognition - ERROR - Error in food recognition: 'calories'
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/utils/food_recognition.py", line 79, in identify_food_in_image
+    'calories': food_data['nutrition']['calories'],
+                ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'calories'
+2025-05-01 09:04:54,444 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:04:54] "[31m[1mPOST /food/analyze-food HTTP/1.1[0m" 400 -
+2025-05-01 09:10:55,673 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:10:55] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:32:49,331 - werkzeug - INFO -  * Detected change in '/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/app_rest_call_to_collab_with_meal_history.py', reloading
+2025-05-01 09:32:49,612 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 09:32:52,269 - utils.database - INFO - Database initialized successfully
+2025-05-01 09:32:52,335 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 09:32:52,377 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 09:32:52,408 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 09:36:31,187 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:36:31] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:36:31,271 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:36:31] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:36:32,633 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:36:32] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:36:34,295 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:36:34] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:36:50,691 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:36:50] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:36:50,801 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:36:50] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:36:50,809 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:36:50] "GET /users/f869bc42-3493-4826-82c5-79ecdfa3459e HTTP/1.1" 200 -
+2025-05-01 09:36:50,833 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:36:50] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:36:53,137 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:36:53] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:36:58,431 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:36:58] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:37:00,324 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:37:00] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:37:00,343 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg
+2025-05-01 09:37:00,343 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg
+2025-05-01 09:37:00,343 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 09:37:00,343 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 09:37:02,108 - utils.food_recognition - INFO - {'predicted_class': 'sushi', 'confidence': 0.7022155523300171, 'nutrition': {'calories': 570.0, 'carbohydrates': 38.0, 'fat': 12.0, 'protein': 69.0, 'serving_weight_grams': 100.0}, 'glycemic_index': '55', 'glycemic_load': '20.9', 'timestamp': '2025-05-01T09:37:02.277552'}
+2025-05-01 09:37:02,110 - utils.food_recognition - INFO - Food recognition successful: sushi
+2025-05-01 09:37:02,219 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:37:02] "POST /food/analyze-food HTTP/1.1" 200 -
+2025-05-01 09:38:15,704 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:38:15] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:38:16,485 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:38:16] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:38:20,842 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:38:20] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:38:23,759 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:38:23] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:38:23,773 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093823_noodles_46.jpg
+2025-05-01 09:38:23,774 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093823_noodles_46.jpg
+2025-05-01 09:38:23,774 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 09:38:23,774 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 09:38:24,943 - utils.food_recognition - INFO - {'predicted_class': 'fried_rice', 'confidence': 0.5328693985939026, 'nutrition': {'calories': 115.0, 'carbohydrates': 11.0, 'fat': 7.0, 'protein': 1.0, 'serving_weight_grams': 100.0}, 'glycemic_index': 'Unknown', 'glycemic_load': 'Unknown', 'timestamp': '2025-05-01T09:38:25.117812'}
+2025-05-01 09:38:24,944 - utils.food_recognition - INFO - Food recognition successful: fried_rice
+2025-05-01 09:38:24,945 - utils.food_recognition - ERROR - Error in food recognition: could not convert string to float: 'Unknown'
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/utils/food_recognition.py", line 85, in identify_food_in_image
+    'gi': float(food_data['glycemic_index']),
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: 'Unknown'
+2025-05-01 09:38:24,954 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:38:24] "[31m[1mPOST /food/analyze-food HTTP/1.1[0m" 400 -
+2025-05-01 09:38:32,553 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:38:32] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:38:35,548 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:38:35] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:38:44,190 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:38:44] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:38:53,582 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:38:53] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:38:53,661 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:38:53] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:38:55,162 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:38:55] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:38:56,178 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:38:56] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:39:00,064 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:39:00] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:39:04,184 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:39:04] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:39:04,211 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093904_noodles_46.jpg
+2025-05-01 09:39:04,211 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093904_noodles_46.jpg
+2025-05-01 09:39:04,212 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 09:39:04,212 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 09:39:05,768 - utils.food_recognition - INFO - {'predicted_class': 'fried_rice', 'confidence': 0.5328693985939026, 'nutrition': {'calories': 115.0, 'carbohydrates': 11.0, 'fat': 7.0, 'protein': 1.0, 'serving_weight_grams': 100.0}, 'glycemic_index': 'Unknown', 'glycemic_load': 'Unknown', 'timestamp': '2025-05-01T09:39:05.831572'}
+2025-05-01 09:39:05,768 - utils.food_recognition - INFO - Food recognition successful: fried_rice
+2025-05-01 09:39:05,769 - utils.food_recognition - ERROR - Error in food recognition: could not convert string to float: 'Unknown'
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/utils/food_recognition.py", line 85, in identify_food_in_image
+    'gi': float(food_data['glycemic_index']),
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: 'Unknown'
+2025-05-01 09:39:05,773 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:39:05] "[31m[1mPOST /food/analyze-food HTTP/1.1[0m" 400 -
+2025-05-01 09:50:13,072 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:50:13] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:50:23,054 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:50:23] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:50:26,242 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:50:26] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:50:26,309 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:50:26] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:50:28,418 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:50:28] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:50:29,386 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:50:29] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:50:37,070 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:50:37] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:50:38,098 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:50:38] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:50:42,426 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:50:42] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:50:46,216 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:50:46] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:50:53,437 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:50:53] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:50:57,687 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:50:57] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:50:57,776 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:50:57] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:50:57,783 - __main__ - INFO - Received user creation request
+2025-05-01 09:50:57,944 - models - INFO - User d830c684-36fa-4ce0-afcf-5246baf058d0 model - Training R²: 1.0000, Validation R²: -0.1738
+2025-05-01 09:50:57,950 - models - INFO - Personalized glucose model updated for user d830c684-36fa-4ce0-afcf-5246baf058d0
+2025-05-01 09:50:57,950 - models - INFO - Initial model created for user d830c684-36fa-4ce0-afcf-5246baf058d0 with 10 simulated meals
+2025-05-01 09:50:57,951 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:50:57] "[35m[1mPOST /users HTTP/1.1[0m" 201 -
+2025-05-01 09:51:26,270 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:51:26] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:51:33,999 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:51:33] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:51:35,815 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:51:35] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:51:35,876 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg
+2025-05-01 09:51:35,876 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg
+2025-05-01 09:51:35,877 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 09:51:35,877 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 09:52:44,145 - utils.food_recognition - INFO - {'predicted_class': 'sushi', 'confidence': 0.7022155523300171, 'nutrition': {'calories': 570.0, 'carbohydrates': 38.0, 'fat': 12.0, 'protein': 69.0, 'serving_weight_grams': 100.0}, 'glycemic_index': '55', 'glycemic_load': '20.9', 'timestamp': '2025-05-01T09:52:44.324228'}
+2025-05-01 09:52:44,148 - utils.food_recognition - INFO - Food recognition successful: sushi
+2025-05-01 09:52:44,207 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:52:44] "POST /food/analyze-food HTTP/1.1" 200 -
+2025-05-01 09:56:17,892 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:56:17] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:57:08,090 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:57:08] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:57:11,030 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:57:11] "GET /health HTTP/1.1" 200 -
+2025-05-01 09:57:11,064 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg
+2025-05-01 09:57:11,065 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg
+2025-05-01 09:57:11,067 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 09:57:11,067 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 09:57:12,288 - utils.food_recognition - INFO - {'predicted_class': 'pizza', 'confidence': 0.9949060678482056, 'nutrition': {'calories': 390.0, 'carbohydrates': 43.0, 'fat': 17.0, 'protein': 17.0, 'serving_weight_grams': 100.0}, 'glycemic_index': '80', 'glycemic_load': '34.4', 'timestamp': '2025-05-01T09:57:12.529942'}
+2025-05-01 09:57:12,288 - utils.food_recognition - INFO - Food recognition successful: pizza
+2025-05-01 09:57:12,400 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 09:57:12] "POST /food/analyze-food HTTP/1.1" 200 -
+2025-05-01 10:04:34,958 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:04:34] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:05:34,785 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:05:34] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:05:36,454 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:05:36] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:05:38,302 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:05:38] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:13:17,278 - utils.database - INFO - Database initialized successfully
+2025-05-01 10:13:17,344 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 10:13:17,961 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-05-01 10:13:17,961 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 10:13:17,964 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 10:13:19,620 - utils.database - INFO - Database initialized successfully
+2025-05-01 10:13:19,679 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 10:13:19,728 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 10:13:19,763 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 10:13:29,242 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:13:29] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:13:32,109 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:13:32] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:13:42,714 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:13:42] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:13:49,413 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:13:49] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:13:49,486 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:13:49] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:13:49,494 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:13:49] "GET /users/d830c684-36fa-4ce0-afcf-5246baf058d0 HTTP/1.1" 200 -
+2025-05-01 10:13:49,533 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:13:49] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:13:55,732 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:13:55] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:13:59,735 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:13:59] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:14:01,646 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:14:01] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:14:01,672 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg
+2025-05-01 10:14:01,672 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg
+2025-05-01 10:14:01,673 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 10:14:01,673 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 10:14:03,013 - utils.food_recognition - INFO - {'predicted_class': 'pizza', 'confidence': 0.9949060678482056, 'nutrition': {'calories': 390.0, 'carbohydrates': 43.0, 'fat': 17.0, 'protein': 17.0, 'serving_weight_grams': 100.0}, 'glycemic_index': '80', 'glycemic_load': '34.4', 'timestamp': '2025-05-01T10:14:03.297030'}
+2025-05-01 10:14:03,014 - utils.food_recognition - INFO - Food recognition successful: pizza
+2025-05-01 10:14:03,097 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:14:03] "POST /food/analyze-food HTTP/1.1" 200 -
+2025-05-01 10:14:17,554 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:14:17] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:14:17,594 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:14:17] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0?sort_by=date&sort_order=desc&limit=50 HTTP/1.1" 200 -
+2025-05-01 10:14:23,610 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:14:23] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:14:29,758 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:14:29] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:14:32,318 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:14:32] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:14:32,335 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101432_noodles_46.jpg
+2025-05-01 10:14:32,336 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101432_noodles_46.jpg
+2025-05-01 10:14:32,336 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 10:14:32,336 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 10:14:33,525 - utils.food_recognition - INFO - {'predicted_class': 'fried_rice', 'confidence': 0.5328693985939026, 'nutrition': {'calories': 115.0, 'carbohydrates': 11.0, 'fat': 7.0, 'protein': 1.0, 'serving_weight_grams': 100.0}, 'glycemic_index': 'Unknown', 'glycemic_load': 'Unknown', 'timestamp': '2025-05-01T10:14:33.744987'}
+2025-05-01 10:14:33,525 - utils.food_recognition - INFO - Food recognition successful: fried_rice
+2025-05-01 10:14:33,526 - utils.food_recognition - ERROR - Error in food recognition: could not convert string to float: 'Unknown'
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/utils/food_recognition.py", line 85, in identify_food_in_image
+    'gi': float(food_data['glycemic_index']),
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: 'Unknown'
+2025-05-01 10:14:33,534 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:14:33] "[31m[1mPOST /food/analyze-food HTTP/1.1[0m" 400 -
+2025-05-01 10:14:47,306 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:14:47] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:14:51,967 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:14:51] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:14:54,171 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:14:54] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:14:54,603 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg
+2025-05-01 10:14:54,603 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg
+2025-05-01 10:14:54,603 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 10:14:54,603 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 10:14:56,154 - utils.food_recognition - INFO - {'predicted_class': 'pasta', 'confidence': 0.8415707349777222, 'nutrition': {'calories': 397.0, 'carbohydrates': 48.0, 'fat': 16.0, 'protein': 14.0, 'serving_weight_grams': 100.0}, 'glycemic_index': '50', 'glycemic_load': '24.0', 'timestamp': '2025-05-01T10:14:56.381191'}
+2025-05-01 10:14:56,154 - utils.food_recognition - INFO - Food recognition successful: pasta
+2025-05-01 10:14:56,200 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:14:56] "POST /food/analyze-food HTTP/1.1" 200 -
+2025-05-01 10:15:03,068 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:15:03] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:15:17,068 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:15:17] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:15:17,101 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:15:17] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0?start_date=2025-05-01&end_date=2025-05-02&sort_by=date&sort_order=desc&limit=50 HTTP/1.1" 200 -
+2025-05-01 10:17:51,353 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:17:51] "GET /swagger HTTP/1.1" 200 -
+2025-05-01 10:17:51,394 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:17:51] "[36mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-05-01 10:17:51,394 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:17:51] "[36mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-05-01 10:17:51,395 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:17:51] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2025-05-01 10:17:51,408 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:17:51] "[36mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-05-01 10:17:51,446 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:17:51] "GET /swagger.json HTTP/1.1" 200 -
+2025-05-01 10:18:06,390 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:18:06] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0 HTTP/1.1" 200 -
+2025-05-01 10:18:23,139 - __main__ - ERROR - Error getting meal stats for user d830c684-36fa-4ce0-afcf-5246baf058d0: name 'timedelta' is not defined
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/app_rest_call_to_collab_with_meal_history.py", line 1282, in get
+    next_week = current_week + timedelta(days=7)
+                               ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+2025-05-01 10:18:23,143 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:18:23] "[35m[1mGET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/stats HTTP/1.1[0m" 500 -
+2025-05-01 10:18:49,208 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:18:49] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/704036dd-e2a7-4f90-9f32-96ba1b930fdb HTTP/1.1" 200 -
+2025-05-01 10:21:30,703 - utils.database - INFO - Database initialized successfully
+2025-05-01 10:21:30,769 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 10:21:33,350 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-05-01 10:21:33,351 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 10:21:33,354 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 10:21:35,292 - utils.database - INFO - Database initialized successfully
+2025-05-01 10:21:35,342 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 10:21:35,383 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 10:21:35,420 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 10:21:42,596 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:21:42] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/stats HTTP/1.1" 200 -
+2025-05-01 10:35:27,566 - utils.database - INFO - Database initialized successfully
+2025-05-01 10:35:27,630 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 10:35:30,244 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-05-01 10:35:30,245 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 10:35:30,248 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 10:35:32,280 - utils.database - INFO - Database initialized successfully
+2025-05-01 10:35:32,336 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 10:35:32,401 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 10:35:32,457 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 10:35:50,080 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:35:50] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:35:52,327 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:35:52] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:36:01,238 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:36:01] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:36:01,314 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:36:01] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:36:01,322 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:36:01] "GET /users/d830c684-36fa-4ce0-afcf-5246baf058d0 HTTP/1.1" 200 -
+2025-05-01 10:36:01,347 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:36:01] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:36:03,179 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:36:03] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:36:04,692 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:36:04] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:36:04,716 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:36:04] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0?sort_by=date&sort_order=desc&limit=50 HTTP/1.1" 200 -
+2025-05-01 10:36:12,228 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:36:12] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:36:12,256 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:36:12] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0?start_date=2025-05-01&end_date=2025-05-03&sort_by=date&sort_order=desc&limit=50 HTTP/1.1" 200 -
+2025-05-01 10:36:23,010 - models - INFO - Not enough meals for user d830c684-36fa-4ce0-afcf-5246baf058d0 to update model (minimum 5 required)
+2025-05-01 10:36:23,015 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:36:23] "POST /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/704036dd-e2a7-4f90-9f32-96ba1b930fdb/feedback HTTP/1.1" 200 -
+2025-05-01 10:48:07,381 - utils.database - INFO - Database initialized successfully
+2025-05-01 10:48:07,441 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 10:48:08,990 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-05-01 10:48:08,991 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 10:48:08,994 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 10:48:10,780 - utils.database - INFO - Database initialized successfully
+2025-05-01 10:48:10,839 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 10:48:10,883 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 10:48:10,931 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 10:48:10,973 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:48:10] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:48:15,015 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:48:15] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:48:24,930 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:48:24] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:48:25,022 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:48:25] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:48:25,029 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:48:25] "GET /users/d830c684-36fa-4ce0-afcf-5246baf058d0 HTTP/1.1" 200 -
+2025-05-01 10:48:25,059 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:48:25] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:48:36,195 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:48:36] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:48:45,968 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:48:45] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:48:47,749 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:48:47] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:48:47,783 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501104847_pizza.jpg
+2025-05-01 10:48:47,783 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501104847_pizza.jpg
+2025-05-01 10:48:47,783 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 10:48:47,784 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 10:50:02,858 - utils.food_recognition - ERROR - Error in food recognition: HTTPConnectionPool(host='107.131.102.130', port=8000): Max retries exceeded with url: /predict (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x119b8a190>, 'Connection to 107.131.102.130 timed out. (connect timeout=None)'))
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 60] Operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 1037, in _send_output
+    self.send(msg)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 975, in send
+    self.connect()
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/connection.py", line 207, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x119b8a190>, 'Connection to 107.131.102.130 timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='107.131.102.130', port=8000): Max retries exceeded with url: /predict (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x119b8a190>, 'Connection to 107.131.102.130 timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/utils/food_recognition.py", line 47, in identify_food_in_image
+    response = requests.post(api_url, files=files)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/requests/adapters.py", line 688, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='107.131.102.130', port=8000): Max retries exceeded with url: /predict (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x119b8a190>, 'Connection to 107.131.102.130 timed out. (connect timeout=None)'))
+2025-05-01 10:50:02,883 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:50:02] "[31m[1mPOST /food/analyze-food HTTP/1.1[0m" 400 -
+2025-05-01 10:52:47,791 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:52:47] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:52:47,810 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105247_pizza.jpg
+2025-05-01 10:52:47,810 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105247_pizza.jpg
+2025-05-01 10:52:47,810 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 10:52:47,810 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 10:54:02,824 - utils.food_recognition - ERROR - Error in food recognition: HTTPConnectionPool(host='107.131.102.130', port=8000): Max retries exceeded with url: /predict (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x120425890>, 'Connection to 107.131.102.130 timed out. (connect timeout=None)'))
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 60] Operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 1037, in _send_output
+    self.send(msg)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 975, in send
+    self.connect()
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/connection.py", line 207, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x120425890>, 'Connection to 107.131.102.130 timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='107.131.102.130', port=8000): Max retries exceeded with url: /predict (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x120425890>, 'Connection to 107.131.102.130 timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/utils/food_recognition.py", line 47, in identify_food_in_image
+    response = requests.post(api_url, files=files)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eathealthy-ai/eatsmart-ai/gi-personalize-app/eatsmartvenv/lib/python3.11/site-packages/requests/adapters.py", line 688, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='107.131.102.130', port=8000): Max retries exceeded with url: /predict (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x120425890>, 'Connection to 107.131.102.130 timed out. (connect timeout=None)'))
+2025-05-01 10:54:02,839 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:54:02] "[31m[1mPOST /food/analyze-food HTTP/1.1[0m" 400 -
+2025-05-01 10:55:11,617 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:55:11] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:55:12,316 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:55:12] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:55:14,460 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:55:14] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:55:14,482 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:55:14] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0?sort_by=date&sort_order=desc&limit=50 HTTP/1.1" 200 -
+2025-05-01 10:55:14,500 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:55:14] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/stats HTTP/1.1" 200 -
+2025-05-01 10:55:23,238 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:55:23] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:55:23,256 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:55:23] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0?start_date=2025-05-01&end_date=2025-05-03&sort_by=date&sort_order=desc&limit=50 HTTP/1.1" 200 -
+2025-05-01 10:55:47,248 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:55:47] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:55:48,156 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:55:48] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:55:51,695 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:55:51] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:55:53,541 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:55:53] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:55:53,563 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg
+2025-05-01 10:55:53,563 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg
+2025-05-01 10:55:53,564 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 10:55:53,565 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 10:55:55,681 - utils.food_recognition - INFO - {'predicted_class': 'pizza', 'confidence': 0.9949060678482056, 'nutrition': {'calories': 390.0, 'carbohydrates': 43.0, 'fat': 17.0, 'protein': 17.0, 'serving_weight_grams': 100.0}, 'glycemic_index': '80', 'glycemic_load': '34.4', 'timestamp': '2025-05-01T10:55:55.995165'}
+2025-05-01 10:55:55,682 - utils.food_recognition - INFO - Food recognition successful: pizza
+2025-05-01 10:55:55,799 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:55:55] "POST /food/analyze-food HTTP/1.1" 200 -
+2025-05-01 10:56:23,373 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:56:23] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:56:38,048 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:56:38] "GET /health HTTP/1.1" 200 -
+2025-05-01 10:56:38,077 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 10:56:38] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0?start_date=2025-04-24&end_date=2025-05-03&sort_by=date&sort_order=desc&limit=50 HTTP/1.1" 200 -
+2025-05-01 11:48:17,435 - utils.database - INFO - Database initialized successfully
+2025-05-01 11:48:17,511 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 11:48:19,060 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-05-01 11:48:19,061 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 11:48:19,063 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 11:48:20,866 - utils.database - INFO - Database initialized successfully
+2025-05-01 11:48:20,922 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 11:48:20,965 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 11:48:21,000 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 11:48:26,265 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:48:26] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:48:31,913 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:48:31] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:48:45,031 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:48:45] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:48:45,143 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:48:45] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:48:45,151 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:48:45] "GET /users/d830c684-36fa-4ce0-afcf-5246baf058d0 HTTP/1.1" 200 -
+2025-05-01 11:48:45,201 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:48:45] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:48:58,451 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:48:58] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:49:02,192 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:02] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:49:04,024 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:04] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:49:04,055 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg
+2025-05-01 11:49:04,055 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg
+2025-05-01 11:49:04,056 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 11:49:04,056 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 11:49:05,497 - utils.food_recognition - INFO - {'predicted_class': 'pizza', 'confidence': 0.9949060678482056, 'nutrition': {'calories': 390.0, 'carbohydrates': 43.0, 'fat': 17.0, 'protein': 17.0, 'serving_weight_grams': 100.0}, 'glycemic_index': '80', 'glycemic_load': '34.4', 'timestamp': '2025-05-01T11:49:05.873563'}
+2025-05-01 11:49:05,498 - utils.food_recognition - INFO - Food recognition successful: pizza
+2025-05-01 11:49:05,588 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:05] "POST /food/analyze-food HTTP/1.1" 200 -
+2025-05-01 11:49:11,232 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:11] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:49:11,259 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:11] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0?sort_by=date&sort_order=desc&limit=50 HTTP/1.1" 200 -
+2025-05-01 11:49:11,315 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:11] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/stats HTTP/1.1" 200 -
+2025-05-01 11:49:20,635 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:20] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:49:20,753 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:20] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:49:20,758 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:20] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/e0969b2f-6cd4-4355-a2d9-90b1f437c485 HTTP/1.1" 200 -
+2025-05-01 11:49:26,150 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:26] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:49:26,170 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:26] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/e0969b2f-6cd4-4355-a2d9-90b1f437c485 HTTP/1.1" 200 -
+2025-05-01 11:49:26,215 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:26] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:49:27,762 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:27] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:49:27,898 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:27] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:49:27,905 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:27] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/47df3654-c725-4c31-ac75-99a5dc9c65d7 HTTP/1.1" 200 -
+2025-05-01 11:49:30,182 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:30] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:49:30,205 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:30] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/47df3654-c725-4c31-ac75-99a5dc9c65d7 HTTP/1.1" 200 -
+2025-05-01 11:49:30,238 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:30] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:49:32,968 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:32] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:49:33,034 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:33] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:49:33,039 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:49:33] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/c6ebe674-dced-4c4c-99ef-604efdafeae7 HTTP/1.1" 200 -
+2025-05-01 11:50:53,700 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:50:53] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:50:53,720 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:50:53] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/c6ebe674-dced-4c4c-99ef-604efdafeae7 HTTP/1.1" 200 -
+2025-05-01 11:50:53,840 - models - INFO - Not enough valid meals with feedback for user d830c684-36fa-4ce0-afcf-5246baf058d0 to update model
+2025-05-01 11:50:53,842 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:50:53] "POST /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/c6ebe674-dced-4c4c-99ef-604efdafeae7/feedback HTTP/1.1" 200 -
+2025-05-01 11:50:53,892 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:50:53] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:50:53,897 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:50:53] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/c6ebe674-dced-4c4c-99ef-604efdafeae7 HTTP/1.1" 200 -
+2025-05-01 11:51:36,604 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:51:36] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:51:36,619 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:51:36] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/c6ebe674-dced-4c4c-99ef-604efdafeae7 HTTP/1.1" 200 -
+2025-05-01 11:51:36,709 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:51:36] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:51:43,974 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:51:43] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:51:46,013 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:51:46] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:52:58,893 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:52:58] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:53:52,810 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:53:52] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:53:52,903 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:53:52] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:53:52,909 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:53:52] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/e0969b2f-6cd4-4355-a2d9-90b1f437c485 HTTP/1.1" 200 -
+2025-05-01 11:54:23,477 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:54:23] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:54:23,503 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:54:23] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/e0969b2f-6cd4-4355-a2d9-90b1f437c485 HTTP/1.1" 200 -
+2025-05-01 11:54:23,607 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:54:23] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:59:36,125 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:59:36] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:59:36,297 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:59:36] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:59:36,321 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:59:36] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/stats HTTP/1.1" 200 -
+2025-05-01 11:59:48,726 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:59:48] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:59:48,844 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:59:48] "GET /health HTTP/1.1" 200 -
+2025-05-01 11:59:48,864 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:59:48] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/stats HTTP/1.1" 200 -
+2025-05-01 11:59:59,920 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 11:59:59] "GET /health HTTP/1.1" 200 -
+2025-05-01 12:30:35,578 - utils.database - INFO - Database initialized successfully
+2025-05-01 12:30:35,648 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 12:30:38,346 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-05-01 12:30:38,346 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 12:30:38,348 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 12:30:40,027 - utils.database - INFO - Database initialized successfully
+2025-05-01 12:30:40,092 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 12:30:40,140 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 12:30:40,176 - werkzeug - INFO -  * Debugger PIN: 165-235-971
