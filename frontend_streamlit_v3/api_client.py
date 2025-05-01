@@ -1,4 +1,3 @@
-
 import requests
 import json
 import os
@@ -9,12 +8,21 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# API endpoint (change to your Flask backend URL)
-API_ENDPOINT = "http://localhost:5000"
+# API endpoint configuration
+API_ENDPOINT = "http://localhost:5000"  # Default to local development server
+
 # Try to get from environment variable if available
 if os.environ.get("API_ENDPOINT"):
     API_ENDPOINT = os.environ.get("API_ENDPOINT")
 
+def get_health_check() -> Dict[str, Any]:
+    """Check if API is healthy"""
+    try:
+        response = requests.get(f"{API_ENDPOINT}/health", timeout=5)
+        return response.json()
+    except Exception as e:
+        logger.error(f"Health check failed: {str(e)}")
+        return {"status": "unhealthy", "error": str(e)}
 
 def create_user(user_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     """Create a new user profile"""
@@ -87,7 +95,6 @@ def analyze_food_image(user_id: str, image_file) -> Optional[Dict[str, Any]]:
         logger.error(f"Error analyzing food: {str(e)}")
         return None
 
-
 def get_meal_history(
     user_id: str, 
     start_date: Optional[str] = None,
@@ -115,6 +122,7 @@ def get_meal_history(
             f"{API_ENDPOINT}/meals/{user_id}",
             params=params
         )
+        
         if response.status_code == 200:
             return response.json()
         else:
@@ -175,5 +183,13 @@ def get_meal_stats(user_id: str) -> Optional[Dict[str, Any]]:
         return None
 
 def get_image_url(filename: str) -> str:
-    """Get the full URL for an image file"""
+    """
+    Get the full URL for an image from the backend API
+    
+    Args:
+        filename: The filename of the image
+        
+    Returns:
+        Complete URL to fetch the image from the backend
+    """
     return f"{API_ENDPOINT}/api/images/{filename}"

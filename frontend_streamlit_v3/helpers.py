@@ -6,7 +6,13 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 import io
 import base64
+import os
 from datetime import datetime
+import logging
+
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 def create_placeholder_image_base64(width=150, height=100, text="Meal Image"):
     """Create a placeholder image for meals that fail to load."""
@@ -25,12 +31,12 @@ def create_placeholder_image_base64(width=150, height=100, text="Meal Image"):
     # Draw text
     text_width, text_height = 0, 0
     try:
-        if hasattr(draw, 'textsize') and font:
-            text_width, text_height = draw.textsize(text, font=font)
-        position = ((width-text_width)//2, (height-text_height)//2)
-        draw.text(position, text, fill=(100, 100, 100), font=font)
-    except:
-        # If text drawing fails, create an empty placeholder
+        if font:
+            # Draw text in center of image
+            position = ((width - 60) // 2, (height - 10) // 2)
+            draw.text(position, text, fill=(100, 100, 100), font=font)
+    except Exception as e:
+        logger.error(f"Error creating placeholder text: {e}")
         pass
     
     # Save to bytes
@@ -45,51 +51,64 @@ def display_meal_image(meal, width=150):
     Display meal image using the API endpoint approach for production.
     Falls back to placeholder if image can't be loaded.
     """
-    image_path = meal.get('image_path')
-    
-    if image_path and isinstance(image_path, str):
-        try:
+    try:
+        image_path = meal.get('image_path')
+        
+        if image_path and isinstance(image_path, str):
             # Extract the filename from the full path
             filename = os.path.basename(image_path)
             
-            # API endpoint to serve images
-            # Using direct API_ENDPOINT variable instead of importing
-            API_ENDPOINT = "http://localhost:5000"  # Default local endpoint
+            # Get the image URL from API endpoint
+            from api_client import get_image_url
+            image_url = get_image_url(filename)
             
-            # Check if we can access the API_ENDPOINT from the imported module
-            try:
-                from api_client import API_ENDPOINT
-            except (ImportError, AttributeError):
-                # If not available, keep the default
-                pass
-                
-            image_url = f"{API_ENDPOINT}/api/images/{filename}"
+            # Log the URL being requested (for debugging)
+            logger.info(f"Loading meal image from: {image_url}")
             
             # Try to display the image from the API endpoint
             try:
                 st.image(image_url, width=width)
                 return  # Return early if successful
             except Exception as e:
-                st.error(f"Failed to load image: {e}")
-                # Fall back to placeholder
-            
-        except Exception as e:
-            # If path extraction fails, fall back to placeholder
-            pass
+                logger.error(f"Failed to load image from {image_url}: {e}")
+                # Fall through to placeholder
+        
+        # Fall back to placeholder with food names if available
+        food_names = ""
+        if 'foods' in meal and isinstance(meal['foods'], list):
+            food_names = ", ".join(meal.get('foods', ['Meal']))
+        elif 'food_items' in meal and isinstance(meal['food_items'], list):
+            food_names = ", ".join([item.get('food_name', 'Food') for item in meal['food_items']])
+        else:
+            food_names = "Meal"
+        
+        # Create placeholder image and display it
+        img_base64 = create_placeholder_image_base64(text=food_names)
+        st.image(f"data:image/png;base64,{img_base64}", width=width)
     
-    # Fall back to placeholder with food names if available
-    food_names = ""
-    if 'foods' in meal and isinstance(meal['foods'], list):
-        food_names = ", ".join(meal.get('foods', ['Meal']))
-    elif 'food_items' in meal and isinstance(meal['food_items'], list):
-        food_names = ", ".join([item.get('food_name', 'Food') for item in meal['food_items']])
-    else:
-        food_names = "Meal"
-    
-    # Create placeholder image and display it
-    img_base64 = create_placeholder_image_base64(text=food_names)
-    st.image(f"data:image/png;base64,{img_base64}", width=width)
-    
+    except Exception as e:
+        logger.error(f"Error in display_meal_image: {e}")
+        # Final fallback - show a simple colored box if all else fails
+        st.markdown(
+            f"""
+            <div style="
+                width: {width}px;
+                height: {width}px;
+                background-color: #f0f0f0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #666;
+                font-size: 12px;
+                text-align: center;
+                border-radius: 5px;
+            ">
+                Food Image
+            </div>
+            """, 
+            unsafe_allow_html=True
+        )
+
 def create_glucose_graph(glucose_prediction):
     """Create interactive glucose prediction graph"""
     # Check if we have valid prediction data
@@ -408,6 +427,17 @@ CUSTOM_CSS = """
 
     div[data-testid="stMetricValue"] {
         font-weight: bold;
+    }
+    
+    /* Image container styling */
+    .image-container {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 </style>
 """

@@ -1017,3 +1017,270 @@ requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='107.131.102.130', p
 2025-05-01 12:30:40,092 - __main__ - INFO - Glucose prediction model loaded successfully
 2025-05-01 12:30:40,140 - werkzeug - WARNING -  * Debugger is active!
 2025-05-01 12:30:40,176 - werkzeug - INFO -  * Debugger PIN: 165-235-971
+2025-05-01 13:25:12,887 - utils.database - INFO - Database initialized successfully
+2025-05-01 13:25:12,956 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 13:25:13,501 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-05-01 13:25:13,502 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 13:25:13,504 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 13:25:15,316 - utils.database - INFO - Database initialized successfully
+2025-05-01 13:25:15,378 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 13:25:15,429 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 13:25:15,462 - werkzeug - INFO -  * Debugger PIN: 140-673-560
+2025-05-01 13:25:34,596 - utils.database - INFO - Database initialized successfully
+2025-05-01 13:25:34,664 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 13:25:34,726 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-05-01 13:25:34,727 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 13:25:34,728 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 13:25:36,492 - utils.database - INFO - Database initialized successfully
+2025-05-01 13:25:36,558 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 13:25:36,601 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 13:25:36,633 - werkzeug - INFO -  * Debugger PIN: 140-673-560
+2025-05-01 14:04:18,348 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:04:18] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:04:20,773 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:04:20] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:04:48,864 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:04:48] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:04:50,409 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:04:50] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:17:25,874 - utils.database - INFO - Database initialized successfully
+2025-05-01 14:17:25,950 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 14:17:27,541 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-05-01 14:17:27,542 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 14:17:27,545 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 14:17:29,396 - utils.database - INFO - Database initialized successfully
+2025-05-01 14:17:29,452 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 14:17:29,498 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 14:17:29,571 - werkzeug - INFO -  * Debugger PIN: 140-673-560
+2025-05-01 14:17:33,074 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:17:33] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:17:36,518 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:17:36] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:17:47,382 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:17:47] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:17:47,470 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:17:47] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:17:47,478 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:17:47] "GET /users/d830c684-36fa-4ce0-afcf-5246baf058d0 HTTP/1.1" 200 -
+2025-05-01 14:17:47,512 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:17:47] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:17:50,676 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:17:50] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:17:54,702 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:17:54] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:17:54,726 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:17:54] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0?sort_by=date&sort_order=desc&limit=50 HTTP/1.1" 200 -
+2025-05-01 14:17:54,787 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:17:54] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/stats HTTP/1.1" 200 -
+2025-05-01 14:17:58,113 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:17:58] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:17:58,167 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:17:58] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:17:58,173 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:17:58] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/e0969b2f-6cd4-4355-a2d9-90b1f437c485 HTTP/1.1" 200 -
+2025-05-01 14:18:10,725 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:18:10] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:18:10,833 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:18:10] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:18:16,542 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:18:16] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:18:16,600 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:18:16] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:18:17,985 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:18:17] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:18:18,045 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:18:18] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:18:18,793 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:18:18] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:18:18,846 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:18:18] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:18:21,838 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:18:21] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:18:24,963 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:18:24] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:18:32,507 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:18:32] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:18:35,070 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:18:35] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:18:35,097 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 14:18:35,097 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 14:18:35,098 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 14:18:35,098 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 14:18:36,368 - utils.food_recognition - INFO - {'predicted_class': 'pizza', 'confidence': 0.2892715632915497, 'nutrition': {'calories': 390.0, 'carbohydrates': 43.0, 'fat': 17.0, 'protein': 17.0, 'serving_weight_grams': 100.0}, 'glycemic_index': '80', 'glycemic_load': '34.4', 'timestamp': '2025-05-01T14:18:36.849334'}
+2025-05-01 14:18:36,369 - utils.food_recognition - INFO - Food recognition successful: pizza
+2025-05-01 14:18:36,443 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:18:36] "POST /food/analyze-food HTTP/1.1" 200 -
+2025-05-01 14:19:54,056 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:19:54] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:19:54,069 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:19:54] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/e0969b2f-6cd4-4355-a2d9-90b1f437c485 HTTP/1.1" 200 -
+2025-05-01 14:20:24,256 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:20:24] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:20:26,041 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:20:26] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:20:26,065 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:20:26] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/e0969b2f-6cd4-4355-a2d9-90b1f437c485 HTTP/1.1" 200 -
+2025-05-01 14:20:37,054 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:20:37] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:20:37,077 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:20:37] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/e0969b2f-6cd4-4355-a2d9-90b1f437c485 HTTP/1.1" 200 -
+2025-05-01 14:20:37,142 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:20:37] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:20:49,405 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:20:49] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:20:51,419 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:20:51] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:20:56,881 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:20:56] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:20:56,953 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:20:56] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:20:59,967 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:20:59] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:21:00,024 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:21:00] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:21:00,468 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:21:00] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:21:00,511 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:21:00] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:21:00,676 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:21:00] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:21:00,717 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:21:00] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:21:00,860 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:21:00] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:21:00,907 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:21:00] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:21:02,994 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:21:02] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:21:12,392 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:21:12] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:21:28,985 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:21:28] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:21:51,375 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:21:51] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:22:54,481 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:22:54] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:23:00,142 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:23:00] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:23:04,126 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:23:04] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:23:04,147 - __main__ - INFO - Received user creation request
+2025-05-01 14:23:04,231 - models - INFO - User 066b30ce-82ee-4e5c-9cbc-fc5d260af34a model - Training R²: 1.0000, Validation R²: -7.3703
+2025-05-01 14:23:04,237 - models - INFO - Personalized glucose model updated for user 066b30ce-82ee-4e5c-9cbc-fc5d260af34a
+2025-05-01 14:23:04,237 - models - INFO - Initial model created for user 066b30ce-82ee-4e5c-9cbc-fc5d260af34a with 10 simulated meals
+2025-05-01 14:23:04,237 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:23:04] "[35m[1mPOST /users HTTP/1.1[0m" 201 -
+2025-05-01 14:23:23,182 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:23:23] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:23:31,886 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:23:31] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:23:33,991 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:23:33] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:23:34,331 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/066b30ce-82ee-4e5c-9cbc-fc5d260af34a_20250501142334_pasta.jpg
+2025-05-01 14:23:34,331 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/066b30ce-82ee-4e5c-9cbc-fc5d260af34a_20250501142334_pasta.jpg
+2025-05-01 14:23:34,331 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 14:23:34,331 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 14:23:35,890 - utils.food_recognition - INFO - {'predicted_class': 'pasta', 'confidence': 0.8415707349777222, 'nutrition': {'calories': 397.0, 'carbohydrates': 48.0, 'fat': 16.0, 'protein': 14.0, 'serving_weight_grams': 100.0}, 'glycemic_index': '50', 'glycemic_load': '24.0', 'timestamp': '2025-05-01T14:23:36.414407'}
+2025-05-01 14:23:35,891 - utils.food_recognition - INFO - Food recognition successful: pasta
+2025-05-01 14:23:35,954 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:23:35] "POST /food/analyze-food HTTP/1.1" 200 -
+2025-05-01 14:24:25,558 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:24:25] "GET /health HTTP/1.1" 200 -
+2025-05-01 14:24:25,569 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:24:25] "GET /meals/066b30ce-82ee-4e5c-9cbc-fc5d260af34a?sort_by=date&sort_order=desc&limit=50 HTTP/1.1" 200 -
+2025-05-01 14:24:25,590 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 14:24:25] "GET /meals/066b30ce-82ee-4e5c-9cbc-fc5d260af34a/stats HTTP/1.1" 200 -
+2025-05-01 14:44:31,051 - utils.database - INFO - Database initialized successfully
+2025-05-01 14:44:31,119 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 14:44:32,614 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-05-01 14:44:32,616 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 14:44:32,619 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 14:44:34,597 - utils.database - INFO - Database initialized successfully
+2025-05-01 14:44:34,653 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 14:44:34,701 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 14:44:34,758 - werkzeug - INFO -  * Debugger PIN: 140-673-560
+2025-05-01 15:13:39,182 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:13:39] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:13:46,800 - utils.database - INFO - Database initialized successfully
+2025-05-01 15:13:46,861 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 15:13:48,531 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-05-01 15:13:48,532 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 15:13:48,535 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 15:13:50,324 - utils.database - INFO - Database initialized successfully
+2025-05-01 15:13:50,384 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 15:13:50,427 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 15:13:50,459 - werkzeug - INFO -  * Debugger PIN: 140-673-560
+2025-05-01 15:13:54,694 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:13:54] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:13:56,131 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:13:56] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:13:58,496 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:13:58] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:14:00,664 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:14:00] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:14:09,017 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:14:09] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:14:09,089 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:14:09] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:14:09,098 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:14:09] "GET /users/d830c684-36fa-4ce0-afcf-5246baf058d0 HTTP/1.1" 200 -
+2025-05-01 15:14:09,131 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:14:09] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:14:12,213 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:14:12] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:14:14,568 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:14:14] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:19:16,936 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:19:16] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:19:18,843 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:19:18] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:19:26,729 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:19:26] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:19:26,791 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:19:26] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:19:27,400 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:19:27] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:19:30,201 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:19:30] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:19:30,287 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:19:30] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:19:30,297 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:19:30] "GET /users/d830c684-36fa-4ce0-afcf-5246baf058d0 HTTP/1.1" 200 -
+2025-05-01 15:19:30,324 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:19:30] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:19:32,374 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:19:32] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:19:33,833 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:19:33] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:19:33,858 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:19:33] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0?sort_by=date&sort_order=desc&limit=50 HTTP/1.1" 200 -
+2025-05-01 15:19:34,066 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg: name 'send_file' is not defined
+2025-05-01 15:19:34,067 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:19:34,068 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:19:34] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:19:34,068 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:19:34,068 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:19:34] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:19:34,069 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg: name 'send_file' is not defined
+2025-05-01 15:19:34,069 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:19:34,069 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:19:34] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:19:34,070 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:19:34,071 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg: name 'send_file' is not defined
+2025-05-01 15:19:34,071 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:19:34] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:19:34,071 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:19:34] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:19:34,071 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:19:34] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:19:34,072 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:19:34] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:24:20,202 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:24:20] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:24:26,420 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:24:26] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:24:35,878 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:24:35] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:24:35,958 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:24:35] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:24:35,967 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:24:35] "GET /users/d830c684-36fa-4ce0-afcf-5246baf058d0 HTTP/1.1" 200 -
+2025-05-01 15:24:36,001 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:24:36] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:24:37,281 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:24:37] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:24:37,302 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:24:37] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0?sort_by=date&sort_order=desc&limit=50 HTTP/1.1" 200 -
+2025-05-01 15:24:37,498 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg: name 'send_file' is not defined
+2025-05-01 15:24:37,499 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:24:37] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:24:37,502 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:24:37,507 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:24:37,509 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:24:37] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:24:37,509 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:24:37] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:24:37,510 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg: name 'send_file' is not defined
+2025-05-01 15:24:37,511 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:24:37] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:24:37,512 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:24:37,512 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:24:37] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:24:37,513 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:24:37,513 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:24:37] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:24:37,514 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg: name 'send_file' is not defined
+2025-05-01 15:24:37,514 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:24:37] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:28:00,720 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:00] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:28:03,526 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:03] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:28:11,146 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:11] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:28:11,235 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:11] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:28:11,243 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:11] "GET /users/d830c684-36fa-4ce0-afcf-5246baf058d0 HTTP/1.1" 200 -
+2025-05-01 15:28:11,270 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:11] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:28:13,062 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:13] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:28:13,084 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:13] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0?sort_by=date&sort_order=desc&limit=50 HTTP/1.1" 200 -
+2025-05-01 15:28:13,124 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:13] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/stats HTTP/1.1" 200 -
+2025-05-01 15:28:13,197 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg: name 'send_file' is not defined
+2025-05-01 15:28:13,198 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:28:13,198 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:13] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:28:13,198 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:13] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:28:13,199 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:28:13,199 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg: name 'send_file' is not defined
+2025-05-01 15:28:13,201 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:13] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:28:13,201 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:28:13,201 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:13] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:28:13,202 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:13] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:28:13,203 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg: name 'send_file' is not defined
+2025-05-01 15:28:13,203 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:28:13,204 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:13] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:28:13,205 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:13] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:28:16,955 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:16] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:28:17,073 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:17] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:28:17,090 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:17] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/stats HTTP/1.1" 200 -
+2025-05-01 15:28:17,096 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg: name 'send_file' is not defined
+2025-05-01 15:28:17,097 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:17] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:28:17,104 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:28:17,104 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:17] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:28:17,168 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:28:17,168 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:17] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:28:17,196 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg: name 'send_file' is not defined
+2025-05-01 15:28:17,196 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:17] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:28:17,197 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:28:17,198 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:28:17,198 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:17] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:28:17,199 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg: name 'send_file' is not defined
+2025-05-01 15:28:17,199 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:17] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:28:17,199 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:17] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:28:26,172 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:26] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:28:26,245 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:26] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:28:26,251 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:26] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/704036dd-e2a7-4f90-9f32-96ba1b930fdb HTTP/1.1" 200 -
+2025-05-01 15:28:26,312 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg: name 'send_file' is not defined
+2025-05-01 15:28:26,312 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:26] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:28:56,389 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:56] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:28:58,564 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:58] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:28:58,587 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:58] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/704036dd-e2a7-4f90-9f32-96ba1b930fdb HTTP/1.1" 200 -
+2025-05-01 15:28:58,733 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg: name 'send_file' is not defined
+2025-05-01 15:28:58,734 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:28:58] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:29:05,022 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:29:05] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:29:05,041 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:29:05] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/704036dd-e2a7-4f90-9f32-96ba1b930fdb HTTP/1.1" 200 -
+2025-05-01 15:29:05,076 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:29:05] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:29:05,212 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg: name 'send_file' is not defined
+2025-05-01 15:29:05,213 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:29:05] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:29:05,213 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:29:05,213 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:29:05,214 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg: name 'send_file' is not defined
+2025-05-01 15:29:05,214 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:29:05] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:29:05,215 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:29:05] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:29:05,216 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:29:05] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:29:05,216 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:29:05,216 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg: name 'send_file' is not defined
+2025-05-01 15:29:05,217 - __main__ - ERROR - Error serving image d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg: name 'send_file' is not defined
+2025-05-01 15:29:05,217 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:29:05] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:29:05,217 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:29:05] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:29:05,218 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:29:05] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg HTTP/1.1[0m" 500 -

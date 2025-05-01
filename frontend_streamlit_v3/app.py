@@ -2,6 +2,14 @@ import streamlit as st
 import pandas as pd
 import os
 from datetime import datetime
+import logging
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 # Import modules from separate files
 from api_client import *
@@ -48,12 +56,17 @@ st.sidebar.title("Navigation")
 page = st.sidebar.radio("Go to", ["Home", "User Registration", "Food Analysis", "History"])
 
 # Check API health
-api_health = get_health_check()
-if api_health and api_health.get('status') == 'healthy':
-    st.sidebar.success("✅ API Connected")
-else:
+try:
+    api_health = get_health_check()
+    if api_health and api_health.get('status') == 'healthy':
+        st.sidebar.success("✅ API Connected")
+    else:
+        st.sidebar.error("❌ API Not Connected")
+        st.error("Cannot connect to the backend API. Please check if the server is running.")
+except Exception as e:
+    logger.error(f"API health check failed: {e}")
     st.sidebar.error("❌ API Not Connected")
-    st.error("Cannot connect to the backend API. Please check if the server is running.")
+    st.error(f"Failed to connect to the backend API: {e}")
 
 # Home page
 if page == "Home":

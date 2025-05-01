@@ -20,7 +20,8 @@ var/
 wheels/
 *.egg-info/
 .installed.cfg
-*.egg
+*.eggi
+*.pyc
 
 # Virtual environments
 venv/
