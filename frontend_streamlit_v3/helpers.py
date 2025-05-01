@@ -41,10 +41,43 @@ def create_placeholder_image_base64(width=150, height=100, text="Meal Image"):
     return base64.b64encode(buffer.getvalue()).decode("utf-8")
 
 def display_meal_image(meal, width=150):
-    """Display meal image with fallback to placeholder."""
-    # In a real app, you'd fetch the image from an API endpoint
-    # For now, create a colored placeholder with food names
-    food_names = ", ".join(meal.get('foods', ['Meal']))
+    """
+    Display meal image using the API endpoint approach for production.
+    Falls back to placeholder if image can't be loaded.
+    """
+    image_path = meal.get('image_path')
+    
+    if image_path and isinstance(image_path, str):
+        # Extract the filename from the full path
+        try:
+            # Convert local path to API URL
+            filename = os.path.basename(image_path)
+            
+            # API endpoint to serve images
+            from api_client import API_ENDPOINT
+            image_url = f"{API_ENDPOINT}/api/images/{filename}"
+            
+            # Try to display the image from the API endpoint
+            try:
+                st.image(image_url, width=width)
+                return  # Return early if successful
+            except Exception as e:
+                # If any error occurs, we'll fall back to placeholder
+                pass
+        except:
+            # If path extraction fails, fall back to placeholder
+            pass
+    
+    # Fall back to placeholder with food names if available
+    food_names = ""
+    if 'foods' in meal and isinstance(meal['foods'], list):
+        food_names = ", ".join(meal.get('foods', ['Meal']))
+    elif 'food_items' in meal and isinstance(meal['food_items'], list):
+        food_names = ", ".join([item.get('food_name', 'Food') for item in meal['food_items']])
+    else:
+        food_names = "Meal"
+    
+    # Create placeholder image and display it
     img_base64 = create_placeholder_image_base64(text=food_names)
     st.image(f"data:image/png;base64,{img_base64}", width=width)
 

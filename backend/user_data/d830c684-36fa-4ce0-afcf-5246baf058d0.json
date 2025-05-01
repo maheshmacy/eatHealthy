@@ -478,6 +478,80 @@
         "Family_History": 0,
         "Time_Since_Last_Meal": 4.0
       }
+    },
+    {
+      "meal_id": "c1bed534-fd52-4ad5-b856-6231967a5290",
+      "timestamp": "2025-05-01T14:18:36.439546",
+      "food_items": [
+        {
+          "food_name": "pizza",
+          "confidence": 0.2892715632915497,
+          "portion_size": "100g",
+          "base_gi": 80.0,
+          "personalized_gi": {
+            "personalized_gi_score": 100,
+            "impact_level": "high",
+            "warning_level": "Moderate Risk",
+            "recommended_portion": "Medium",
+            "risk_factor": 1.3200000000000003,
+            "recommendations": [
+              "Consider pairing with protein or healthy fat to reduce glycemic impact",
+              "Consume earlier in the day when insulin sensitivity is typically higher",
+              "Monitor your blood glucose response if you consume this food"
+            ]
+          },
+          "nutrients": {
+            "calories": 390.0,
+            "carbs": 43.0,
+            "fat": 17.0,
+            "protein": 17.0,
+            "weight_grams": 100.0,
+            "fiber": 2,
+            "sugar": 8.6
+          }
+        }
+      ],
+      "image_path": "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg",
+      "total_nutrients": {
+        "calories": 390.0,
+        "carbs": 43.0,
+        "fat": 17.0,
+        "protein": 17.0,
+        "fiber": 2,
+        "sugar": 8.6
+      },
+      "glucose_prediction": {
+        "predicted_glucose": 113.64239791817897,
+        "glucose_category": "Normal",
+        "time_series": [],
+        "max_glucose_time": 0,
+        "guidelines": [
+          "This meal should result in a healthy glucose response.",
+          "This type of meal helps maintain good metabolic health."
+        ],
+        "recommendations": [
+          "This meal has a poor carb-to-fiber ratio. Adding fiber-rich vegetables or whole grains could improve the glucose response."
+        ]
+      },
+      "meal_features": {
+        "Age": 35,
+        "Sex": 1,
+        "BMI": 24.221453287197235,
+        "Category": 1,
+        "Carbs": 43.0,
+        "Fat": 17.0,
+        "Fiber": 2,
+        "Protein": 17.0,
+        "GI": 80.0,
+        "Glycemic_Load": 34.4,
+        "Activity_Level": 5.0,
+        "Activity_Timing": 2,
+        "Stress_Level": 5.0,
+        "Sleep_Quality": 7.0,
+        "Takes_Medication": 0,
+        "Family_History": 0,
+        "Time_Since_Last_Meal": 4.0
+      }
     }
   ],
   "created_at": "2025-05-01T09:50:57.784402"
