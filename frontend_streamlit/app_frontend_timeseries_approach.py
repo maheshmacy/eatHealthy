@@ -353,93 +353,93 @@ if page == "Home":
     if st.session_state.force_rerun:
         st.session_state.force_rerun = False
         st.rerun()
-
 # User Registration page
 elif page == "User Registration":
     st.header("User Registration")
     
-# Add profile update functionality
-elif page == "User Registration" and st.session_state.user_id:
-    st.header("Update Profile")
-    
-    user_profile = st.session_state.user_profile
-    
-    st.success(f"You are registered with User ID: {st.session_state.user_id}")
-    
-    with st.expander("View/Update Profile", expanded=True):
-        st.markdown("You can update your profile information below:")
+    # Check if user is already logged in
+    if st.session_state.user_id:
+        # Add profile update functionality for logged in users
+        user_profile = st.session_state.user_profile
         
-        update_col1, update_col2 = st.columns(2)
+        st.success(f"You are registered with User ID: {st.session_state.user_id}")
         
-        with update_col1:
-            name = st.text_input("Full Name", value=user_profile.get('name', ''))
-            age = st.number_input("Age", min_value=18, max_value=120, value=user_profile.get('age', 35))
-            gender = st.selectbox("Gender", ["male", "female", "other"], 
-                                  index=["male", "female", "other"].index(user_profile.get('gender', 'male')))
-            height = st.number_input("Height (cm)", min_value=100, max_value=250, 
-                                     value=user_profile.get('height', 170))
-            weight = st.number_input("Weight (kg)", min_value=30, max_value=300, 
-                                     value=user_profile.get('weight', 70))
-        
-        with update_col2:
-            activity_level = st.selectbox("Activity Level", 
-                ["sedentary", "lightly_active", "moderately_active", "very_active", "extremely_active"],
-                index=["sedentary", "lightly_active", "moderately_active", "very_active", "extremely_active"].index(
-                    user_profile.get('activity_level', 'moderately_active'))
-            )
-            diabetes_status = st.selectbox("Diabetes Status", 
-                ["none", "pre_diabetic", "type1_diabetes", "type2_diabetes"],
-                index=["none", "pre_diabetic", "type1_diabetes", "type2_diabetes"].index(
-                    user_profile.get('diabetes_status', 'none'))
-            )
-            weight_goal = st.selectbox("Weight Goal", ["lose", "maintain", "gain"],
-                                      index=["lose", "maintain", "gain"].index(
-                                          user_profile.get('weight_goal', 'maintain'))
-                                      )
+        with st.expander("View/Update Profile", expanded=True):
+            st.markdown("You can update your profile information below:")
             
-            # Optional fields
-            hba1c = st.number_input("HbA1c (%)", min_value=0.0, max_value=15.0, 
-                                   value=user_profile.get('hba1c', 0.0),
-                                   help="Leave at 0 if unknown")
-            fasting_glucose = st.number_input("Fasting Glucose (mg/dL)", min_value=0, max_value=300, 
-                                             value=user_profile.get('fasting_glucose', 0),
-                                             help="Leave at 0 if unknown")
+            update_col1, update_col2 = st.columns(2)
+            
+            with update_col1:
+                name = st.text_input("Full Name", value=user_profile.get('name', ''))
+                age = st.number_input("Age", min_value=18, max_value=120, value=user_profile.get('age', 35))
+                gender = st.selectbox("Gender", ["male", "female", "other"], 
+                                      index=["male", "female", "other"].index(user_profile.get('gender', 'male')))
+                height = st.number_input("Height (cm)", min_value=100, max_value=250, 
+                                         value=user_profile.get('height', 170))
+                weight = st.number_input("Weight (kg)", min_value=30, max_value=300, 
+                                         value=user_profile.get('weight', 70))
+            
+            with update_col2:
+                activity_level = st.selectbox("Activity Level", 
+                    ["sedentary", "lightly_active", "moderately_active", "very_active", "extremely_active"],
+                    index=["sedentary", "lightly_active", "moderately_active", "very_active", "extremely_active"].index(
+                        user_profile.get('activity_level', 'moderately_active'))
+                )
+                diabetes_status = st.selectbox("Diabetes Status", 
+                    ["none", "pre_diabetic", "type1_diabetes", "type2_diabetes"],
+                    index=["none", "pre_diabetic", "type1_diabetes", "type2_diabetes"].index(
+                        user_profile.get('diabetes_status', 'none'))
+                )
+                weight_goal = st.selectbox("Weight Goal", ["lose", "maintain", "gain"],
+                                          index=["lose", "maintain", "gain"].index(
+                                              user_profile.get('weight_goal', 'maintain'))
+                                          )
+                
+                # Optional fields
+                hba1c = st.number_input("HbA1c (%)", min_value=0.0, max_value=15.0, 
+                                       value=user_profile.get('hba1c', 0.0),
+                                       help="Leave at 0 if unknown")
+                fasting_glucose = st.number_input("Fasting Glucose (mg/dL)", min_value=0, max_value=300, 
+                                                 value=user_profile.get('fasting_glucose', 0),
+                                                 help="Leave at 0 if unknown")
+            
+            update_button = st.button("Update Profile")
+            
+            if update_button:
+                with st.spinner("Updating your profile..."):
+                    updated_data = {
+                        "name": name,
+                        "age": age,
+                        "gender": gender,
+                        "height": height,
+                        "weight": weight,
+                        "activity_level": activity_level,
+                        "diabetes_status": diabetes_status,
+                        "weight_goal": weight_goal
+                    }
+                    
+                    # Add optional fields if provided
+                    if hba1c > 0:
+                        updated_data["hba1c"] = hba1c
+                    if fasting_glucose > 0:
+                        updated_data["fasting_glucose"] = fasting_glucose
+                    
+                    result = update_user(st.session_state.user_id, updated_data)
+                    
+                    if result is not None:
+                        # Update the session state with the new profile data
+                        st.session_state.user_profile = updated_data
+                        st.success("Profile updated successfully!")
+                    else:
+                        st.error("Failed to update profile. Please try again or check the API connection.")
         
-        update_button = st.button("Update Profile")
-        
-        if update_button:
-            with st.spinner("Updating your profile..."):
-                updated_data = {
-                    "name": name,
-                    "age": age,
-                    "gender": gender,
-                    "height": height,
-                    "weight": weight,
-                    "activity_level": activity_level,
-                    "diabetes_status": diabetes_status,
-                    "weight_goal": weight_goal
-                }
-                
-                # Add optional fields if provided
-                if hba1c > 0:
-                    updated_data["hba1c"] = hba1c
-                if fasting_glucose > 0:
-                    updated_data["fasting_glucose"] = fasting_glucose
-                
-                result = update_user(st.session_state.user_id, updated_data)
-                
-                if result is not None:
-                    # Update the session state with the new profile data
-                    st.session_state.user_profile = updated_data
-                    st.success("Profile updated successfully!")
-                else:
-                    st.error("Failed to update profile. Please try again or check the API connection.")
+        if st.button("Log Out"):
+            st.session_state.user_id = None
+            st.session_state.user_profile = None
+            st.session_state.analysis_result = None
+            st.rerun()
     
-    if st.button("Log Out"):
-        st.session_state.user_id = None
-        st.session_state.user_profile = None
-        st.session_state.analysis_result = None
-        st.rerun()
+    # Registration form for new users
     else:
         st.markdown("Please fill in your details to create a personalized profile:")
         
