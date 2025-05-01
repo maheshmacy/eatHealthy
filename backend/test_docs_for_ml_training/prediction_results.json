@@ -1,0 +1,741 @@
+[
+  {
+    "meal_id": "sample_meal_1",
+    "foods": [
+      "Orange Juice",
+      "Broccoli",
+      "Pasta"
+    ],
+    "nutrients": {
+      "calories": 387,
+      "carbs": 80,
+      "fat": 2.4000000000000004,
+      "protein": 13.7,
+      "fiber": 8.0,
+      "sugar": 24.400000000000002
+    },
+    "features_used": {
+      "Age": 40,
+      "Sex": 1,
+      "BMI": 24.5,
+      "Category": 0,
+      "Carbs": 80,
+      "Fat": 2.4000000000000004,
+      "Fiber": 8.0,
+      "Protein": 13.7,
+      "GI": 43.333333333333336,
+      "Glycemic_Load": 34.66666666666667,
+      "Sugar": 24.400000000000002,
+      "Carb_To_Fiber_Ratio": 10.0,
+      "Hour_Of_Day": 20,
+      "Is_Breakfast": 0,
+      "Is_Lunch": 0,
+      "Is_Dinner": 1,
+      "Activity_Level": 3,
+      "Activity_Timing": 0,
+      "Stress_Level": 3.1225250114540604,
+      "Sleep_Quality": 6.470024751992392,
+      "Time_Since_Last_Meal": 3.777258495289117,
+      "Minutes_After_Meal": 0
+    },
+    "prediction": {
+      "glucose": 187.16531917707005,
+      "max_glucose": 187.16531917707007,
+      "max_glucose_time": 0,
+      "category": "High",
+      "time_series": [
+        {
+          "minute": 0,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 5,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 10,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 15,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 20,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 25,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 30,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 35,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 40,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 45,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 50,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 55,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 60,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 65,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 70,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 75,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 80,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 85,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 90,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 95,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 100,
+          "glucose": 187.16531917707005
+        },
+        {
+          "minute": 105,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 110,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 115,
+          "glucose": 187.16531917707007
+        },
+        {
+          "minute": 120,
+          "glucose": 187.16531917707007
+        }
+      ]
+    }
+  },
+  {
+    "meal_id": "sample_meal_2",
+    "foods": [
+      "Orange Juice",
+      "Pasta"
+    ],
+    "nutrients": {
+      "calories": 332,
+      "carbs": 69,
+      "fat": 1.8,
+      "protein": 10,
+      "fiber": 3.0,
+      "sugar": 21.8
+    },
+    "features_used": {
+      "Age": 40,
+      "Sex": 1,
+      "BMI": 24.5,
+      "Category": 0,
+      "Carbs": 69,
+      "Fat": 1.8,
+      "Fiber": 3.0,
+      "Protein": 10,
+      "GI": 57.5,
+      "Glycemic_Load": 39.675,
+      "Sugar": 21.8,
+      "Carb_To_Fiber_Ratio": 23.0,
+      "Hour_Of_Day": 8,
+      "Is_Breakfast": 1,
+      "Is_Lunch": 0,
+      "Is_Dinner": 0,
+      "Activity_Level": 3,
+      "Activity_Timing": 2,
+      "Stress_Level": 3.2456822636954623,
+      "Sleep_Quality": 5.850775805673919,
+      "Time_Since_Last_Meal": 4.809331753439757,
+      "Minutes_After_Meal": 0
+    },
+    "prediction": {
+      "glucose": 192.1700342104168,
+      "max_glucose": 192.17003421041682,
+      "max_glucose_time": 0,
+      "category": "High",
+      "time_series": [
+        {
+          "minute": 0,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 5,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 10,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 15,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 20,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 25,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 30,
+          "glucose": 192.1700342104168
+        },
+        {
+          "minute": 35,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 40,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 45,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 50,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 55,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 60,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 65,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 70,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 75,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 80,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 85,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 90,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 95,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 100,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 105,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 110,
+          "glucose": 192.17003421041682
+        },
+        {
+          "minute": 115,
+          "glucose": 192.1700342104168
+        },
+        {
+          "minute": 120,
+          "glucose": 192.17003421041682
+        }
+      ]
+    }
+  },
+  {
+    "meal_id": "sample_meal_3",
+    "foods": [
+      "Salmon",
+      "Orange Juice",
+      "Chocolate Cake"
+    ],
+    "nutrients": {
+      "calories": 697,
+      "carbs": 76,
+      "fat": 30.5,
+      "protein": 32,
+      "fiber": 2.5,
+      "sugar": 53
+    },
+    "features_used": {
+      "Age": 40,
+      "Sex": 1,
+      "BMI": 24.5,
+      "Category": 0,
+      "Carbs": 76,
+      "Fat": 30.5,
+      "Fiber": 2.5,
+      "Protein": 32,
+      "GI": 29.333333333333332,
+      "Glycemic_Load": 22.29333333333333,
+      "Sugar": 53,
+      "Carb_To_Fiber_Ratio": 30.4,
+      "Hour_Of_Day": 15,
+      "Is_Breakfast": 0,
+      "Is_Lunch": 0,
+      "Is_Dinner": 0,
+      "Activity_Level": 3,
+      "Activity_Timing": 0,
+      "Stress_Level": 7.42205170044271,
+      "Sleep_Quality": 8.318474717279518,
+      "Time_Since_Last_Meal": 3.531704329653159,
+      "Minutes_After_Meal": 0
+    },
+    "prediction": {
+      "glucose": 171.6049818793389,
+      "max_glucose": 171.6049818793389,
+      "max_glucose_time": 0,
+      "category": "Elevated",
+      "time_series": [
+        {
+          "minute": 0,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 5,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 10,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 15,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 20,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 25,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 30,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 35,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 40,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 45,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 50,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 55,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 60,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 65,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 70,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 75,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 80,
+          "glucose": 171.60498187933888
+        },
+        {
+          "minute": 85,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 90,
+          "glucose": 171.60498187933888
+        },
+        {
+          "minute": 95,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 100,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 105,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 110,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 115,
+          "glucose": 171.6049818793389
+        },
+        {
+          "minute": 120,
+          "glucose": 171.6049818793389
+        }
+      ]
+    }
+  },
+  {
+    "meal_id": "sample_meal_4",
+    "foods": [
+      "Orange Juice",
+      "Chicken Breast",
+      "Broccoli"
+    ],
+    "nutrients": {
+      "calories": 332,
+      "carbs": 37,
+      "fat": 4.699999999999999,
+      "protein": 36.7,
+      "fiber": 5.5,
+      "sugar": 23.6
+    },
+    "features_used": {
+      "Age": 40,
+      "Sex": 1,
+      "BMI": 24.5,
+      "Category": 0,
+      "Carbs": 37,
+      "Fat": 4.699999999999999,
+      "Fiber": 5.5,
+      "Protein": 36.7,
+      "GI": 21.666666666666668,
+      "Glycemic_Load": 8.016666666666667,
+      "Sugar": 23.6,
+      "Carb_To_Fiber_Ratio": 6.7272727272727275,
+      "Hour_Of_Day": 14,
+      "Is_Breakfast": 0,
+      "Is_Lunch": 0,
+      "Is_Dinner": 0,
+      "Activity_Level": 3,
+      "Activity_Timing": 1,
+      "Stress_Level": 5.227781752495129,
+      "Sleep_Quality": 6.475788296356429,
+      "Time_Since_Last_Meal": 5.6848074387299405,
+      "Minutes_After_Meal": 0
+    },
+    "prediction": {
+      "glucose": 171.93176508328253,
+      "max_glucose": 171.93176508328253,
+      "max_glucose_time": 5,
+      "category": "Elevated",
+      "time_series": [
+        {
+          "minute": 0,
+          "glucose": 171.93176508328247
+        },
+        {
+          "minute": 5,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 10,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 15,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 20,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 25,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 30,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 35,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 40,
+          "glucose": 171.93176508328247
+        },
+        {
+          "minute": 45,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 50,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 55,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 60,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 65,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 70,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 75,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 80,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 85,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 90,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 95,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 100,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 105,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 110,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 115,
+          "glucose": 171.93176508328253
+        },
+        {
+          "minute": 120,
+          "glucose": 171.93176508328247
+        }
+      ]
+    }
+  },
+  {
+    "meal_id": "sample_meal_5",
+    "foods": [
+      "Salmon",
+      "Pasta",
+      "Orange Juice"
+    ],
+    "nutrients": {
+      "calories": 565,
+      "carbs": 69,
+      "fat": 16.8,
+      "protein": 35,
+      "fiber": 3.0,
+      "sugar": 21.8
+    },
+    "features_used": {
+      "Age": 40,
+      "Sex": 1,
+      "BMI": 24.5,
+      "Category": 0,
+      "Carbs": 69,
+      "Fat": 16.8,
+      "Fiber": 3.0,
+      "Protein": 35,
+      "GI": 38.333333333333336,
+      "Glycemic_Load": 26.45,
+      "Sugar": 21.8,
+      "Carb_To_Fiber_Ratio": 23.0,
+      "Hour_Of_Day": 21,
+      "Is_Breakfast": 0,
+      "Is_Lunch": 0,
+      "Is_Dinner": 0,
+      "Activity_Level": 3,
+      "Activity_Timing": 2,
+      "Stress_Level": 4.199197064017585,
+      "Sleep_Quality": 8.361685443994041,
+      "Time_Since_Last_Meal": 3.1008240191729635,
+      "Minutes_After_Meal": 0
+    },
+    "prediction": {
+      "glucose": 179.5463030734658,
+      "max_glucose": 179.54630307346582,
+      "max_glucose_time": 75,
+      "category": "Elevated",
+      "time_series": [
+        {
+          "minute": 0,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 5,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 10,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 15,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 20,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 25,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 30,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 35,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 40,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 45,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 50,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 55,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 60,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 65,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 70,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 75,
+          "glucose": 179.54630307346582
+        },
+        {
+          "minute": 80,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 85,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 90,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 95,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 100,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 105,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 110,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 115,
+          "glucose": 179.5463030734658
+        },
+        {
+          "minute": 120,
+          "glucose": 179.5463030734658
+        }
+      ]
+    }
+  }
+]

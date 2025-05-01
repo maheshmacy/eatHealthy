@@ -1,0 +1,13 @@
+{
+  "name": "Test User",
+  "age": 40,
+  "gender": "male",
+  "height": 175,
+  "weight": 75,
+  "bmi": 24.5,
+  "activity_level": "moderately_active",
+  "diabetes_status": "none",
+  "weight_goal": "maintain",
+  "hba1c": null,
+  "fasting_glucose": null
+}
