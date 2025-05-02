@@ -198,7 +198,7 @@ def get_meal_stats(user_id: str) -> Optional[Dict[str, Any]]:
     except Exception as e:
         logger.error(f"Error getting meal stats: {str(e)}")
         return None
-
+'''
 def get_image_url(filename: str) -> str:
     """
     Get the full URL for an image from the backend API
@@ -210,3 +210,20 @@ def get_image_url(filename: str) -> str:
         Complete URL to fetch the image from the backend
     """
     return f"{API_ENDPOINT}/api/images/{filename}"
+'''
+def get_all_users() -> Optional[Dict[str, Any]]:
+    """Get all registered users via API"""
+    try:
+        response = requests.get(f"{API_ENDPOINT}/users/all")
+        
+        if response.status_code == 200:
+            return response.json()
+        else:
+            logger.error(f"Failed to get all users: {response.status_code}, {response.text}")
+            return None
+    except Exception as e:
+        logger.error(f"Error getting all users: {str(e)}")
+        return None
+
+
+

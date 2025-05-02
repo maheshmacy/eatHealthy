@@ -17,7 +17,7 @@ from werkzeug.datastructures import FileStorage
 
 # Import modules
 
-from utils.database import get_user_data, save_user_data, initialize_database
+from utils.database import get_user_data, save_user_data, initialize_database, get_all_users
 from utils.food_recognition import identify_food_in_image
 from utils.validators import validate_user_data, validate_glucose_readings
 import models

@@ -1983,3 +1983,56 @@ ValueError: could not convert string to float: 'Unknown'
 2025-05-01 18:56:12,501 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:56:12] "GET /health HTTP/1.1" 200 -
 2025-05-01 18:56:18,586 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:56:18] "GET /health HTTP/1.1" 200 -
 2025-05-01 18:56:18,647 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:56:18] "GET /health HTTP/1.1" 200 -
+2025-05-01 19:52:07,763 - utils.database - INFO - Database initialized successfully
+2025-05-01 19:52:07,854 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 19:52:09,549 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-05-01 19:52:09,550 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 19:52:09,553 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 19:52:11,343 - utils.database - INFO - Database initialized successfully
+2025-05-01 19:52:11,402 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 19:52:11,491 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 19:52:11,528 - werkzeug - INFO -  * Debugger PIN: 140-673-560
+2025-05-01 19:55:00,478 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 19:55:00] "GET /health HTTP/1.1" 200 -
+2025-05-01 19:55:05,372 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 19:55:05] "GET /health HTTP/1.1" 200 -
+2025-05-01 19:55:10,607 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 19:55:10] "GET /health HTTP/1.1" 200 -
+2025-05-01 19:55:13,605 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 19:55:13] "GET /health HTTP/1.1" 200 -
+2025-05-01 19:55:13,688 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 19:55:13] "GET /health HTTP/1.1" 200 -
+2025-05-01 19:55:47,941 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 19:55:47] "GET /health HTTP/1.1" 200 -
+2025-05-01 19:55:48,006 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 19:55:48] "GET /health HTTP/1.1" 200 -
+2025-05-01 19:56:58,530 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 19:56:58] "GET /health HTTP/1.1" 200 -
+2025-05-01 19:56:58,639 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 19:56:58] "GET /health HTTP/1.1" 200 -
+2025-05-01 19:57:01,494 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 19:57:01] "GET /health HTTP/1.1" 200 -
+2025-05-01 19:57:08,205 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 19:57:08] "GET /health HTTP/1.1" 200 -
+2025-05-01 19:57:10,057 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 19:57:10] "GET /health HTTP/1.1" 200 -
+2025-05-01 19:57:10,101 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 19:57:10] "GET /health HTTP/1.1" 200 -
+2025-05-01 19:57:11,589 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 19:57:11] "GET /health HTTP/1.1" 200 -
+2025-05-01 19:57:12,426 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 19:57:12] "GET /health HTTP/1.1" 200 -
+2025-05-01 19:57:12,443 - __main__ - ERROR - Error getting all users: name 'get_all_users' is not defined
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/app_rest_call_to_collab_with_meal_history.py", line 1441, in get
+    all_user_ids = get_all_users()
+                   ^^^^^^^^^^^^^
+NameError: name 'get_all_users' is not defined
+2025-05-01 19:57:12,457 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 19:57:12] "[35m[1mGET /users/all HTTP/1.1[0m" 500 -
+2025-05-01 20:02:14,146 - utils.database - INFO - Database initialized successfully
+2025-05-01 20:02:14,217 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 20:02:17,048 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-05-01 20:02:17,050 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 20:02:17,054 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 20:02:19,078 - utils.database - INFO - Database initialized successfully
+2025-05-01 20:02:19,139 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 20:02:19,190 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 20:02:19,227 - werkzeug - INFO -  * Debugger PIN: 140-673-560
+2025-05-01 20:02:23,780 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 20:02:23] "GET /health HTTP/1.1" 200 -
+2025-05-01 20:02:25,153 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 20:02:25] "GET /health HTTP/1.1" 200 -
+2025-05-01 20:02:25,809 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 20:02:25] "GET /health HTTP/1.1" 200 -
+2025-05-01 20:02:25,838 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 20:02:25] "GET /users/all HTTP/1.1" 200 -
+2025-05-01 20:03:38,458 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 20:03:38] "GET /health HTTP/1.1" 200 -
+2025-05-01 20:03:39,281 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 20:03:39] "GET /health HTTP/1.1" 200 -
+2025-05-01 20:03:40,451 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 20:03:40] "GET /health HTTP/1.1" 200 -

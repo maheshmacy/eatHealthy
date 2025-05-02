@@ -380,6 +380,8 @@ def render_meal_card(meal):
         
         with col1:
             # Display meal image
+            # Display detailed debug info in dev mode
+            debug_mode = st.session_state.get('debug_mode', False)
             try:
                 if 'image_path' in meal and meal['image_path']:
                     # Get direct image URL from the backend
@@ -389,7 +391,6 @@ def render_meal_card(meal):
                     logger.info(f"Loading meal image from: {image_url}")
                     
                     # Display the image - directly using the URL
-                    st.image(image_url, width=150)
                     try:
                         st.image(image_url, width=150)
                     except Exception as e:
@@ -1228,3 +1229,235 @@ def render_statistics_tab():
         if st.button("Analyze a Food Image"):
             st.session_state.page = "Food Analysis"
             st.rerun()
+
+def render_admin_dashboard():
+    """Render the admin dashboard with user management and analytics"""
+    st.title("🧑‍💼 EATSMART-AI Admin Dashboard")
+    st.markdown("### User Management and Analytics")
+
+    # Get all users
+    with st.spinner("Loading user data..."):
+        users_data = get_all_users()
+    
+    if not users_data:
+        st.error("Failed to retrieve user data. Please check the API connection.")
+        return
+    
+    users = users_data.get('users', [])
+    
+    if not users:
+        st.info("No registered users found.")
+        return
+    
+    # User filter by name - NEW FEATURE
+    user_names = ["All Users"] + sorted([user.get('name', f"Unknown ({user.get('user_id', '')})") 
+                                        for user in users])
+    selected_name = st.selectbox("Filter by User Name:", user_names)
+    
+    # Filter users based on selected name
+    if selected_name != "All Users":
+        filtered_users = [user for user in users if user.get('name') == selected_name]
+    else:
+        filtered_users = users
+    
+    # User summary metrics 
+    st.subheader("Overview")
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.metric("Total Registered Users", len(filtered_users))
+    
+    with col2:
+        total_meals = sum(user.get('meal_count', 0) for user in filtered_users)
+        st.metric("Total Recorded Meals", total_meals)
+    
+    with col3:
+        # Count users by diabetes status
+        diabetes_counts = {}
+        for user in filtered_users:
+            status = user.get('profile', {}).get('diabetes_status', 'Unknown')
+            if status in diabetes_counts:
+                diabetes_counts[status] += 1
+            else:
+                diabetes_counts[status] = 1
+        
+        # Find the most common status
+        most_common = max(diabetes_counts.items(), key=lambda x: x[1]) if diabetes_counts else ('Unknown', 0)
+        st.metric("Most Common Health Status", most_common[0].replace('_', ' ').title())
+    
+    # Only show demographics if showing all users or multiple users
+    if len(filtered_users) > 1:
+        # User demographics charts
+        st.subheader("User Demographics")
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            # Gender distribution pie chart
+            gender_counts = {}
+            for user in filtered_users:
+                gender = user.get('gender', 'Unknown')
+                if gender in gender_counts:
+                    gender_counts[gender] += 1
+                else:
+                    gender_counts[gender] = 1
+            
+            gender_df = pd.DataFrame({
+                'Gender': list(gender_counts.keys()),
+                'Count': list(gender_counts.values())
+            })
+            
+            fig = px.pie(gender_df, values='Count', names='Gender', title='Gender Distribution',
+                        color_discrete_sequence=px.colors.qualitative.Pastel)
+            st.plotly_chart(fig, use_container_width=True)
+        
+        with col2:
+            # Age distribution histogram
+            ages = [user.get('age', 0) for user in filtered_users if user.get('age', 0) > 0]
+            
+            if ages:
+                fig = px.histogram(x=ages, nbins=10, title='Age Distribution',
+                                labels={'x': 'Age', 'y': 'Count'})
+                st.plotly_chart(fig, use_container_width=True)
+            else:
+                st.info("No age data available for histogram.")
+    
+    # User list
+    st.subheader("Registered Users")
+    
+    # Create user table
+    user_table = []
+    for user in filtered_users:
+        user_table.append({
+            'User ID': user.get('user_id', 'Unknown'),
+            'Name': user.get('name', 'Unknown'),
+            'Age': user.get('age', 'Unknown'),
+            'Gender': user.get('gender', 'Unknown'),
+            'Health Status': user.get('profile', {}).get('diabetes_status', 'Unknown').replace('_', ' ').title(),
+            'Meals Recorded': user.get('meal_count', 0),
+            'Registration Date': format_timestamp(user.get('registration_date', 'Unknown'))
+        })
+    
+    user_df = pd.DataFrame(user_table)
+    st.dataframe(user_df, use_container_width=True)
+    
+    # User selection for detailed view
+    st.subheader("User Details and Meal History")
+    
+    selected_user_id = st.selectbox(
+        "Select a user to view details",
+        options=[user.get('user_id') for user in filtered_users],
+        format_func=lambda x: next((f"{u.get('name', 'Unknown')} (ID: {x})" for u in filtered_users 
+                                   if u.get('user_id') == x), x)
+    )
+    
+    # Display selected user details
+    if selected_user_id:
+        selected_user = next((user for user in filtered_users if user.get('user_id') == selected_user_id), None)
+        
+        if selected_user:
+            # User profile
+            with st.expander("User Profile", expanded=True):
+                profile = selected_user.get('profile', {})
+                
+                profile_col1, profile_col2 = st.columns(2)
+                
+                with profile_col1:
+                    st.markdown(f"**Name:** {profile.get('name', 'Unknown')}")
+                    st.markdown(f"**Age:** {profile.get('age', 'Unknown')}")
+                    st.markdown(f"**Gender:** {profile.get('gender', 'Unknown')}")
+                    st.markdown(f"**Height:** {profile.get('height', 'Unknown')} cm")
+                    st.markdown(f"**Weight:** {profile.get('weight', 'Unknown')} kg")
+                
+                with profile_col2:
+                    st.markdown(f"**BMI:** {profile.get('bmi', 'Unknown'):.1f}" if 'bmi' in profile else "**BMI:** Unknown")
+                    st.markdown(f"**Activity Level:** {profile.get('activity_level', 'Unknown').replace('_', ' ').title()}")
+                    st.markdown(f"**Diabetes Status:** {profile.get('diabetes_status', 'Unknown').replace('_', ' ').title()}")
+                    st.markdown(f"**Weight Goal:** {profile.get('weight_goal', 'Unknown').replace('_', ' ').title()}")
+                    
+                    if 'hba1c' in profile and profile['hba1c']:
+                        st.markdown(f"**HbA1c:** {profile['hba1c']}%")
+                    if 'fasting_glucose' in profile and profile['fasting_glucose']:
+                        st.markdown(f"**Fasting Glucose:** {profile['fasting_glucose']} mg/dL")
+            
+            # Meal history
+            with st.expander("Meal History", expanded=True):
+                recent_meals = selected_user.get('recent_meals', [])
+                
+                if not recent_meals:
+                    st.info("No meal history available for this user.")
+                else:
+                    st.markdown(f"Showing the {len(recent_meals)} most recent meals:")
+                    
+                    # Create a table of meals with their glucose impact
+                    meals_data = []
+                    glucose_values = []
+                    
+                    for meal in recent_meals:
+                        # Extract food names
+                        food_names = []
+                        try:
+                            for food in meal.get('food_items', []):
+                                food_names.append(food.get('food_name', 'Unknown'))
+                        except:
+                            food_names = ['Unknown']
+                        
+                        # Extract glucose prediction
+                        glucose_prediction = meal.get('glucose_prediction', {})
+                        predicted_glucose = glucose_prediction.get('predicted_glucose', 'N/A')
+                        glucose_category = glucose_prediction.get('glucose_category', 'Unknown')
+                        
+                        if isinstance(predicted_glucose, (int, float)):
+                            glucose_values.append(predicted_glucose)
+                        
+                        meals_data.append({
+                            'Date': format_timestamp(meal.get('timestamp', 'Unknown')),
+                            'Foods': ', '.join(food_names),
+                            'Predicted Glucose': predicted_glucose if isinstance(predicted_glucose, (int, float)) else 'N/A',
+                            'Category': glucose_category
+                        })
+                    
+                    # Display meals table
+                    meals_df = pd.DataFrame(meals_data)
+                    st.dataframe(meals_df, use_container_width=True)
+                    
+                    # Glucose trends chart
+                    if glucose_values:
+                        st.subheader("Glucose Trends")
+                        
+                        fig = go.Figure()
+                        
+                        # Add glucose values
+                        fig.add_trace(go.Scatter(
+                            x=list(range(len(glucose_values))),
+                            y=glucose_values,
+                            mode='lines+markers',
+                            name='Predicted Glucose',
+                            line=dict(color='blue', width=2),
+                            marker=dict(size=8)
+                        ))
+                        
+                        # Add reference ranges
+                        fig.add_shape(type="rect", x0=-1, x1=len(glucose_values), y0=180, y1=300,
+                                     fillcolor="rgba(255,0,0,0.1)", line=dict(width=0), layer="below")
+                        fig.add_shape(type="rect", x0=-1, x1=len(glucose_values), y0=140, y1=180,
+                                     fillcolor="rgba(255,165,0,0.1)", line=dict(width=0), layer="below")
+                        fig.add_shape(type="rect", x0=-1, x1=len(glucose_values), y0=70, y1=140,
+                                     fillcolor="rgba(0,128,0,0.1)", line=dict(width=0), layer="below")
+                        
+                        # Add label annotations
+                        fig.add_annotation(x=len(glucose_values)-1, y=190, text="High", showarrow=False, font=dict(color="red"))
+                        fig.add_annotation(x=len(glucose_values)-1, y=160, text="Elevated", showarrow=False, font=dict(color="orange"))
+                        fig.add_annotation(x=len(glucose_values)-1, y=105, text="Normal", showarrow=False, font=dict(color="green"))
+                        
+                        # Update layout
+                        fig.update_layout(
+                            title='Meal Glucose Impact History',
+                            xaxis_title='Meal Index (newer meals on right)',
+                            yaxis_title='Predicted Peak Glucose (mg/dL)',
+                            yaxis=dict(range=[50, 250]),
+                            height=400,
+                            margin=dict(l=20, r=20, t=60, b=20)
+                        )
+                        
+                        st.plotly_chart(fig, use_container_width=True)

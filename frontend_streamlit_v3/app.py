@@ -46,6 +46,8 @@ if 'meal_stats_data' not in st.session_state:
     st.session_state.meal_stats_data = None
 if 'feedback_submitted' not in st.session_state:
     st.session_state.feedback_submitted = False
+if 'is_admin' not in st.session_state:
+    st.session_state.is_admin = False
 
 # App title and description
 st.title("🍏 EATSMART-AI")
@@ -53,7 +55,32 @@ st.markdown("### Personalized Glycemic Index Tracking")
 
 # Sidebar for navigation
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Home", "User Registration", "Food Analysis", "History"])
+nav_options = ["Home", "User Registration", "Food Analysis", "History"]
+#page = st.sidebar.radio("Go to", ["Home", "User Registration", "Food Analysis", "History"])
+
+# Add Admin Dashboard option if admin mode is enabled
+if st.session_state.is_admin:
+    nav_options.append("Admin Dashboard")
+
+page = st.sidebar.radio("Go to", nav_options)
+
+# Add admin login section to sidebar
+with st.sidebar.expander("Admin Access", expanded=False):
+    if st.session_state.is_admin:
+        if st.button("Logout from Admin"):
+            st.session_state.is_admin = False
+            st.rerun()
+    else:
+        admin_password = st.text_input("Admin Password", type="password")
+        if st.button("Login as Admin"):
+            # Simple password check - in a real app, use proper authentication
+            if admin_password == "admin123":  # Change this to a secure password
+                st.session_state.is_admin = True
+                st.success("Admin access granted!")
+                st.rerun()
+            else:
+                st.error("Incorrect password")
+
 
 # Check API health
 try:
@@ -126,6 +153,16 @@ elif page == "History":
     else:
         render_meal_history_page()
 
+# Admin Dashboard page
+elif page == "Admin Dashboard":
+    # Only show if admin mode is enabled
+    if st.session_state.is_admin:
+        render_admin_dashboard()
+    else:
+        st.error("Admin access required. Please login as admin in the sidebar.")
+        if st.button("Go to Home"):
+            page = "Home"
+            st.rerun()
 # Add footer
 st.markdown("---")
 st.markdown("#### EATSMART-AI: Personalized Glycemic Index Tracking")
