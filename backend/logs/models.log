@@ -1284,3 +1284,702 @@ requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='107.131.102.130', p
 2025-05-01 15:29:05,217 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:29:05] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg HTTP/1.1[0m" 500 -
 2025-05-01 15:29:05,217 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:29:05] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg HTTP/1.1[0m" 500 -
 2025-05-01 15:29:05,218 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:29:05] "[35m[1mGET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:49:56,674 - utils.database - INFO - Database initialized successfully
+2025-05-01 15:49:56,739 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 15:49:58,453 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-05-01 15:49:58,454 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 15:49:58,457 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 15:50:00,310 - utils.database - INFO - Database initialized successfully
+2025-05-01 15:50:00,369 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 15:50:00,413 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 15:50:00,448 - werkzeug - INFO -  * Debugger PIN: 140-673-560
+2025-05-01 15:50:56,658 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:50:56] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:51:00,593 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:00] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:51:09,410 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:09] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:51:09,823 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:09] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:51:09,840 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:09] "[33mGET /users/f869bc42-3493-4826-82c5-79ecdfa3459e%20( HTTP/1.1[0m" 404 -
+2025-05-01 15:51:19,173 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:19] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:51:19,270 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:19] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:51:19,281 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:19] "GET /users/f869bc42-3493-4826-82c5-79ecdfa3459e HTTP/1.1" 200 -
+2025-05-01 15:51:19,309 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:19] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:51:21,301 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:21] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:51:21,326 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:21] "GET /meals/f869bc42-3493-4826-82c5-79ecdfa3459e?sort_by=date&sort_order=desc&limit=50 HTTP/1.1" 200 -
+2025-05-01 15:51:21,374 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:21] "GET /meals/f869bc42-3493-4826-82c5-79ecdfa3459e/stats HTTP/1.1" 200 -
+2025-05-01 15:51:21,461 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:21] "[32mGET /api/images//Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg HTTP/1.1[0m" 308 -
+2025-05-01 15:51:21,463 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:21] "[32mGET /api/images//Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501072009_noodles_46.jpg HTTP/1.1[0m" 308 -
+2025-05-01 15:51:21,464 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:21] "[32mGET /api/images//Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501081111_istockphoto-184276818-612x612.jpg HTTP/1.1[0m" 308 -
+2025-05-01 15:51:21,469 - __main__ - ERROR - Error serving image Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg: name 'send_file' is not defined
+2025-05-01 15:51:21,469 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:21] "[35m[1mGET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:51:21,469 - __main__ - ERROR - Error serving image Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501072009_noodles_46.jpg: name 'send_file' is not defined
+2025-05-01 15:51:21,470 - __main__ - ERROR - Error serving image Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501081111_istockphoto-184276818-612x612.jpg: name 'send_file' is not defined
+2025-05-01 15:51:21,470 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:21] "[35m[1mGET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501072009_noodles_46.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:51:21,470 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:21] "[35m[1mGET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501081111_istockphoto-184276818-612x612.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:51:38,694 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:38] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:51:38,826 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:38] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:51:38,831 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:38] "GET /meals/f869bc42-3493-4826-82c5-79ecdfa3459e/8e7a11c0-da0c-4b24-80e1-83b9d3e7ee67 HTTP/1.1" 200 -
+2025-05-01 15:51:38,874 - __main__ - ERROR - Error serving image Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg: name 'send_file' is not defined
+2025-05-01 15:51:38,875 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:38] "[35m[1mGET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:51:38,895 - __main__ - ERROR - Error serving image f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg: name 'send_file' is not defined
+2025-05-01 15:51:38,895 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:51:38] "[35m[1mGET /api/images/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:52:00,285 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:52:00] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:52:00,651 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:52:00] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:52:02,436 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:52:02] "GET /health HTTP/1.1" 200 -
+2025-05-01 15:52:02,459 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:52:02] "GET /meals/f869bc42-3493-4826-82c5-79ecdfa3459e/8e7a11c0-da0c-4b24-80e1-83b9d3e7ee67 HTTP/1.1" 200 -
+2025-05-01 15:52:02,601 - __main__ - ERROR - Error serving image f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg: name 'send_file' is not defined
+2025-05-01 15:52:02,602 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:52:02] "[35m[1mGET /api/images/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:52:45,647 - __main__ - ERROR - Error serving image f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg: name 'send_file' is not defined
+2025-05-01 15:52:45,650 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:52:45] "[35m[1mGET /api/images/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg HTTP/1.1[0m" 500 -
+2025-05-01 15:52:45,672 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:52:45] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-01 15:53:02,589 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 15:53:02] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:09:46,667 - werkzeug - INFO -  * Detected change in '/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/app_rest_call_to_collab_with_meal_history.py', reloading
+2025-05-01 16:09:46,884 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 16:09:49,178 - utils.database - INFO - Database initialized successfully
+2025-05-01 16:09:49,241 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 16:09:49,292 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 16:09:49,331 - werkzeug - INFO -  * Debugger PIN: 140-673-560
+2025-05-01 16:20:05,947 - utils.database - INFO - Database initialized successfully
+2025-05-01 16:20:06,016 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 16:20:06,459 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-05-01 16:20:06,459 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 16:20:06,461 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 16:20:08,301 - utils.database - INFO - Database initialized successfully
+2025-05-01 16:20:08,363 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 16:20:08,413 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 16:20:08,449 - werkzeug - INFO -  * Debugger PIN: 140-673-560
+2025-05-01 16:20:12,489 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:12] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:20:15,915 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:15] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:20:28,287 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:28] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:20:28,397 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:28] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:20:28,405 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:28] "GET /users/d830c684-36fa-4ce0-afcf-5246baf058d0 HTTP/1.1" 200 -
+2025-05-01 16:20:28,437 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:28] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:20:30,305 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:30] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:20:32,460 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:32] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:20:32,480 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:32] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0?sort_by=date&sort_order=desc&limit=50 HTTP/1.1" 200 -
+2025-05-01 16:20:32,515 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:32] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/stats HTTP/1.1" 200 -
+2025-05-01 16:20:32,574 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:32] "[32mGET /api/images//Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg HTTP/1.1[0m" 308 -
+2025-05-01 16:20:32,575 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:32] "[32mGET /api/images//Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg HTTP/1.1[0m" 308 -
+2025-05-01 16:20:32,576 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:32] "[32mGET /api/images//Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg HTTP/1.1[0m" 308 -
+2025-05-01 16:20:32,582 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:20:32,583 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:20:32,585 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:20:32,586 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg
+2025-05-01 16:20:32,586 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg
+2025-05-01 16:20:32,586 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:20:32,587 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg
+2025-05-01 16:20:32,587 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg
+2025-05-01 16:20:32,588 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg
+2025-05-01 16:20:32,588 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg
+2025-05-01 16:20:32,588 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:20:32,588 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:20:32,588 - __main__ - INFO - File is readable
+2025-05-01 16:20:32,589 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:20:32,589 - __main__ - ERROR - Error in send_file: name 'send_file' is not defined
+2025-05-01 16:20:32,589 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:32] "[35m[1mGET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg HTTP/1.1[0m" 500 -
+2025-05-01 16:20:32,589 - __main__ - INFO - File is readable
+2025-05-01 16:20:32,589 - __main__ - INFO - File is readable
+2025-05-01 16:20:32,589 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:20:32,590 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:20:32,590 - __main__ - ERROR - Error in send_file: name 'send_file' is not defined
+2025-05-01 16:20:32,590 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:32] "[35m[1mGET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 16:20:32,590 - __main__ - ERROR - Error in send_file: name 'send_file' is not defined
+2025-05-01 16:20:32,590 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:32] "[35m[1mGET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 16:20:32,637 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:32] "[32mGET /api/images//Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg HTTP/1.1[0m" 308 -
+2025-05-01 16:20:32,638 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:32] "[32mGET /api/images//Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg HTTP/1.1[0m" 308 -
+2025-05-01 16:20:32,639 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:32] "[32mGET /api/images//Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg HTTP/1.1[0m" 308 -
+2025-05-01 16:20:32,640 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:32] "[32mGET /api/images//Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg HTTP/1.1[0m" 308 -
+2025-05-01 16:20:32,644 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg
+2025-05-01 16:20:32,644 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg
+2025-05-01 16:20:32,645 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg
+2025-05-01 16:20:32,645 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg
+2025-05-01 16:20:32,645 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg
+2025-05-01 16:20:32,645 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg
+2025-05-01 16:20:32,646 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg
+2025-05-01 16:20:32,646 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg
+2025-05-01 16:20:32,646 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:20:32,646 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg
+2025-05-01 16:20:32,646 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg
+2025-05-01 16:20:32,646 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg
+2025-05-01 16:20:32,647 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg
+2025-05-01 16:20:32,647 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:20:32,647 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:20:32,647 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:20:32,647 - __main__ - INFO - File is readable
+2025-05-01 16:20:32,647 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:20:32,647 - __main__ - ERROR - Error in send_file: name 'send_file' is not defined
+2025-05-01 16:20:32,647 - __main__ - INFO - File is readable
+2025-05-01 16:20:32,647 - __main__ - INFO - File is readable
+2025-05-01 16:20:32,647 - __main__ - INFO - File is readable
+2025-05-01 16:20:32,654 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:32] "[35m[1mGET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg HTTP/1.1[0m" 500 -
+2025-05-01 16:20:32,654 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:20:32,655 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:20:32,655 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:20:32,655 - __main__ - ERROR - Error in send_file: name 'send_file' is not defined
+2025-05-01 16:20:32,655 - __main__ - ERROR - Error in send_file: name 'send_file' is not defined
+2025-05-01 16:20:32,655 - __main__ - ERROR - Error in send_file: name 'send_file' is not defined
+2025-05-01 16:20:32,656 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:32] "[35m[1mGET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 16:20:32,656 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:32] "[35m[1mGET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg HTTP/1.1[0m" 500 -
+2025-05-01 16:20:32,657 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:32] "[35m[1mGET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 16:20:42,425 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:42] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:20:44,134 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:44] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:20:45,859 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:45] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:20:45,925 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:45] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:20:46,821 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:46] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:20:47,187 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:47] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:20:50,044 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:50] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:20:50,100 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:50] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:20:50,109 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:50] "GET /users/d830c684-36fa-4ce0-afcf-5246baf058d0 HTTP/1.1" 200 -
+2025-05-01 16:20:50,145 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:50] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:20:51,598 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:51] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:20:53,338 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:53] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:20:53,359 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:53] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0?sort_by=date&sort_order=desc&limit=50 HTTP/1.1" 200 -
+2025-05-01 16:20:53,391 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:53] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/stats HTTP/1.1" 200 -
+2025-05-01 16:20:53,448 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:20:53,448 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:20:53,449 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg
+2025-05-01 16:20:53,449 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:20:53,449 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg
+2025-05-01 16:20:53,449 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg
+2025-05-01 16:20:53,449 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg
+2025-05-01 16:20:53,450 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:20:53,450 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg
+2025-05-01 16:20:53,450 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:20:53,450 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg
+2025-05-01 16:20:53,450 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:20:53,450 - __main__ - INFO - File is readable
+2025-05-01 16:20:53,450 - __main__ - INFO - File is readable
+2025-05-01 16:20:53,450 - __main__ - INFO - File is readable
+2025-05-01 16:20:53,450 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:20:53,450 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:20:53,451 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:20:53,451 - __main__ - ERROR - Error in send_file: name 'send_file' is not defined
+2025-05-01 16:20:53,451 - __main__ - ERROR - Error in send_file: name 'send_file' is not defined
+2025-05-01 16:20:53,451 - __main__ - ERROR - Error in send_file: name 'send_file' is not defined
+2025-05-01 16:20:53,451 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:53] "[35m[1mGET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg HTTP/1.1[0m" 500 -
+2025-05-01 16:20:53,451 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:53] "[35m[1mGET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 16:20:53,451 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:53] "[35m[1mGET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 16:20:53,522 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg
+2025-05-01 16:20:53,522 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg
+2025-05-01 16:20:53,522 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg
+2025-05-01 16:20:53,522 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg
+2025-05-01 16:20:53,523 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg
+2025-05-01 16:20:53,523 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg
+2025-05-01 16:20:53,523 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg
+2025-05-01 16:20:53,523 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:20:53,523 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg
+2025-05-01 16:20:53,523 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg
+2025-05-01 16:20:53,524 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg
+2025-05-01 16:20:53,524 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg
+2025-05-01 16:20:53,524 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg
+2025-05-01 16:20:53,524 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:20:53,524 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:20:53,524 - __main__ - INFO - File is readable
+2025-05-01 16:20:53,524 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:20:53,524 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:20:53,524 - __main__ - ERROR - Error in send_file: name 'send_file' is not defined
+2025-05-01 16:20:53,524 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:53] "[35m[1mGET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg HTTP/1.1[0m" 500 -
+2025-05-01 16:20:53,525 - __main__ - INFO - File is readable
+2025-05-01 16:20:53,525 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:20:53,525 - __main__ - INFO - File is readable
+2025-05-01 16:20:53,525 - __main__ - INFO - File is readable
+2025-05-01 16:20:53,525 - __main__ - ERROR - Error in send_file: name 'send_file' is not defined
+2025-05-01 16:20:53,525 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:20:53,525 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:20:53,525 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:53] "[35m[1mGET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg HTTP/1.1[0m" 500 -
+2025-05-01 16:20:53,526 - __main__ - ERROR - Error in send_file: name 'send_file' is not defined
+2025-05-01 16:20:53,526 - __main__ - ERROR - Error in send_file: name 'send_file' is not defined
+2025-05-01 16:20:53,533 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:53] "[35m[1mGET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 16:20:53,534 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:20:53] "[35m[1mGET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg HTTP/1.1[0m" 500 -
+2025-05-01 16:22:56,791 - utils.database - INFO - Database initialized successfully
+2025-05-01 16:22:56,857 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 16:22:59,002 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.197:5000
+2025-05-01 16:22:59,003 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 16:22:59,007 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 16:23:00,866 - utils.database - INFO - Database initialized successfully
+2025-05-01 16:23:00,923 - __main__ - INFO - Glucose prediction model loaded successfully
+2025-05-01 16:23:00,980 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 16:23:01,013 - werkzeug - INFO -  * Debugger PIN: 140-673-560
+2025-05-01 16:23:03,264 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:23:03] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:23:05,105 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:23:05] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:23:12,273 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:23:12] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:23:13,624 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:23:13] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:23:13,659 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:23:13] "GET /users/d830c684-36fa-4ce0-afcf-5246baf058d0 HTTP/1.1" 200 -
+2025-05-01 16:23:13,717 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:23:13] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:23:17,422 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:23:17] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:23:18,794 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:23:18] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:23:18,818 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:23:18] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0?sort_by=date&sort_order=desc&limit=50 HTTP/1.1" 200 -
+2025-05-01 16:23:18,861 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:23:18] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/stats HTTP/1.1" 200 -
+2025-05-01 16:23:18,920 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:23:18,921 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg
+2025-05-01 16:23:18,921 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:23:18,921 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg
+2025-05-01 16:23:18,921 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg
+2025-05-01 16:23:18,921 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:23:18,921 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg
+2025-05-01 16:23:18,921 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg
+2025-05-01 16:23:18,921 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:23:18,921 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:23:18,922 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg
+2025-05-01 16:23:18,922 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:23:18,922 - __main__ - INFO - File is readable
+2025-05-01 16:23:18,922 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:23:18,922 - __main__ - INFO - File is readable
+2025-05-01 16:23:18,922 - __main__ - INFO - File is readable
+2025-05-01 16:23:18,922 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:23:18,922 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:23:18,923 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:23:18,923 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg
+2025-05-01 16:23:18,923 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg
+2025-05-01 16:23:18,923 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:23:18] "GET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg HTTP/1.1" 200 -
+2025-05-01 16:23:18,923 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:23:18] "GET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg HTTP/1.1" 200 -
+2025-05-01 16:23:18,924 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:23:18] "GET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg HTTP/1.1" 200 -
+2025-05-01 16:23:18,994 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg
+2025-05-01 16:23:18,994 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg
+2025-05-01 16:23:18,994 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg
+2025-05-01 16:23:18,995 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg
+2025-05-01 16:23:18,995 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:23:18,996 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg
+2025-05-01 16:23:18,996 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg
+2025-05-01 16:23:18,996 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg
+2025-05-01 16:23:18,996 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg
+2025-05-01 16:23:18,996 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg
+2025-05-01 16:23:18,996 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg
+2025-05-01 16:23:18,997 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg
+2025-05-01 16:23:18,997 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:23:18,997 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg
+2025-05-01 16:23:18,997 - __main__ - INFO - File is readable
+2025-05-01 16:23:18,997 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:23:18,997 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:23:18,997 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:23:18,997 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg
+2025-05-01 16:23:18,997 - __main__ - INFO - File is readable
+2025-05-01 16:23:18,997 - __main__ - INFO - File is readable
+2025-05-01 16:23:18,998 - __main__ - INFO - File is readable
+2025-05-01 16:23:18,998 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:23:18,998 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:23:18,998 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:23:18] "GET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg HTTP/1.1" 200 -
+2025-05-01 16:23:18,998 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:23:18,998 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg
+2025-05-01 16:23:18,998 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg
+2025-05-01 16:23:18,999 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:23:18] "GET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg HTTP/1.1" 200 -
+2025-05-01 16:23:18,999 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg
+2025-05-01 16:23:18,999 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:23:18] "GET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg HTTP/1.1" 200 -
+2025-05-01 16:23:19,007 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:23:19] "GET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg HTTP/1.1" 200 -
+2025-05-01 16:25:03,793 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:25:03] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:25:03,911 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:25:03] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:25:03,918 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:25:03] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/c1bed534-fd52-4ad5-b856-6231967a5290 HTTP/1.1" 200 -
+2025-05-01 16:25:03,955 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:25:03,956 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:25:03,956 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:25:03,956 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:25:03,957 - __main__ - INFO - File is readable
+2025-05-01 16:25:03,957 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:25:03,957 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:25:03,957 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:25:03] "GET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg HTTP/1.1" 200 -
+2025-05-01 16:25:03,977 - __main__ - INFO - Image request received for: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:25:03,977 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:25:03,977 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:25:03,977 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:25:03,978 - __main__ - INFO - File is readable
+2025-05-01 16:25:03,978 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:25:03,978 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:25:03,978 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:25:03] "GET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg HTTP/1.1" 200 -
+2025-05-01 16:25:25,761 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:25:25] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:25:25,818 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:25:25] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:25:29,446 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:25:29] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:25:30,199 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:25:30] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:25:52,124 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:25:52] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:25:52,150 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:25:52] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/c1bed534-fd52-4ad5-b856-6231967a5290 HTTP/1.1" 200 -
+2025-05-01 16:25:52,292 - __main__ - INFO - Image request received for: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:25:52,292 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:25:52,292 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:25:52,292 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:25:52,293 - __main__ - INFO - File is readable
+2025-05-01 16:25:52,293 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:25:52,294 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:25:52,294 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:25:52] "GET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg HTTP/1.1" 200 -
+2025-05-01 16:25:54,022 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:25:54] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:25:55,636 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:25:55] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:25:55,654 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:25:55] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/c1bed534-fd52-4ad5-b856-6231967a5290 HTTP/1.1" 200 -
+2025-05-01 16:25:55,756 - __main__ - INFO - Image request received for: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:25:55,756 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:25:55,757 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:25:55,757 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:25:55,757 - __main__ - INFO - File is readable
+2025-05-01 16:25:55,757 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:25:55,757 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:25:55,758 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:25:55] "GET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg HTTP/1.1" 200 -
+2025-05-01 16:26:02,694 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:26:02] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:26:09,216 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:26:09] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:26:11,324 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:26:11] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:26:11,567 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501162611_pexels-valeriya-1148086.jpg
+2025-05-01 16:26:11,567 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501162611_pexels-valeriya-1148086.jpg
+2025-05-01 16:26:11,568 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 16:26:11,568 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 16:26:51,981 - utils.food_recognition - INFO - {'predicted_class': 'sushi', 'confidence': 0.9942725896835327, 'nutrition': {'calories': 570.0, 'carbohydrates': 38.0, 'fat': 12.0, 'protein': 69.0, 'serving_weight_grams': 100.0}, 'glycemic_index': '55', 'glycemic_load': '20.9', 'timestamp': '2025-05-01T16:26:52.696050'}
+2025-05-01 16:26:51,983 - utils.food_recognition - INFO - Food recognition successful: sushi
+2025-05-01 16:26:52,033 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:26:52] "POST /food/analyze-food HTTP/1.1" 200 -
+2025-05-01 16:27:42,402 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:27:42] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:27:42,440 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:27:42] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/c1bed534-fd52-4ad5-b856-6231967a5290 HTTP/1.1" 200 -
+2025-05-01 16:27:42,605 - __main__ - INFO - Image request received for: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:27:42,605 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:27:42,605 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:27:42,605 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:27:42,606 - __main__ - INFO - File is readable
+2025-05-01 16:27:42,606 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:27:42,607 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:27:42,607 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:27:42] "GET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg HTTP/1.1" 200 -
+2025-05-01 16:29:11,142 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:29:11] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:29:12,808 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:29:12] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:29:12,833 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:29:12] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/c1bed534-fd52-4ad5-b856-6231967a5290 HTTP/1.1" 200 -
+2025-05-01 16:29:12,974 - __main__ - INFO - Image request received for: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:29:12,974 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:29:12,974 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:29:12,975 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:29:12,975 - __main__ - INFO - File is readable
+2025-05-01 16:29:12,975 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:29:12,976 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:29:12,976 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:29:12] "GET /api/images/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg HTTP/1.1" 200 -
+2025-05-01 16:29:16,359 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:29:16] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:29:16,382 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:29:16] "GET /meals/d830c684-36fa-4ce0-afcf-5246baf058d0/c1bed534-fd52-4ad5-b856-6231967a5290 HTTP/1.1" 200 -
+2025-05-01 16:29:16,430 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:29:16] "GET /health HTTP/1.1" 200 -
+2025-05-01 16:29:16,587 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:29:16,588 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:29:16,588 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg
+2025-05-01 16:29:16,588 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:29:16,589 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg
+2025-05-01 16:29:16,589 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg
+2025-05-01 16:29:16,590 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg
+2025-05-01 16:29:16,590 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg
+2025-05-01 16:29:16,590 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:29:16,590 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg
+2025-05-01 16:29:16,590 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg
+2025-05-01 16:29:16,590 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg
+2025-05-01 16:29:16,591 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg
+2025-05-01 16:29:16,591 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:29:16,591 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg
+2025-05-01 16:29:16,591 - __main__ - INFO - File is readable
+2025-05-01 16:29:16,591 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg
+2025-05-01 16:29:16,591 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg
+2025-05-01 16:29:16,591 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg
+2025-05-01 16:29:16,591 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:29:16,591 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:29:16,591 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg
+2025-05-01 16:29:16,591 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:29:16,591 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg
+2025-05-01 16:29:16,592 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:29:16,592 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg
+2025-05-01 16:29:16,592 - __main__ - INFO - File is readable
+2025-05-01 16:29:16,592 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:29:16,592 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:29:16] "GET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501141835_istockphoto-184276818-612x612.jpg HTTP/1.1" 200 -
+2025-05-01 16:29:16,592 - __main__ - INFO - File is readable
+2025-05-01 16:29:16,592 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:29:16,592 - __main__ - INFO - File is readable
+2025-05-01 16:29:16,592 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:29:16,592 - __main__ - INFO - File is readable
+2025-05-01 16:29:16,593 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:29:16,593 - __main__ - INFO - File is readable
+2025-05-01 16:29:16,593 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:29:16,593 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:29:16,593 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg
+2025-05-01 16:29:16,594 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg
+2025-05-01 16:29:16,594 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg
+2025-05-01 16:29:16,594 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg
+2025-05-01 16:29:16,594 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg
+2025-05-01 16:29:16,594 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:29:16] "GET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501114904_pizza.jpg HTTP/1.1" 200 -
+2025-05-01 16:29:16,594 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:29:16] "GET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101401_pizza.jpg HTTP/1.1" 200 -
+2025-05-01 16:29:16,594 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:29:16] "GET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501101454_pasta.jpg HTTP/1.1" 200 -
+2025-05-01 16:29:16,594 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:29:16] "GET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095711_pizza.jpg HTTP/1.1" 200 -
+2025-05-01 16:29:16,595 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:29:16] "GET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501105553_pizza.jpg HTTP/1.1" 200 -
+2025-05-01 16:29:16,601 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg
+2025-05-01 16:29:16,601 - __main__ - INFO - Validated filename: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg
+2025-05-01 16:29:16,601 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg
+2025-05-01 16:29:16,602 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 16:29:16,603 - __main__ - INFO - File is readable
+2025-05-01 16:29:16,603 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 16:29:16,604 - __main__ - INFO - File served successfully: d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg
+2025-05-01 16:29:16,605 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 16:29:16] "GET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d830c684-36fa-4ce0-afcf-5246baf058d0_20250501095135_tobiko-roll-1200.jpg HTTP/1.1" 200 -
+2025-05-01 18:28:32,990 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:28:32] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:28:33,116 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:28:33] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:34:09,159 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:34:09] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:34:13,351 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:34:13] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:34:16,020 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:34:16] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:34:16,054 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:34:16] "GET /meals/f869bc42-3493-4826-82c5-79ecdfa3459e/8e7a11c0-da0c-4b24-80e1-83b9d3e7ee67 HTTP/1.1" 200 -
+2025-05-01 18:34:16,128 - __main__ - INFO - Image request received for: f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg
+2025-05-01 18:34:16,129 - __main__ - INFO - Validated filename: f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg
+2025-05-01 18:34:16,129 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg
+2025-05-01 18:34:16,129 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 18:34:16,130 - __main__ - INFO - File is readable
+2025-05-01 18:34:16,131 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 18:34:16,132 - __main__ - INFO - File served successfully: f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg
+2025-05-01 18:34:16,132 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:34:16] "GET /api/images/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg HTTP/1.1" 200 -
+2025-05-01 18:34:25,218 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:34:25] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:34:27,127 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:34:27] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:34:34,115 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:34:34] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:34:34,168 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:34:34] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:34:36,406 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:34:36] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:34:36,800 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:34:36] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:34:37,180 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:34:37] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:34:52,025 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:34:52] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:34:52,085 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:34:52] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:35:21,041 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:35:21] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:35:25,089 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:35:25] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:35:44,511 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:35:44] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:36:04,384 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:36:04] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:36:11,423 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:36:11] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:36:14,998 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:36:14] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:36:15,022 - __main__ - INFO - Received user creation request
+2025-05-01 18:36:15,211 - models - INFO - User 5db6bea9-f3a9-4b27-a9d4-933cfe444fd4 model - Training R²: 1.0000, Validation R²: -0.1265
+2025-05-01 18:36:15,225 - models - INFO - Personalized glucose model updated for user 5db6bea9-f3a9-4b27-a9d4-933cfe444fd4
+2025-05-01 18:36:15,225 - models - INFO - Initial model created for user 5db6bea9-f3a9-4b27-a9d4-933cfe444fd4 with 10 simulated meals
+2025-05-01 18:36:15,225 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:36:15] "[35m[1mPOST /users HTTP/1.1[0m" 201 -
+2025-05-01 18:37:25,697 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:37:25] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:37:25,841 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:37:25] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:37:37,337 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:37:37] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:37:52,075 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:37:52] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:38:01,327 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:38:01] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:38:01,349 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/5db6bea9-f3a9-4b27-a9d4-933cfe444fd4_20250501183801_tobiko-roll-1200.jpg
+2025-05-01 18:38:01,349 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/5db6bea9-f3a9-4b27-a9d4-933cfe444fd4_20250501183801_tobiko-roll-1200.jpg
+2025-05-01 18:38:01,349 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 18:38:01,349 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 18:38:02,679 - utils.food_recognition - INFO - {'predicted_class': 'sushi', 'confidence': 0.7022155523300171, 'nutrition': {'calories': 570.0, 'carbohydrates': 38.0, 'fat': 12.0, 'protein': 69.0, 'serving_weight_grams': 100.0}, 'glycemic_index': '55', 'glycemic_load': '20.9', 'timestamp': '2025-05-01T18:38:03.583504'}
+2025-05-01 18:38:02,680 - utils.food_recognition - INFO - Food recognition successful: sushi
+2025-05-01 18:38:02,838 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:38:02] "POST /food/analyze-food HTTP/1.1" 200 -
+2025-05-01 18:38:39,749 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:38:39] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:38:39,783 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:38:39] "GET /meals/5db6bea9-f3a9-4b27-a9d4-933cfe444fd4?sort_by=date&sort_order=desc&limit=50 HTTP/1.1" 200 -
+2025-05-01 18:38:39,798 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:38:39] "GET /meals/5db6bea9-f3a9-4b27-a9d4-933cfe444fd4/stats HTTP/1.1" 200 -
+2025-05-01 18:38:39,858 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:38:39] "[32mGET /api/images//Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/5db6bea9-f3a9-4b27-a9d4-933cfe444fd4_20250501183801_tobiko-roll-1200.jpg HTTP/1.1[0m" 308 -
+2025-05-01 18:38:39,868 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/5db6bea9-f3a9-4b27-a9d4-933cfe444fd4_20250501183801_tobiko-roll-1200.jpg
+2025-05-01 18:38:39,868 - __main__ - INFO - Validated filename: 5db6bea9-f3a9-4b27-a9d4-933cfe444fd4_20250501183801_tobiko-roll-1200.jpg
+2025-05-01 18:38:39,868 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/5db6bea9-f3a9-4b27-a9d4-933cfe444fd4_20250501183801_tobiko-roll-1200.jpg
+2025-05-01 18:38:39,868 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 18:38:39,869 - __main__ - INFO - File is readable
+2025-05-01 18:38:39,869 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 18:38:39,869 - __main__ - INFO - File served successfully: 5db6bea9-f3a9-4b27-a9d4-933cfe444fd4_20250501183801_tobiko-roll-1200.jpg
+2025-05-01 18:38:39,869 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:38:39] "GET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/5db6bea9-f3a9-4b27-a9d4-933cfe444fd4_20250501183801_tobiko-roll-1200.jpg HTTP/1.1" 200 -
+2025-05-01 18:38:45,147 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:38:45] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:38:48,377 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:38:48] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:38:48,429 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:38:48] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:39:01,765 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:39:01] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:39:06,348 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:39:06] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:39:08,035 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:39:08] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:39:20,089 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:39:20] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:39:25,211 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:39:25] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:39:39,473 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:39:39] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:39:46,605 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:39:46] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:39:46,898 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:39:46] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:39:46,917 - __main__ - INFO - Received user creation request
+2025-05-01 18:39:46,961 - models - INFO - User ab7b57d0-6a16-457f-8552-80b1679ff8e8 model - Training R²: 1.0000, Validation R²: -0.1042
+2025-05-01 18:39:46,966 - models - INFO - Personalized glucose model updated for user ab7b57d0-6a16-457f-8552-80b1679ff8e8
+2025-05-01 18:39:46,967 - models - INFO - Initial model created for user ab7b57d0-6a16-457f-8552-80b1679ff8e8 with 10 simulated meals
+2025-05-01 18:39:46,967 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:39:46] "[35m[1mPOST /users HTTP/1.1[0m" 201 -
+2025-05-01 18:39:59,807 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:39:59] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:40:02,991 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:40:02] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:40:28,945 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:40:28] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:40:39,065 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:40:39] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:40:47,392 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:40:47] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:40:51,924 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:40:51] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:40:51,940 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/ab7b57d0-6a16-457f-8552-80b1679ff8e8_20250501184051_pizza.jpg
+2025-05-01 18:40:51,940 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/ab7b57d0-6a16-457f-8552-80b1679ff8e8_20250501184051_pizza.jpg
+2025-05-01 18:40:51,941 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 18:40:51,941 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 18:40:53,202 - utils.food_recognition - INFO - {'predicted_class': 'pizza', 'confidence': 0.9949060678482056, 'nutrition': {'calories': 390.0, 'carbohydrates': 43.0, 'fat': 17.0, 'protein': 17.0, 'serving_weight_grams': 100.0}, 'glycemic_index': '80', 'glycemic_load': '34.4', 'timestamp': '2025-05-01T18:40:54.069787'}
+2025-05-01 18:40:53,203 - utils.food_recognition - INFO - Food recognition successful: pizza
+2025-05-01 18:40:53,252 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:40:53] "POST /food/analyze-food HTTP/1.1" 200 -
+2025-05-01 18:41:08,399 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:41:08] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:41:11,166 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:41:11] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:41:11,218 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:41:11] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:41:42,203 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:41:42] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:41:44,194 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:41:44] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:41:51,406 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:41:51] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:41:52,991 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:41:52] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:42:00,355 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:42:00] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:42:07,313 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:42:07] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:42:12,610 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:42:12] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:42:22,545 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:42:22] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:42:22,903 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:42:22] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:42:22,916 - __main__ - INFO - Received user creation request
+2025-05-01 18:42:22,962 - models - INFO - User e4931b59-c609-4562-9f88-3b664696ae02 model - Training R²: 1.0000, Validation R²: -1.9929
+2025-05-01 18:42:22,968 - models - INFO - Personalized glucose model updated for user e4931b59-c609-4562-9f88-3b664696ae02
+2025-05-01 18:42:22,968 - models - INFO - Initial model created for user e4931b59-c609-4562-9f88-3b664696ae02 with 10 simulated meals
+2025-05-01 18:42:22,968 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:42:22] "[35m[1mPOST /users HTTP/1.1[0m" 201 -
+2025-05-01 18:42:45,439 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:42:45] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:42:51,305 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:42:51] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:43:14,985 - __main__ - INFO - Image request received for: f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg
+2025-05-01 18:43:14,987 - __main__ - INFO - Validated filename: f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg
+2025-05-01 18:43:14,987 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg
+2025-05-01 18:43:14,988 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 18:43:14,994 - __main__ - INFO - File is readable
+2025-05-01 18:43:14,994 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 18:43:14,998 - __main__ - INFO - File served successfully: f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg
+2025-05-01 18:43:15,000 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:43:15] "GET /api/images/f869bc42-3493-4826-82c5-79ecdfa3459e_20250501093700_tobiko-roll-1200.jpg HTTP/1.1" 200 -
+2025-05-01 18:45:51,181 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:45:51] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:45:55,467 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:45:55] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:45:55,479 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/e4931b59-c609-4562-9f88-3b664696ae02_20250501184555_rice.jpg
+2025-05-01 18:45:55,480 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/e4931b59-c609-4562-9f88-3b664696ae02_20250501184555_rice.jpg
+2025-05-01 18:45:55,480 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 18:45:55,480 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 18:45:56,680 - utils.food_recognition - INFO - {'predicted_class': 'fried_rice', 'confidence': 0.5379477739334106, 'nutrition': {'calories': 115.0, 'carbohydrates': 11.0, 'fat': 7.0, 'protein': 1.0, 'serving_weight_grams': 100.0}, 'glycemic_index': 'Unknown', 'glycemic_load': 'Unknown', 'timestamp': '2025-05-01T18:45:57.608305'}
+2025-05-01 18:45:56,681 - utils.food_recognition - INFO - Food recognition successful: fried_rice
+2025-05-01 18:45:56,681 - utils.food_recognition - ERROR - Error in food recognition: could not convert string to float: 'Unknown'
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/utils/food_recognition.py", line 85, in identify_food_in_image
+    'gi': float(food_data['glycemic_index']),
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: 'Unknown'
+2025-05-01 18:45:56,694 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:45:56] "[31m[1mPOST /food/analyze-food HTTP/1.1[0m" 400 -
+2025-05-01 18:45:59,747 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:45:59] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:45:59,783 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/e4931b59-c609-4562-9f88-3b664696ae02_20250501184559_rice.jpg
+2025-05-01 18:45:59,783 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/e4931b59-c609-4562-9f88-3b664696ae02_20250501184559_rice.jpg
+2025-05-01 18:45:59,784 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 18:45:59,784 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 18:46:01,020 - utils.food_recognition - INFO - {'predicted_class': 'fried_rice', 'confidence': 0.5379477739334106, 'nutrition': {'calories': 115.0, 'carbohydrates': 11.0, 'fat': 7.0, 'protein': 1.0, 'serving_weight_grams': 100.0}, 'glycemic_index': 'Unknown', 'glycemic_load': 'Unknown', 'timestamp': '2025-05-01T18:46:01.916385'}
+2025-05-01 18:46:01,021 - utils.food_recognition - INFO - Food recognition successful: fried_rice
+2025-05-01 18:46:01,021 - utils.food_recognition - ERROR - Error in food recognition: could not convert string to float: 'Unknown'
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/utils/food_recognition.py", line 85, in identify_food_in_image
+    'gi': float(food_data['glycemic_index']),
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: 'Unknown'
+2025-05-01 18:46:01,026 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:46:01] "[31m[1mPOST /food/analyze-food HTTP/1.1[0m" 400 -
+2025-05-01 18:46:06,146 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:46:06] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:46:18,589 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:46:18] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:46:23,398 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:46:23] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:46:23,416 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/e4931b59-c609-4562-9f88-3b664696ae02_20250501184623_noodles_46.jpg
+2025-05-01 18:46:23,416 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/e4931b59-c609-4562-9f88-3b664696ae02_20250501184623_noodles_46.jpg
+2025-05-01 18:46:23,417 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 18:46:23,417 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 18:46:24,643 - utils.food_recognition - INFO - {'predicted_class': 'fried_rice', 'confidence': 0.5328693985939026, 'nutrition': {'calories': 115.0, 'carbohydrates': 11.0, 'fat': 7.0, 'protein': 1.0, 'serving_weight_grams': 100.0}, 'glycemic_index': 'Unknown', 'glycemic_load': 'Unknown', 'timestamp': '2025-05-01T18:46:25.547045'}
+2025-05-01 18:46:24,644 - utils.food_recognition - INFO - Food recognition successful: fried_rice
+2025-05-01 18:46:24,644 - utils.food_recognition - ERROR - Error in food recognition: could not convert string to float: 'Unknown'
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/utils/food_recognition.py", line 85, in identify_food_in_image
+    'gi': float(food_data['glycemic_index']),
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: 'Unknown'
+2025-05-01 18:46:24,650 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:46:24] "[31m[1mPOST /food/analyze-food HTTP/1.1[0m" 400 -
+2025-05-01 18:46:29,964 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:46:29] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:46:29,990 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/e4931b59-c609-4562-9f88-3b664696ae02_20250501184629_noodles_46.jpg
+2025-05-01 18:46:29,990 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/e4931b59-c609-4562-9f88-3b664696ae02_20250501184629_noodles_46.jpg
+2025-05-01 18:46:29,991 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 18:46:29,992 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 18:46:31,216 - utils.food_recognition - INFO - {'predicted_class': 'fried_rice', 'confidence': 0.5328693985939026, 'nutrition': {'calories': 115.0, 'carbohydrates': 11.0, 'fat': 7.0, 'protein': 1.0, 'serving_weight_grams': 100.0}, 'glycemic_index': 'Unknown', 'glycemic_load': 'Unknown', 'timestamp': '2025-05-01T18:46:32.148045'}
+2025-05-01 18:46:31,217 - utils.food_recognition - INFO - Food recognition successful: fried_rice
+2025-05-01 18:46:31,217 - utils.food_recognition - ERROR - Error in food recognition: could not convert string to float: 'Unknown'
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/utils/food_recognition.py", line 85, in identify_food_in_image
+    'gi': float(food_data['glycemic_index']),
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: 'Unknown'
+2025-05-01 18:46:31,220 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:46:31] "[31m[1mPOST /food/analyze-food HTTP/1.1[0m" 400 -
+2025-05-01 18:46:33,887 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:46:33] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:46:43,411 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:46:43] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:46:46,963 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:46:46] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:46:47,309 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/e4931b59-c609-4562-9f88-3b664696ae02_20250501184647_pasta.jpg
+2025-05-01 18:46:47,309 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/e4931b59-c609-4562-9f88-3b664696ae02_20250501184647_pasta.jpg
+2025-05-01 18:46:47,309 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 18:46:47,309 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 18:46:48,953 - utils.food_recognition - INFO - {'predicted_class': 'pasta', 'confidence': 0.8415707349777222, 'nutrition': {'calories': 397.0, 'carbohydrates': 48.0, 'fat': 16.0, 'protein': 14.0, 'serving_weight_grams': 100.0}, 'glycemic_index': '50', 'glycemic_load': '24.0', 'timestamp': '2025-05-01T18:46:49.884039'}
+2025-05-01 18:46:48,954 - utils.food_recognition - INFO - Food recognition successful: pasta
+2025-05-01 18:46:49,010 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:46:49] "POST /food/analyze-food HTTP/1.1" 200 -
+2025-05-01 18:47:17,081 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:47:17] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:47:20,113 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:47:20] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:47:20,170 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:47:20] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:47:40,117 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:47:40] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:47:42,852 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:47:42] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:47:49,629 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:47:49] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:47:52,428 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:47:52] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:48:02,666 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:48:02] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:48:09,826 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:48:09] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:48:17,359 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:48:17] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:48:17,692 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:48:17] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:48:17,710 - __main__ - INFO - Received user creation request
+2025-05-01 18:48:17,756 - models - INFO - User d0f86c4f-9293-46f0-9816-c17b02a43177 model - Training R²: 1.0000, Validation R²: 0.3498
+2025-05-01 18:48:17,762 - models - INFO - Personalized glucose model updated for user d0f86c4f-9293-46f0-9816-c17b02a43177
+2025-05-01 18:48:17,762 - models - INFO - Initial model created for user d0f86c4f-9293-46f0-9816-c17b02a43177 with 10 simulated meals
+2025-05-01 18:48:17,762 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:48:17] "[35m[1mPOST /users HTTP/1.1[0m" 201 -
+2025-05-01 18:48:29,241 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:48:29] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:48:34,613 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:48:34] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:48:47,229 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:48:47] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:48:56,543 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:48:56] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:49:07,670 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:49:07] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:49:10,455 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:49:10] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:49:10,481 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d0f86c4f-9293-46f0-9816-c17b02a43177_20250501184910_istockphoto-184276818-612x612.jpg
+2025-05-01 18:49:10,483 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d0f86c4f-9293-46f0-9816-c17b02a43177_20250501184910_istockphoto-184276818-612x612.jpg
+2025-05-01 18:49:10,484 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 18:49:10,484 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 18:49:11,740 - utils.food_recognition - INFO - {'predicted_class': 'pizza', 'confidence': 0.2892715632915497, 'nutrition': {'calories': 390.0, 'carbohydrates': 43.0, 'fat': 17.0, 'protein': 17.0, 'serving_weight_grams': 100.0}, 'glycemic_index': '80', 'glycemic_load': '34.4', 'timestamp': '2025-05-01T18:49:12.672694'}
+2025-05-01 18:49:11,741 - utils.food_recognition - INFO - Food recognition successful: pizza
+2025-05-01 18:49:11,801 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:49:11] "POST /food/analyze-food HTTP/1.1" 200 -
+2025-05-01 18:49:24,736 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:49:24] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:49:26,542 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:49:26] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:49:26,568 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:49:26] "GET /meals/d0f86c4f-9293-46f0-9816-c17b02a43177?sort_by=date&sort_order=desc&limit=50 HTTP/1.1" 200 -
+2025-05-01 18:49:26,578 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:49:26] "GET /meals/d0f86c4f-9293-46f0-9816-c17b02a43177/stats HTTP/1.1" 200 -
+2025-05-01 18:49:26,616 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:49:26] "[32mGET /api/images//Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d0f86c4f-9293-46f0-9816-c17b02a43177_20250501184910_istockphoto-184276818-612x612.jpg HTTP/1.1[0m" 308 -
+2025-05-01 18:49:26,622 - __main__ - INFO - Image request received for: Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d0f86c4f-9293-46f0-9816-c17b02a43177_20250501184910_istockphoto-184276818-612x612.jpg
+2025-05-01 18:49:26,622 - __main__ - INFO - Validated filename: d0f86c4f-9293-46f0-9816-c17b02a43177_20250501184910_istockphoto-184276818-612x612.jpg
+2025-05-01 18:49:26,622 - __main__ - INFO - Full file path: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d0f86c4f-9293-46f0-9816-c17b02a43177_20250501184910_istockphoto-184276818-612x612.jpg
+2025-05-01 18:49:26,622 - __main__ - INFO - File exists: True, Is file: True
+2025-05-01 18:49:26,622 - __main__ - INFO - File is readable
+2025-05-01 18:49:26,622 - __main__ - INFO - Serving file with content type: image/jpeg
+2025-05-01 18:49:26,623 - __main__ - INFO - File served successfully: d0f86c4f-9293-46f0-9816-c17b02a43177_20250501184910_istockphoto-184276818-612x612.jpg
+2025-05-01 18:49:26,623 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:49:26] "GET /api/images/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/d0f86c4f-9293-46f0-9816-c17b02a43177_20250501184910_istockphoto-184276818-612x612.jpg HTTP/1.1" 200 -
+2025-05-01 18:49:46,833 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:49:46] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:49:50,831 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:49:50] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:49:50,889 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:49:50] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:49:54,125 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:49:54] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:49:59,946 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:49:59] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:50:04,563 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:50:04] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:50:15,041 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:50:15] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:50:17,916 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:50:17] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:50:25,334 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:50:25] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:50:27,064 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:50:27] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:50:35,037 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:50:35] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:50:54,526 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:50:54] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:50:59,613 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:50:59] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:51:29,702 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:51:29] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:51:35,159 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:51:35] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:51:35,455 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:51:35] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:51:35,472 - __main__ - INFO - Received user creation request
+2025-05-01 18:51:35,516 - models - INFO - User 7608cb17-ebab-4a70-a215-ec995663b6e0 model - Training R²: 1.0000, Validation R²: 0.7083
+2025-05-01 18:51:35,521 - models - INFO - Personalized glucose model updated for user 7608cb17-ebab-4a70-a215-ec995663b6e0
+2025-05-01 18:51:35,521 - models - INFO - Initial model created for user 7608cb17-ebab-4a70-a215-ec995663b6e0 with 10 simulated meals
+2025-05-01 18:51:35,521 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:51:35] "[35m[1mPOST /users HTTP/1.1[0m" 201 -
+2025-05-01 18:51:54,863 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:51:54] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:52:01,734 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:52:01] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:54:01,216 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:54:01] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:54:03,863 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:54:03] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:54:03,884 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/7608cb17-ebab-4a70-a215-ec995663b6e0_20250501185403_noodles2.jpg
+2025-05-01 18:54:03,885 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/7608cb17-ebab-4a70-a215-ec995663b6e0_20250501185403_noodles2.jpg
+2025-05-01 18:54:03,886 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 18:54:03,886 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 18:54:05,140 - utils.food_recognition - INFO - {'predicted_class': 'fried_rice', 'confidence': 0.7744555473327637, 'nutrition': {'calories': 115.0, 'carbohydrates': 11.0, 'fat': 7.0, 'protein': 1.0, 'serving_weight_grams': 100.0}, 'glycemic_index': 'Unknown', 'glycemic_load': 'Unknown', 'timestamp': '2025-05-01T18:54:06.085993'}
+2025-05-01 18:54:05,141 - utils.food_recognition - INFO - Food recognition successful: fried_rice
+2025-05-01 18:54:05,141 - utils.food_recognition - ERROR - Error in food recognition: could not convert string to float: 'Unknown'
+Traceback (most recent call last):
+  File "/Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/utils/food_recognition.py", line 85, in identify_food_in_image
+    'gi': float(food_data['glycemic_index']),
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: 'Unknown'
+2025-05-01 18:54:05,149 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:54:05] "[31m[1mPOST /food/analyze-food HTTP/1.1[0m" 400 -
+2025-05-01 18:54:09,351 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:54:09] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:54:47,736 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:54:47] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:54:50,463 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:54:50] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:54:50,481 - __main__ - INFO - Food image saved: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/7608cb17-ebab-4a70-a215-ec995663b6e0_20250501185450_burger.jpg
+2025-05-01 18:54:50,482 - utils.food_recognition - INFO - Sending image to food recognition API: /Users/KUMAAB8/Documents/abhishek/ut-austin-assignments/eatHealthy/backend/uploads/7608cb17-ebab-4a70-a215-ec995663b6e0_20250501185450_burger.jpg
+2025-05-01 18:54:50,482 - utils.food_recognition - INFO - Attempting to upload the file for Image Recoginition
+2025-05-01 18:54:50,483 - utils.food_recognition - INFO - Sending Rest call to http://107.131.102.130:8000/predict
+2025-05-01 18:54:51,707 - utils.food_recognition - INFO - {'predicted_class': 'hamburger', 'confidence': 0.9877471923828125, 'nutrition': {'calories': 616.0, 'carbohydrates': 31.0, 'fat': 36.0, 'protein': 37.0, 'serving_weight_grams': 100.0}, 'glycemic_index': '66', 'glycemic_load': '20.46', 'timestamp': '2025-05-01T18:54:52.653509'}
+2025-05-01 18:54:51,708 - utils.food_recognition - INFO - Food recognition successful: hamburger
+2025-05-01 18:54:51,767 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:54:51] "POST /food/analyze-food HTTP/1.1" 200 -
+2025-05-01 18:56:12,501 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:56:12] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:56:18,586 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:56:18] "GET /health HTTP/1.1" 200 -
+2025-05-01 18:56:18,647 - werkzeug - INFO - 127.0.0.1 - - [01/May/2025 18:56:18] "GET /health HTTP/1.1" 200 -

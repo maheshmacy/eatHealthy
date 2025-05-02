@@ -2,7 +2,7 @@
 Optimized Flask application for EATSMART-AI with focus on core functionality.
 Includes enhanced food analysis with ML-based glucose spike prediction.
 """
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 import os
 import uuid
 import json
@@ -1323,7 +1323,80 @@ class MealStats(Resource):
 
 @app.route('/api/images/<path:image_path>')
 def get_image(image_path):
-    """Serves images securely from the upload folder."""
+    """Serves images securely from the upload folder with enhanced debugging."""
+    try:
+        # Log detailed request information
+        logger.info(f"Image request received for: {image_path}")
+        
+        # Validate the filename to prevent directory traversal attacks
+        validated_path = secure_filename(os.path.basename(image_path))
+        logger.info(f"Validated filename: {validated_path}")
+        
+        # Build the full path within the allowed upload folder
+        full_path = os.path.join(app.config['UPLOAD_FOLDER'], validated_path)
+        logger.info(f"Full file path: {full_path}")
+        
+        # Check if the file exists and log details
+        file_exists = os.path.exists(full_path)
+        is_file = os.path.isfile(full_path)
+        logger.info(f"File exists: {file_exists}, Is file: {is_file}")
+        
+        # Log directory contents for debugging
+        if not file_exists:
+            upload_dir = app.config['UPLOAD_FOLDER']
+            if os.path.exists(upload_dir):
+                files = os.listdir(upload_dir)
+                logger.info(f"Files in upload directory: {files[:10]} (showing up to 10 files)")
+                
+                # Try to find similar files
+                similar_files = [f for f in files if validated_path[:20] in f]
+                if similar_files:
+                    logger.info(f"Found similar files: {similar_files}")
+            else:
+                logger.error(f"Upload directory doesn't exist: {upload_dir}")
+        
+        # Check file permissions if the file exists
+        if file_exists:
+            try:
+                with open(full_path, 'rb') as f:
+                    # Just try to read a byte to verify permissions
+                    f.read(1)
+                logger.info("File is readable")
+            except PermissionError:
+                logger.error(f"Permission denied when trying to read file: {full_path}")
+                return "Permission denied", 403
+            
+        # Check if the file exists before serving
+        if file_exists and is_file:
+            # Determine content type based on file extension
+            content_type = 'image/jpeg'  # Default
+            if validated_path.lower().endswith('.png'):
+                content_type = 'image/png'
+            elif validated_path.lower().endswith('.gif'):
+                content_type = 'image/gif'
+            
+            logger.info(f"Serving file with content type: {content_type}")
+            
+            # Serve the file with detailed logging
+            try:
+                response = send_file(full_path, mimetype=content_type)
+                response.headers['Cache-Control'] = 'no-store'  # Disable caching for debugging
+                logger.info(f"File served successfully: {validated_path}")
+                return response
+            except Exception as e:
+                logger.error(f"Error in send_file: {str(e)}")
+                return f"Error serving file: {str(e)}", 500
+        else:
+            logger.warning(f"Image not found: {full_path}")
+            return "Image not found", 404
+    
+    except Exception as e:
+        logger.error(f"Error serving image {image_path}: {str(e)}", exc_info=True)
+        return f"Error serving image: {str(e)}", 500
+
+@app.route('/api/debug/image/<path:image_path>')
+def debug_image(image_path):
+    """Debug endpoint to check if an image is accessible"""
     try:
         # Validate the filename to prevent directory traversal attacks
         validated_path = secure_filename(os.path.basename(image_path))
@@ -1332,16 +1405,68 @@ def get_image(image_path):
         full_path = os.path.join(app.config['UPLOAD_FOLDER'], validated_path)
         
         # Check if the file exists
-        if os.path.exists(full_path):
-            # Serve the file with the appropriate MIME type
-            return send_file(full_path, mimetype='image/jpeg')
+        file_exists = os.path.exists(full_path)
+        is_file = os.path.isfile(full_path)
         
-        # Return 404 if file not found
-        return "Image not found", 404
-    
+        # Check file permissions if the file exists
+        can_read = False
+        if file_exists:
+            try:
+                with open(full_path, 'rb') as f:
+                    # Just try to read a byte to verify permissions
+                    f.read(1)
+                can_read = True
+            except:
+                can_read = False
+        
+        # Return debug info
+        return {
+            "filename": validated_path,
+            "full_path": full_path,
+            "upload_folder": app.config['UPLOAD_FOLDER'],
+            "file_exists": file_exists,
+            "is_file": is_file,
+            "can_read": can_read,
+            "size_bytes": os.path.getsize(full_path) if file_exists and is_file else None
+        }
     except Exception as e:
-        logger.error(f"Error serving image {image_path}: {str(e)}")
-        return "Error serving image", 500
+        return {"error": str(e)}, 500
+
+@users_ns.route('/all')
+class AllUsers(Resource):
+    def get(self):
+        """Get all registered users with their details and meal history"""
+        try:
+            # Get all user IDs
+            all_user_ids = get_all_users()
+            
+            # Collect user details and their meal history
+            users_data = []
+            for user_id in all_user_ids:
+                user_data = get_user_data(user_id)
+                if user_data:
+                    # Extract recent meals (last 5)
+                    recent_meals = user_data.get('meals', [])[-5:] if user_data.get('meals') else []
+                    
+                    # Prepare user summary with basic profile and recent meals
+                    user_summary = {
+                        "user_id": user_id,
+                        "name": user_data.get('profile', {}).get('name', 'Unknown'),
+                        "age": user_data.get('profile', {}).get('age', 0),
+                        "gender": user_data.get('profile', {}).get('gender', 'Unknown'),
+                        "diabetes_status": user_data.get('profile', {}).get('diabetes_status', 'Unknown'),
+                        "meal_count": len(user_data.get('meals', [])),
+                        "registration_date": user_data.get('created_at', 'Unknown'),
+                        "profile": user_data.get('profile', {}),
+                        "recent_meals": recent_meals
+                    }
+                    users_data.append(user_summary)
+            
+            return {"users": users_data}, 200
+        
+        except Exception as e:
+            logger.error(f"Error getting all users: {str(e)}", exc_info=True)
+            return {"error": f"Failed to get users: {str(e)}"}, 500
 
 
 # Application entry point

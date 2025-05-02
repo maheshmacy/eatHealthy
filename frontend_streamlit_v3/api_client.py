@@ -3,6 +3,7 @@ import json
 import os
 from typing import Dict, Any, List, Optional, Union
 import logging
+#from api_client import API_ENDPOINT
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -14,6 +15,22 @@ API_ENDPOINT = "http://localhost:5000"  # Default to local development server
 # Try to get from environment variable if available
 if os.environ.get("API_ENDPOINT"):
     API_ENDPOINT = os.environ.get("API_ENDPOINT")
+
+def get_image_url(image_path):
+    """
+    Get the full URL for an image from the backend API
+    
+    Args:
+        image_path: The full path to the image
+        
+    Returns:
+        Complete URL to fetch the image from the backend
+    """
+    # Extract just the filename from the path
+    filename = os.path.basename(image_path)
+    
+    # Construct and return the full URL
+    return f"{API_ENDPOINT}/api/images/{filename}"
 
 def get_health_check() -> Dict[str, Any]:
     """Check if API is healthy"""

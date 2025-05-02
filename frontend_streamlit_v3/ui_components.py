@@ -373,94 +373,130 @@ def render_food_analysis_page():
                     st.warning("No glucose prediction data available for this meal.")
 
 def render_meal_card(meal):
-    """Render a meal card with improved styling and image handling."""
-    try:
-        with st.container():
-            st.markdown("---")
-            col1, col2, col3 = st.columns([1, 2, 1])
-            
-            with col1:
-                # Display meal image with improved handling
+    """Render a meal card with proper image display"""
+    with st.container():
+        st.markdown("---")
+        col1, col2, col3 = st.columns([1, 2, 1])
+        
+        with col1:
+            # Display meal image
+            try:
                 if 'image_path' in meal and meal['image_path']:
-                    # Extract the filename from the path
-                    filename = os.path.basename(meal['image_path'])
-                    # Get the image URL
-                    image_url = get_image_url(filename)
+                    # Get direct image URL from the backend
+                    image_url = get_image_url(meal['image_path'])
                     
-                    # Log for debugging
+                    # Log the URL being accessed (for debugging)
                     logger.info(f"Loading meal image from: {image_url}")
                     
-                    # Create a container with border styling
-                    with st.container():
-                        # Display the image using st.image
-                        try:
-                            st.image(image_url, width=150)
-                        except Exception as e:
-                            logger.error(f"Error displaying image {filename}: {e}")
-                            # Fall back to placeholder
-                            display_meal_image(meal)
+                    # Display the image - directly using the URL
+                    st.image(image_url, width=150)
+                    try:
+                        st.image(image_url, width=150)
+                    except Exception as e:
+                        logger.error(f"Error displaying image {filename}: {e}")
+                        # Fall back to food name display
+                        _render_food_name_placeholder(meal, width=150)
                 else:
-                    # Use placeholder if no image path
-                    display_meal_image(meal)
+                    # No image path available, show a placeholder
+                    _render_food_name_placeholder(meal, width=150)
+       
+            except Exception as e:
+                # If there's any error loading the image, log it and show a placeholder
+                logger.error(f"Error loading meal image: {e}")
+                _render_food_name_placeholder(meal, width=150)
+
+        with col2:
+            # Display date and foods with better formatting
+            st.markdown(f"**{format_timestamp(meal['timestamp'])}**")
             
-            with col2:
-                # Display date and foods with better formatting
-                st.markdown(f"**{format_timestamp(meal['timestamp'])}**")
-                
-                # Format foods list nicely
-                foods_list = meal.get('foods', ['Unknown'])
-                st.markdown(f"**Foods:** {', '.join(foods_list)}")
-                
-                # Display nutrients if available
-                if 'total_nutrients' in meal and meal['total_nutrients']:
-                    nutrients = meal['total_nutrients']
-                    if 'calories' in nutrients:
-                        st.markdown(f"**Calories:** {nutrients['calories']:.1f} kcal")
-                    
-                    # Show macronutrients if available
-                    macros = []
-                    if 'carbs' in nutrients:
-                        macros.append(f"Carbs: {nutrients['carbs']:.1f}g")
-                    if 'protein' in nutrients:
-                        macros.append(f"Protein: {nutrients['protein']:.1f}g")
-                    if 'fat' in nutrients:
-                        macros.append(f"Fat: {nutrients['fat']:.1f}g")
-                    
-                    if macros:
-                        st.markdown(f"**Macros:** {' | '.join(macros)}")
+            # Format foods list nicely
+            foods_list = meal.get('foods', ['Unknown'])
+            st.markdown(f"**Foods:** {', '.join(foods_list)}")
             
-            with col3:
-                # Display glucose prediction with improved color-coding
-                if 'predicted_glucose' in meal and meal['predicted_glucose']:
-                    glucose_value = meal['predicted_glucose']
-                    category = meal.get('glucose_category', 'Unknown')
-                    
-                    # Define colors for different categories
-                    category_color = {
-                        'Low': 'red',
-                        'Normal': 'green',
-                        'Elevated': 'orange',
-                        'High': 'red'
-                    }.get(category, 'blue')
-                    
-                    # Display glucose info with color
-                    st.markdown(f"**Glucose:** <span style='color:{category_color};font-weight:bold;'>{glucose_value:.1f} mg/dL</span>", unsafe_allow_html=True)
-                    st.markdown(f"**Category:** <span style='color:{category_color};font-weight:bold;'>{category}</span>", unsafe_allow_html=True)
+            # Display nutrients if available
+            if 'total_nutrients' in meal and meal['total_nutrients']:
+                nutrients = meal['total_nutrients']
+                if 'calories' in nutrients:
+                    st.markdown(f"**Calories:** {nutrients['calories']:.1f} kcal")
                 
-                # View details button with improved styling
-                if st.button(f"View Details", key=f"view_meal_{meal.get('meal_id')}", 
-                          help="Click to see detailed information about this meal"):
-                    st.session_state.selected_meal = meal.get('meal_id')
-                    st.session_state.history_view = "detail"
-                    st.session_state.feedback_submitted = False
-                    st.rerun()
-    except Exception as e:
-        # Catch any errors in meal card rendering
-        logger.error(f"Error rendering meal card: {e}")
-        st.error(f"Error displaying meal: {e}")
+                # Show macronutrients if available
+                macros = []
+                if 'carbs' in nutrients:
+                    macros.append(f"Carbs: {nutrients['carbs']:.1f}g")
+                if 'protein' in nutrients:
+                    macros.append(f"Protein: {nutrients['protein']:.1f}g")
+                if 'fat' in nutrients:
+                    macros.append(f"Fat: {nutrients['fat']:.1f}g")
+                
+                if macros:
+                    st.markdown(f"**Macros:** {' | '.join(macros)}")
+        
+        with col3:
+            # Display glucose prediction with improved color-coding
+            if 'predicted_glucose' in meal and meal['predicted_glucose']:
+                glucose_value = meal['predicted_glucose']
+                category = meal.get('glucose_category', 'Unknown')
+                
+                # Define colors for different categories
+                category_color = {
+                    'Low': 'red',
+                    'Normal': 'green',
+                    'Elevated': 'orange',
+                    'High': 'red'
+                }.get(category, 'blue')
+                
+                # Display glucose info with color
+                st.markdown(f"**Glucose:** <span style='color:{category_color};font-weight:bold;'>{glucose_value:.1f} mg/dL</span>", unsafe_allow_html=True)
+                st.markdown(f"**Category:** <span style='color:{category_color};font-weight:bold;'>{category}</span>", unsafe_allow_html=True)
+            
+            # View details button with improved styling
+            if st.button(f"View Details", key=f"view_meal_{meal.get('meal_id')}", 
+                      help="Click to see detailed information about this meal"):
+                st.session_state.selected_meal = meal.get('meal_id')
+                st.session_state.history_view = "detail"
+                st.session_state.feedback_submitted = False
+                st.rerun()
+
+def _render_food_name_placeholder(meal, width=150):
+    """Render a placeholder with the food name when image cannot be loaded."""
+    # Get food names from meal
+    food_names = ""
+    if 'foods' in meal and isinstance(meal['foods'], list):
+        food_names = ", ".join(meal.get('foods', ['Unknown Meal']))
+    elif 'food_items' in meal and isinstance(meal['food_items'], list):
+        food_names = ", ".join([item.get('food_name', 'Food') for item in meal['food_items']])
+    else:
+        food_names = "Unknown Meal"
+    
+    # Truncate if too long for display
+    if len(food_names) > 30:
+        food_names = food_names[:27] + "..."
+    
+    # Create a styled placeholder with the food name
+    st.markdown(f"""
+    <div style="
+        width: {width}px;
+        height: {width*0.75}px;
+        background-color: #f0f0f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        padding: 10px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        color: #4CAF50;
+        border: 1px dashed #4CAF50;
+    ">
+        {food_names}
+    </div>
+    """, unsafe_allow_html=True)
+
+
 
 def display_meal_detail(meal_detail, user_id):
-    """Display an enhanced meal detail view with better styling and image handling."""
+    """Display meal detail view with proper image handling"""
     if not meal_detail or 'meal' not in meal_detail:
         st.error("Failed to load meal details.")
         
@@ -492,35 +528,34 @@ def display_meal_detail(meal_detail, user_id):
         
         try:
             if 'image_path' in meal and meal['image_path']:
-                # Extract the filename from the path
-                filename = os.path.basename(meal['image_path'])
-                # Get the image URL
-                image_url = get_image_url(filename)
+                # Get direct image URL from the backend
+                image_url = get_image_url(meal['image_path'])
                 
-                # Log for debugging
+                # Log the URL being accessed (for debugging)
                 logger.info(f"Loading meal detail image from: {image_url}")
                 
-                # Display the image
+                # Display the image with a larger size for the detail view
                 try:
                     st.image(image_url, width=300)
                 except Exception as e:
                     logger.error(f"Error displaying detail image {filename}: {e}")
-                    # Fall back to placeholder
-                    display_meal_image(meal, width=300)
+                    # Show food name with larger size in detail view
+                    _render_food_name_placeholder(meal, width=300)
             else:
-                # Use placeholder if no image path
-                display_meal_image(meal, width=300)
+                # No image path available, show a placeholder
+                _render_food_name_placeholder(meal, width=300)
+                
         except Exception as e:
-            logger.error(f"Error with meal detail image: {e}")
-            # Final fallback
-            st.error("Could not load meal image")
-            display_meal_image(meal, width=300)
-        
+            # If there's any error loading the image, log it and show a placeholder
+            logger.error(f"Error loading meal detail image: {e}")
+            st.error(f"Could not load meal image: {str(e)}")
+            _render_food_name_placeholder(meal, width=300)
+
         # Display food items
         st.subheader("Food Items")
         for food in meal.get('food_items', []):
             # Create an expandable section for each food
-            with st.expander(f"**{food['food_name']}**"):
+            with st.expander(f"{food['food_name']}"):
                 # Display GI information
                 cols = st.columns(2)
                 with cols[0]:
