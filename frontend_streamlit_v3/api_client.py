@@ -1,229 +1,147 @@
 import requests
 import json
-import os
 from typing import Dict, Any, List, Optional, Union
-import logging
-#from api_client import API_ENDPOINT
 
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-# API endpoint configuration
-API_ENDPOINT = "http://localhost:5000"  # Default to local development server
-
-# Try to get from environment variable if available
-if os.environ.get("API_ENDPOINT"):
-    API_ENDPOINT = os.environ.get("API_ENDPOINT")
-
-def get_image_url(image_path):
-    """
-    Get the full URL for an image from the backend API
+class NutritionAPI:
+    def __init__(self, api_endpoint: str, api_key: Optional[str] = None):
+        self.endpoint = api_endpoint
+        self.key = api_key
+        self.session = requests.Session()
+        if self.key:
+            self.session.headers.update({"Authorization": f"Bearer {self.key}"})
     
-    Args:
-        image_path: The full path to the image
-        
-    Returns:
-        Complete URL to fetch the image from the backend
-    """
-    # Extract just the filename from the path
-    filename = os.path.basename(image_path)
+    def fetch_nutritional_data(self, food_query: str) -> Dict[str, Any]:
+        try:
+            response = self.session.get(
+                f"{self.endpoint}/nutrition",
+                params={"query": food_query}
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            return {"error": str(e), "status": "failed"}
     
-    # Construct and return the full URL
-    return f"{API_ENDPOINT}/api/images/{filename}"
-
-def get_health_check() -> Dict[str, Any]:
-    """Check if API is healthy"""
-    try:
-        response = requests.get(f"{API_ENDPOINT}/health", timeout=5)
-        return response.json()
-    except Exception as e:
-        logger.error(f"Health check failed: {str(e)}")
-        return {"status": "unhealthy", "error": str(e)}
-
-def create_user(user_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
-    """Create a new user profile"""
-    try:
-        response = requests.post(
-            f"{API_ENDPOINT}/users",
-            json=user_data,
-            headers={"Content-Type": "application/json"}
-        )
-        
-        if response.status_code == 201:
-            return response.json()
-        else:
-            logger.error(f"Failed to create user: {response.status_code}, {response.text}")
-            return None
-    except Exception as e:
-        logger.error(f"Error creating user: {str(e)}")
-        return None
-
-def get_user(user_id: str) -> Optional[Dict[str, Any]]:
-    """Get user profile by ID"""
-    try:
-        response = requests.get(f"{API_ENDPOINT}/users/{user_id}")
-        
-        if response.status_code == 200:
-            return response.json()
-        else:
-            logger.error(f"Failed to get user: {response.status_code}, {response.text}")
-            return None
-    except Exception as e:
-        logger.error(f"Error getting user: {str(e)}")
-        return None
-
-def update_user(user_id: str, user_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
-    """Update user profile"""
-    try:
-        response = requests.put(
-            f"{API_ENDPOINT}/users/{user_id}",
-            json=user_data,
-            headers={"Content-Type": "application/json"}
-        )
-        
-        if response.status_code == 200:
-            return response.json()
-        else:
-            logger.error(f"Failed to update user: {response.status_code}, {response.text}")
-            return None
-    except Exception as e:
-        logger.error(f"Error updating user: {str(e)}")
-        return None
-
-def analyze_food_image(user_id: str, image_file) -> Optional[Dict[str, Any]]:
-    """Analyze food image using the API"""
-    try:
-        files = {'food_image': image_file}
-        data = {'user_id': user_id}
-        
-        response = requests.post(
-            f"{API_ENDPOINT}/food/analyze-food",
-            files=files,
-            data=data
-        )
-        
-        if response.status_code == 200:
-            return response.json()
-        else:
-            logger.error(f"Failed to analyze food: {response.status_code}, {response.text}")
-            return None
-    except Exception as e:
-        logger.error(f"Error analyzing food: {str(e)}")
-        return None
-
-def get_meal_history(
-    user_id: str, 
-    start_date: Optional[str] = None,
-    end_date: Optional[str] = None,
-    food_type: Optional[str] = None,
-    sort_by: str = "date",
-    sort_order: str = "desc",
-    limit: int = 50
-) -> Optional[Dict[str, Any]]:
-    """Get meal history for a user with optional filters"""
-    try:
-        params = {
-            'start_date': start_date,
-            'end_date': end_date,
-            'food_type': food_type,
-            'sort_by': sort_by,
-            'sort_order': sort_order,
-            'limit': limit
-        }
-        
-        # Remove None values
-        params = {k: v for k, v in params.items() if v is not None}
-        
-        response = requests.get(
-            f"{API_ENDPOINT}/meals/{user_id}",
-            params=params
-        )
-        
-        if response.status_code == 200:
-            return response.json()
-        else:
-            logger.error(f"Failed to get meal history: {response.status_code}, {response.text}")
-            return None
-    except Exception as e:
-        logger.error(f"Error getting meal history: {str(e)}")
-        return None
-
-def get_meal_details(user_id: str, meal_id: str) -> Optional[Dict[str, Any]]:
-    """Get detailed information about a specific meal"""
-    try:
-        response = requests.get(f"{API_ENDPOINT}/meals/{user_id}/{meal_id}")
-        
-        if response.status_code == 200:
-            return response.json()
-        else:
-            logger.error(f"Failed to get meal details: {response.status_code}, {response.text}")
-            return None
-    except Exception as e:
-        logger.error(f"Error getting meal details: {str(e)}")
-        return None
-
-def submit_meal_feedback(
-    user_id: str,
-    meal_id: str,
-    feedback_data: Dict[str, Any]
-) -> Optional[Dict[str, Any]]:
-    """Submit feedback for a meal"""
-    try:
-        response = requests.post(
-            f"{API_ENDPOINT}/meals/{user_id}/{meal_id}/feedback",
-            json=feedback_data,
-            headers={"Content-Type": "application/json"}
-        )
-        
-        if response.status_code == 200:
-            return response.json()
-        else:
-            logger.error(f"Failed to submit feedback: {response.status_code}, {response.text}")
-            return None
-    except Exception as e:
-        logger.error(f"Error submitting feedback: {str(e)}")
-        return None
-
-def get_meal_stats(user_id: str) -> Optional[Dict[str, Any]]:
-    """Get meal statistics for a user"""
-    try:
-        response = requests.get(f"{API_ENDPOINT}/meals/{user_id}/stats")
-        
-        if response.status_code == 200:
-            return response.json()
-        else:
-            logger.error(f"Failed to get meal stats: {response.status_code}, {response.text}")
-            return None
-    except Exception as e:
-        logger.error(f"Error getting meal stats: {str(e)}")
-        return None
-'''
-def get_image_url(filename: str) -> str:
-    """
-    Get the full URL for an image from the backend API
+    def search_food_items(self, search_term: str, limit: int = 10) -> List[Dict[str, Any]]:
+        try:
+            response = self.session.get(
+                f"{self.endpoint}/search",
+                params={"term": search_term, "limit": limit}
+            )
+            response.raise_for_status()
+            return response.json().get("items", [])
+        except requests.exceptions.RequestException as e:
+            return [{"error": str(e), "status": "failed"}]
     
-    Args:
-        filename: The filename of the image
-        
-    Returns:
-        Complete URL to fetch the image from the backend
-    """
-    return f"{API_ENDPOINT}/api/images/{filename}"
-'''
-def get_all_users() -> Optional[Dict[str, Any]]:
-    """Get all registered users via API"""
-    try:
-        response = requests.get(f"{API_ENDPOINT}/users/all")
-        
-        if response.status_code == 200:
+    def get_food_details(self, food_id: str) -> Dict[str, Any]:
+        try:
+            response = self.session.get(
+                f"{self.endpoint}/food/{food_id}"
+            )
+            response.raise_for_status()
             return response.json()
-        else:
-            logger.error(f"Failed to get all users: {response.status_code}, {response.text}")
-            return None
-    except Exception as e:
-        logger.error(f"Error getting all users: {str(e)}")
-        return None
+        except requests.exceptions.RequestException as e:
+            return {"error": str(e), "status": "failed"}
+    
+    def analyze_meal(self, meal_components: List[Dict[str, Union[str, float]]]) -> Dict[str, Any]:
+        try:
+            response = self.session.post(
+                f"{self.endpoint}/analyze",
+                json={"components": meal_components}
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            return {"error": str(e), "status": "failed"}
+    
+    def get_recommendations(self, user_profile: Dict[str, Any]) -> Dict[str, Any]:
+        try:
+            response = self.session.post(
+                f"{self.endpoint}/recommend",
+                json=user_profile
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            return {"error": str(e), "status": "failed"}
 
-
-
+class UserData:
+    def __init__(self, data_service_url: str, user_token: Optional[str] = None):
+        self.service_url = data_service_url
+        self.token = user_token
+        self.session = requests.Session()
+        if self.token:
+            self.session.headers.update({"Authorization": f"Bearer {self.token}"})
+    
+    def authenticate(self, username: str, password: str) -> Dict[str, Any]:
+        try:
+            response = self.session.post(
+                f"{self.service_url}/auth",
+                json={"username": username, "password": password}
+            )
+            response.raise_for_status()
+            auth_data = response.json()
+            if "token" in auth_data:
+                self.token = auth_data["token"]
+                self.session.headers.update({"Authorization": f"Bearer {self.token}"})
+            return auth_data
+        except requests.exceptions.RequestException as e:
+            return {"error": str(e), "status": "failed"}
+    
+    def get_user_profile(self) -> Dict[str, Any]:
+        if not self.token:
+            return {"error": "Not authenticated", "status": "failed"}
+        
+        try:
+            response = self.session.get(f"{self.service_url}/profile")
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            return {"error": str(e), "status": "failed"}
+    
+    def update_user_profile(self, profile_data: Dict[str, Any]) -> Dict[str, Any]:
+        if not self.token:
+            return {"error": "Not authenticated", "status": "failed"}
+        
+        try:
+            response = self.session.put(
+                f"{self.service_url}/profile",
+                json=profile_data
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            return {"error": str(e), "status": "failed"}
+    
+    def save_meal_log(self, meal_data: Dict[str, Any]) -> Dict[str, Any]:
+        if not self.token:
+            return {"error": "Not authenticated", "status": "failed"}
+        
+        try:
+            response = self.session.post(
+                f"{self.service_url}/meals",
+                json=meal_data
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            return {"error": str(e), "status": "failed"}
+    
+    def get_meal_history(self, start_date: Optional[str] = None, end_date: Optional[str] = None) -> List[Dict[str, Any]]:
+        if not self.token:
+            return [{"error": "Not authenticated", "status": "failed"}]
+        
+        params = {}
+        if start_date:
+            params["start"] = start_date
+        if end_date:
+            params["end"] = end_date
+        
+        try:
+            response = self.session.get(
+                f"{self.service_url}/meals",
+                params=params
+            )
+            response.raise_for_status()
+            return response.json().get("meals", [])
+        except requests.exceptions.RequestException as e:
+            return [{"error": str(e), "status": "failed"}]
